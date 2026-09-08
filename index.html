@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@500;600&display=swap"
         rel="stylesheet">
 
   <style>
@@ -98,7 +98,7 @@
         var(--bg);
 
       color:var(--text);
-      font-family:'IBM Plex Sans Arabic','Tajawal',sans-serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       line-height:1.75;
       overflow-x:hidden;
     }
@@ -189,7 +189,7 @@
     }
 
     .loader-title{
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:28px;
       color:var(--text);
     }
@@ -493,7 +493,7 @@
     }
 
     .hero h1{
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:clamp(42px,5.2vw,72px);
       line-height:1.22;
       letter-spacing:-1px;
@@ -866,7 +866,7 @@
 
     .screen-logo{
       color:var(--gold);
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:30px;
       margin-bottom:5px;
     }
@@ -1112,7 +1112,7 @@
     }
 
     .section-head h2{
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:clamp(34px,4vw,52px);
       line-height:1.3;
       margin-bottom:13px;
@@ -1454,7 +1454,7 @@
     }
 
     .price small{
-      font-family:'Tajawal',sans-serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       color:var(--muted);
       font-size:13.5px;
     }
@@ -1503,7 +1503,7 @@
     }
 
     .contact-info h2{
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:clamp(30px, 3.2vw + 14px, 48px);
       line-height:1.3;
       margin-bottom:12px;
@@ -1561,23 +1561,80 @@
       margin-top:2px;
     }
 
-    .map{
+    .engineer-card{
+      position:relative;
       min-height:520px;
-
       border:1px solid var(--border);
       border-radius:18px;
       overflow:hidden;
-
-      background:#101820;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(54,184,167,.13), transparent 28%),
+        radial-gradient(circle at 25% 75%, rgba(230,162,60,.12), transparent 30%),
+        linear-gradient(145deg,#111923,#0a1016);
       box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:34px;
     }
 
-    .map iframe{
+    .engineer-card::before{
+      content:"";
+      position:absolute;
+      inset:18px;
+      border:1px solid rgba(255,255,255,.055);
+      border-radius:14px;
+      pointer-events:none;
+    }
+
+    .engineer-visual{
+      position:relative;
+      z-index:2;
+      width:min(100%,520px);
+      text-align:center;
+    }
+
+    .engineer-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border:1px solid rgba(230,162,60,.28);
+      border-radius:999px;
+      background:rgba(230,162,60,.06);
+      color:var(--gold-light);
+      font-size:12px;
+      margin-bottom:14px;
+    }
+
+    .engineer-badge::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--teal);
+      box-shadow:0 0 12px rgba(54,184,167,.65);
+    }
+
+    .engineer-svg{
       width:100%;
-      height:100%;
-      min-height:520px;
-      border:0;
-      display:block;
+      max-width:470px;
+      height:auto;
+      margin:0 auto;
+      filter:drop-shadow(0 28px 35px rgba(0,0,0,.38));
+    }
+
+    .engineer-title{
+      margin-top:4px;
+      font-size:20px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .engineer-subtitle{
+      margin-top:5px;
+      color:var(--muted);
+      font-size:13px;
     }
 
     /* =========================================================
@@ -1608,7 +1665,7 @@
     }
 
     .booking-copy h2{
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:clamp(26px, 2.6vw + 14px, 40px);
       line-height:1.35;
       margin-bottom:10px;
@@ -1806,7 +1863,7 @@
     }
 
     .cta h2{
-      font-family:'Amiri',serif;
+      font-family:'Noto Kufi Arabic',sans-serif;
       font-size:clamp(34px,5vw,54px);
       line-height:1.35;
       margin-bottom:13px;
@@ -2022,12 +2079,9 @@
         grid-template-columns:1fr;
       }
 
-      .map{
+      .engineer-card{
         min-height:400px;
-      }
-
-      .map iframe{
-        min-height:400px;
+        padding:25px;
       }
 
       .booking-card{
@@ -3336,7 +3390,7 @@
 
           <div>
             <small>الهاتف</small>
-            <strong>07815685661_07875235828</strong>
+            <strong>07815685661</strong>
           </div>
 
         </a>
@@ -3385,23 +3439,122 @@
     </div>
 
 
-    <div class="map reveal">
+    <div class="engineer-card reveal">
 
-      <iframe
-        id="najafMap"
-        title="خريطة موقع النجف"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <div class="engineer-visual">
 
-      <a
-        class="location-link"
-        href="https://maps.app.goo.gl/5n6AjrJT71k3CReN8"
-        target="_blank"
-        rel="noopener noreferrer">
-        📍 فتح موقعنا الجغرافي على خرائط Google
-        <span>↗</span>
-      </a>
+        <div class="engineer-badge">مهندس حاسبات • دعم وصيانة احترافية</div>
+
+        <svg class="engineer-svg" viewBox="0 0 640 520" role="img" aria-label="مهندس حاسبات محترف يعمل على جهاز كمبيوتر محمول">
+          <defs>
+            <linearGradient id="engGold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f6d28e"/>
+              <stop offset="1" stop-color="#b87524"/>
+            </linearGradient>
+            <linearGradient id="engTeal" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#65d5c5"/>
+              <stop offset="1" stop-color="#238f83"/>
+            </linearGradient>
+            <linearGradient id="engSuit" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#243342"/>
+              <stop offset="1" stop-color="#0d151e"/>
+            </linearGradient>
+            <filter id="engShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".42"/>
+            </filter>
+          </defs>
+
+          <!-- ambient tech circles -->
+          <circle cx="320" cy="245" r="185" fill="rgba(54,184,167,.035)"/>
+          <circle cx="320" cy="245" r="145" fill="none" stroke="rgba(54,184,167,.10)" stroke-width="2"/>
+          <circle cx="320" cy="245" r="108" fill="none" stroke="rgba(230,162,60,.10)" stroke-width="2" stroke-dasharray="8 12"/>
+
+          <!-- floating code panels -->
+          <g opacity=".72">
+            <rect x="42" y="115" width="142" height="82" rx="14" fill="#101923" stroke="rgba(255,255,255,.10)"/>
+            <circle cx="62" cy="137" r="5" fill="#36b8a7"/>
+            <rect x="76" y="133" width="76" height="7" rx="3.5" fill="#3b4a58"/>
+            <rect x="62" y="153" width="94" height="6" rx="3" fill="#263541"/>
+            <rect x="62" y="168" width="64" height="6" rx="3" fill="#263541"/>
+          </g>
+
+          <g opacity=".72">
+            <rect x="455" y="92" width="140" height="92" rx="14" fill="#101923" stroke="rgba(255,255,255,.10)"/>
+            <path d="M478 145l18-16 15 13 23-28 25 30" fill="none" stroke="url(#engTeal)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="478" y="158" width="78" height="6" rx="3" fill="#263541"/>
+          </g>
+
+          <!-- head -->
+          <g filter="url(#engShadow)">
+            <ellipse cx="326" cy="151" rx="62" ry="69" fill="#b86f4f"/>
+            <path d="M267 144c-3-57 34-82 77-77 40 5 62 35 55 77-17-10-26-30-29-50-21 18-57 29-94 24z" fill="#171d25"/>
+            <path d="M283 157c10 30 28 45 47 45 24 0 44-18 54-46-13 9-30 14-50 14-20 0-37-4-51-13z" fill="#a85e42"/>
+            <path d="M296 157h15M344 157h15" stroke="#1a2027" stroke-width="5" stroke-linecap="round"/>
+            <path d="M319 180c8 5 16 5 24 0" fill="none" stroke="#6d3b30" stroke-width="4" stroke-linecap="round"/>
+            <path d="M263 137c8-12 17-18 29-20M360 117c13 2 23 9 32 21" fill="none" stroke="#171d25" stroke-width="8" stroke-linecap="round"/>
+            <rect x="287" y="151" width="30" height="18" rx="8" fill="none" stroke="#26323d" stroke-width="4"/>
+            <rect x="337" y="151" width="30" height="18" rx="8" fill="none" stroke="#26323d" stroke-width="4"/>
+            <path d="M317 159h20" stroke="#26323d" stroke-width="4"/>
+          </g>
+
+          <!-- body -->
+          <g filter="url(#engShadow)">
+            <path d="M233 263c9-45 43-66 93-66 52 0 88 22 98 66l19 137H214z" fill="url(#engSuit)"/>
+            <path d="M302 202l24 31 24-31 19 8-43 67-44-67z" fill="#f0e5d8"/>
+            <path d="M326 231l17 44-17 42-17-42z" fill="url(#engGold)"/>
+            <path d="M252 270c25 13 48 18 74 18 28 0 55-6 78-19" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="3"/>
+            <rect x="350" y="292" width="47" height="58" rx="8" fill="#111b24" stroke="rgba(255,255,255,.10)"/>
+            <path d="M359 307h29M359 317h22M359 327h28" stroke="#36b8a7" stroke-width="3" stroke-linecap="round"/>
+          </g>
+
+          <!-- arms and laptop -->
+          <path d="M251 286c-25 13-39 30-50 55" fill="none" stroke="#243342" stroke-width="34" stroke-linecap="round"/>
+          <path d="M400 288c28 12 42 30 53 55" fill="none" stroke="#243342" stroke-width="34" stroke-linecap="round"/>
+          <circle cx="202" cy="342" r="15" fill="#b86f4f"/>
+          <circle cx="454" cy="342" r="15" fill="#b86f4f"/>
+
+          <g filter="url(#engShadow)">
+            <path d="M175 338h301l-24 111H198z" fill="#111923" stroke="#4a5966" stroke-width="3"/>
+            <rect x="200" y="350" width="252" height="79" rx="7" fill="#071016"/>
+            <rect x="214" y="363" width="224" height="8" rx="4" fill="#1d2d39"/>
+            <rect x="214" y="379" width="126" height="7" rx="3.5" fill="#2c4653"/>
+            <rect x="214" y="394" width="178" height="7" rx="3.5" fill="#203742"/>
+            <circle cx="420" cy="385" r="12" fill="rgba(54,184,167,.18)" stroke="#36b8a7"/>
+            <path d="M184 449h282" stroke="#697681" stroke-width="5" stroke-linecap="round"/>
+            <path d="M252 449h146l-15 12H267z" fill="#263541"/>
+          </g>
+
+          <!-- tools -->
+          <g transform="translate(73 332)">
+            <rect width="92" height="52" rx="13" fill="#101923" stroke="rgba(255,255,255,.10)"/>
+            <path d="M23 27l13-13 10 10 19-19" fill="none" stroke="url(#engGold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="71" cy="36" r="6" fill="#36b8a7"/>
+          </g>
+
+          <g transform="translate(474 342)">
+            <rect width="94" height="52" rx="13" fill="#101923" stroke="rgba(255,255,255,.10)"/>
+            <circle cx="26" cy="26" r="12" fill="none" stroke="#36b8a7" stroke-width="5"/>
+            <path d="M26 17v10l7 5" stroke="#36b8a7" stroke-width="4" stroke-linecap="round"/>
+            <rect x="50" y="20" width="25" height="6" rx="3" fill="#3b4a58"/>
+          </g>
+
+          <!-- desk glow -->
+          <ellipse cx="326" cy="465" rx="218" ry="22" fill="rgba(54,184,167,.10)"/>
+        </svg>
+
+        <div class="engineer-title">مهندس حاسبات محترف</div>
+        <div class="engineer-subtitle">صيانة الكمبيوتر واللابتوب والهواتف — بخبرة واهتمام بالتفاصيل</div>
+
+        <a
+          class="location-link"
+          href="https://maps.app.goo.gl/UEM4VL8FKvFKSveD6"
+          target="_blank"
+          rel="noopener noreferrer">
+          📍 فتح موقعنا الجغرافي على خرائط Google
+          <span>↗</span>
+        </a>
+
+      </div>
 
     </div>
 
@@ -4140,31 +4293,6 @@ ${notes || "لم يتم ذكر وصف للعطل"}
 
     }
   );
-
-
-  /* =========================================================
-     NAJAF MAP
-  ========================================================= */
-
-  const map = document.getElementById("najafMap");
-
-
-  /*
-    خريطة OpenStreetMap للنجف.
-    يتم تركيب الرابط برمجيًا.
-  */
-
-  const mapBase = [
-    "https://",
-    "www.openstreetmap.org/export/embed.html?"
-  ].join("");
-
-
-  map.src =
-    mapBase +
-    "bbox=44.25%2C31.88%2C44.45%2C32.10" +
-    "&layer=mapnik" +
-    "&marker=32.0000%2C44.3300";
 
 
   /* =========================================================
