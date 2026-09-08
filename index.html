@@ -2485,12 +2485,6 @@
 
         <div class="real-device-glow"></div>
 
-        <div class="real-device-label">
-          أجهزة Gaming فخمة
-          <br>
-          Laptop + PC RGB احترافي
-        </div>
-
         <svg class="real-laptop-img" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="لابتوب Gaming فاخر">
           <defs>
             <linearGradient id="lapShell" x1="0" y1="0" x2="0" y2="1">
@@ -4267,7 +4261,14 @@ ${notes || "لم يتم ذكر وصف للعطل"}
     history.scrollRestoration = "manual";
   }
 
-  window.scrollTo(0,0);
+  // Always open the page from the very top.
+  const forceTop = () => window.scrollTo({top:0, left:0, behavior:"auto"});
+  forceTop();
+  window.addEventListener("load", forceTop, {once:true});
+  window.addEventListener("pageshow", forceTop);
+  if(location.hash){
+    history.replaceState(null, "", location.pathname + location.search);
+  }
 
 
   /* =========================================================
