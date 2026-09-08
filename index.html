@@ -1,857 +1,4012 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بصمة للكمبيوتر والهواتف — صيانة في موقعك</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#12171D;
-    --surface:#1B2129;
-    --surface-2:#212832;
-    --accent:#E8A33D;
-    --accent-2:#4FB6A8;
-    --gold-grad: linear-gradient(135deg, #F3CD87, #C6862F);
-    --text:#EDEBE4;
-    --text-muted:#8B94A0;
-    --border:rgba(237,235,228,0.12);
-    --radius: 2px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:
-      radial-gradient(ellipse 900px 500px at 15% -5%, rgba(232,163,61,0.10), transparent 60%),
-      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(79,182,168,0.08), transparent 55%),
-      var(--bg);
-    color:var(--text);
-    font-family:'IBM Plex Sans Arabic','Tajawal',sans-serif;
-    line-height:1.7;
-    font-size:16px;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--accent);color:#171008;}
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.is-visible{opacity:1;transform:translateY(0);}
-  h1,h2,.display{
-    font-family:'Amiri',serif;
-    font-weight:700;
-    line-height:1.35;
-  }
-  h3{
-    font-family:'Tajawal',sans-serif;
-    font-weight:700;
-    line-height:1.3;
-  }
-  .mono{font-family:'IBM Plex Mono','Courier New',monospace;letter-spacing:0.02em;}
-  a{color:inherit;text-decoration:none;}
-  img,svg{display:block;max-width:100%;}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
-  .section{padding:96px 0;}
-  .section-head{max-width:620px;margin-bottom:56px;}
-  .section-head h2{font-size:clamp(28px,4vw,40px);margin-bottom:14px;}
-  .section-head p{color:var(--text-muted);font-size:17px;}
-  .kicker{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;color:var(--accent);
-    margin-bottom:16px;
-  }
-  .kicker::before{content:"";width:7px;height:7px;background:var(--gold-grad);transform:rotate(45deg);}
+  <meta charset="UTF-8">
 
-  /* Header */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(18,23,29,0.92);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--border);
-  }
-  .nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 0;
-  }
-  .logo{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:900;}
-  .logo-mark{
-    width:42px;height:42px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    background:#12171D;
-    border:1.5px solid transparent;
-    background-image:linear-gradient(#12171D,#12171D), var(--gold-grad);
-    background-origin:border-box;background-clip:padding-box, border-box;
-    box-shadow:0 0 0 3px rgba(232,163,61,0.08), 0 0 18px -4px rgba(232,163,61,0.55);
-  }
-  .logo-mark svg{width:22px;height:22px;}
-  .logo-name{display:flex;flex-direction:column;line-height:1.15;}
-  .logo-name b{font-size:19px;}
-  .logo-name small{font-size:10.5px;color:var(--text-muted);font-weight:500;letter-spacing:0.03em;}
-  .nav-links{display:flex;gap:34px;font-size:15px;color:var(--text-muted);}
-  .nav-links a:hover{color:var(--text);}
-  .nav-cta{
-    display:flex;align-items:center;gap:14px;
-  }
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    padding:12px 26px;font-size:15px;font-weight:600;
-    border:1px solid transparent;cursor:pointer;
-    font-family:'IBM Plex Sans Arabic',sans-serif;
-    transition:transform .15s ease, background .2s ease, border-color .2s ease;
-  }
-  .btn-primary{background:var(--gold-grad);color:#171008;box-shadow:0 8px 26px -8px rgba(232,163,61,0.55);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px -8px rgba(232,163,61,0.7);}
-  .btn-ghost{border-color:var(--border);color:var(--text);}
-  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
-  .btn-block{width:100%;}
-  .menu-toggle{display:none;background:none;border:none;color:var(--text);font-size:26px;cursor:pointer;}
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  /* Hero */
-  .hero{
-    padding:90px 0 70px;
-    position:relative;
-    border-bottom:1px solid var(--border);
-    overflow:hidden;
-  }
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size:64px 64px;
-    -webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 0%, #000 20%, transparent 75%);
-    mask-image:radial-gradient(ellipse 70% 70% at 50% 0%, #000 20%, transparent 75%);
-    opacity:0.5;pointer-events:none;
-  }
-  .hero-badge{
-    position:absolute;top:36px;left:28px;
-    display:flex;align-items:center;gap:10px;
-    background:var(--surface);border:1px solid var(--border);
-    padding:9px 16px;font-size:13px;color:var(--text-muted);
-    box-shadow:0 10px 30px -12px rgba(0,0,0,0.6);
-  }
-  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 4px rgba(79,182,168,0.18);}
-  .hero-grid{
-    display:grid;grid-template-columns:1.05fr 0.95fr;gap:50px;align-items:center;
-  }
-  .hero h1{font-size:clamp(34px,5vw,58px);margin-bottom:22px;}
-  .hero h1 em{font-style:normal;color:var(--accent);}
-  .hero p.lead{color:var(--text-muted);font-size:18px;max-width:520px;margin-bottom:34px;}
-  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px;}
-  .hero-stats{display:flex;gap:38px;flex-wrap:wrap;}
-  .hero-stats div{border-inline-start:1px solid var(--border);padding-inline-start:16px;}
-  .hero-stats strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:26px;color:var(--accent-2);}
-  .hero-stats span{font-size:13px;color:var(--text-muted);}
+  <meta name="theme-color" content="#0b1118">
+  <meta name="color-scheme" content="dark">
 
-  .circuit-box{position:relative;aspect-ratio:1/1;}
-  .circuit-box::before{
-    content:"";position:absolute;inset:8%;
-    background:radial-gradient(circle, rgba(232,163,61,0.16), transparent 70%);
-    filter:blur(10px);
-  }
-  .circuit-box svg{width:100%;height:100%;position:relative;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4));}
+  <title>بصمة للكمبيوتر والهواتف | صيانة أجهزة في النجف</title>
 
-  /* trust strip */
-  .trust-strip{
-    border-bottom:1px solid var(--border);
-    background:var(--surface);
-  }
-  .trust-strip .wrap{
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;
-    padding:22px 28px;font-size:14px;color:var(--text-muted);
-  }
-  .trust-strip strong{color:var(--text);font-weight:600;}
+  <meta name="description"
+        content="بصمة لصيانة الكمبيوتر والهواتف في النجف. صيانة لابتوبات، تبديل شاشات وبطاريات، تركيب SSD ورام، تنظيف وتسريع الأجهزة واسترجاع الملفات. خدمة منزلية ومكتبية.">
 
-  /* Showcase / gallery frames */
-  .showcase{border-bottom:1px solid var(--border);}
-  .showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-  .frame{
-    position:relative;
-    background:var(--surface);
-    border:1px solid var(--border);
-    padding:14px;
-  }
-  .frame::before,.frame::after,.frame .c2,.frame .c3{
-    content:"";position:absolute;width:20px;height:20px;
-    border-color:var(--accent);
-  }
-  .frame::before{top:6px;right:6px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);}
-  .frame::after{bottom:6px;left:6px;border-bottom:2px solid var(--accent);border-left:2px solid var(--accent);}
-  .frame .c2{top:6px;left:6px;border-top:2px solid var(--accent);border-left:2px solid var(--accent);}
-  .frame .c3{bottom:6px;right:6px;border-bottom:2px solid var(--accent);border-right:2px solid var(--accent);}
-  .frame-media{
-    aspect-ratio:4/3;
-    background:linear-gradient(160deg, #232B35, #161C23);
-    display:flex;align-items:center;justify-content:center;
-    overflow:hidden;
-  }
-  .frame-media svg{width:56%;height:56%;}
-  .frame figcaption{padding:16px 6px 6px;text-align:center;}
-  .frame figcaption strong{display:block;font-size:15px;margin-bottom:4px;}
-  .frame figcaption span{font-size:13px;color:var(--text-muted);}
+  <meta name="keywords"
+        content="صيانة كمبيوتر النجف, صيانة لابتوب النجف, صيانة هواتف النجف, تبديل شاشة, تبديل بطارية, SSD, رام, استرجاع ملفات, فني كمبيوتر النجف">
 
-  /* Luxury CTA band */
-  .lux-cta{
-    position:relative;
-    padding:80px 0;
-    background:
-      radial-gradient(ellipse 700px 300px at 50% -20%, rgba(232,163,61,0.16), transparent 65%),
-      var(--surface-2);
-    border-block:1px solid var(--border);
-    overflow:hidden;
-  }
-  .lux-cta::before{
-    content:"";position:absolute;inset:0;
-    background-image:repeating-linear-gradient(45deg, rgba(232,163,61,0.05) 0 2px, transparent 2px 26px);
-    opacity:0.5;pointer-events:none;
-  }
-  .lux-cta-inner{
-    position:relative;text-align:center;max-width:640px;margin:0 auto;
-  }
-  .lux-cta h2{font-size:clamp(26px,4vw,38px);margin-bottom:16px;}
-  .lux-cta p{color:var(--text-muted);font-size:17px;margin-bottom:32px;}
-  .lux-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-  .services-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
-    background:var(--border);
-    border:1px solid var(--border);
-  }
-  .service-card{
-    background:var(--bg);
-    padding:34px 30px;
-    position:relative;
-    transition:background .25s ease;
-  }
-  .service-card:hover{background:var(--surface);}
-  .service-card .icon-row{
-    display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:20px;
-  }
-  .service-card .icon-box{
-    width:46px;height:46px;
-    border:1px solid var(--border);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--accent-2);
-    transition:border-color .25s ease, color .25s ease;
-  }
-  .service-card:hover .icon-box{border-color:var(--accent-2);color:var(--accent);}
-  .service-card .idx{
-    font-family:'IBM Plex Mono',monospace;
-    color:var(--accent);
-    font-size:13px;
-    display:block;
-  }
-  .service-card h3{font-size:19px;margin-bottom:10px;font-weight:700;}
-  .service-card p{color:var(--text-muted);font-size:14.5px;}
-  .service-card .spec{
-    margin-top:18px;padding-top:16px;border-top:1px dashed var(--border);
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-muted);
-    display:flex;justify-content:space-between;
-  }
-  .service-card .spec b{color:var(--accent-2);font-weight:600;}
+  <meta name="author" content="بصمة للكمبيوتر والهواتف">
 
-  /* Process */
-  .process{background:var(--surface);border-block:1px solid var(--border);}
-  .process-list{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
-    counter-reset:step;
-  }
-  .step{
-    padding:38px 26px;
-    border-inline-start:1px solid var(--border);
-    position:relative;
-  }
-  .step:first-child{border-inline-start:none;}
-  .step .num{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:34px;color:var(--accent);
-    display:block;margin-bottom:14px;
-    text-shadow:0 0 24px rgba(232,163,61,0.35);
-  }
-  .step h3{font-size:17px;margin-bottom:8px;}
-  .step p{color:var(--text-muted);font-size:14px;}
+  <meta property="og:title"
+        content="بصمة للكمبيوتر والهواتف | صيانة في النجف">
 
-  /* Pricing */
-  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .price-card{
-    background:var(--surface);
-    border:1px solid var(--border);
-    padding:38px 30px;
-    display:flex;flex-direction:column;
-  }
-  .price-card{transition:transform .25s ease, box-shadow .25s ease;}
-  .price-card:hover{transform:translateY(-4px);}
-  .price-card.featured{
-    border-color:var(--accent);
-    background:linear-gradient(180deg, rgba(232,163,61,0.08), transparent 40%), var(--surface);
-    box-shadow:0 20px 50px -20px rgba(232,163,61,0.35);
-    position:relative;
-  }
-  .price-card.featured::before{
-    content:"الأفضل قيمة";
-    position:absolute;top:-1px;left:-1px;
-    background:var(--gold-grad);color:#171008;
-    font-size:12px;font-weight:700;padding:6px 14px;
-  }
-  .price-card .tag{font-size:13px;color:var(--text-muted);margin-bottom:6px;}
-  .price-card h3{font-size:21px;margin-bottom:18px;}
-  .price-card .amount{
-    font-family:'IBM Plex Mono',monospace;font-size:38px;color:var(--text);margin-bottom:4px;
-  }
-  .price-card .amount span{font-size:14px;color:var(--text-muted);}
-  .price-card ul{list-style:none;margin:26px 0 30px;flex:1;}
-  .price-card li{
-    padding:9px 0;border-top:1px solid var(--border);
-    font-size:14.5px;color:var(--text-muted);
-    display:flex;gap:10px;align-items:flex-start;
-  }
-  .price-card li::before{content:"—";color:var(--accent-2);flex-shrink:0;}
+  <meta property="og:description"
+        content="فني صيانة كمبيوتر وهواتف يصل إلى موقعك في النجف.">
 
-  /* Testimonials */
-  .testimonials{background:var(--surface);border-block:1px solid var(--border);}
-  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .t-card{
-    background:var(--bg);border:1px solid var(--border);padding:30px;
-    transition:transform .25s ease;
-  }
-  .t-card:hover{transform:translateY(-4px);}
-  .t-card p{font-size:15px;color:var(--text);margin-bottom:22px;}
-  .t-card footer{
-    display:flex;align-items:center;gap:12px;
-    font-size:13px;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;
-  }
-  .t-avatar{
-    width:36px;height:36px;flex-shrink:0;
-    border:1px solid var(--accent-2);color:var(--accent-2);
-    display:flex;align-items:center;justify-content:center;
-    font-family:'Tajawal',sans-serif;font-weight:700;font-size:14px;
-    border-radius:50%;
-  }
+  <meta property="og:type" content="website">
 
-  /* Contact */
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
-  .contact-info dl{margin-top:26px;}
-  .contact-info dt{font-size:13px;color:var(--text-muted);margin-top:20px;}
-  .contact-info dd{font-size:17px;font-family:'IBM Plex Mono',monospace;color:var(--accent-2);}
-  form{display:flex;flex-direction:column;gap:16px;}
-  .field{display:flex;flex-direction:column;gap:8px;}
-  .field label{font-size:13.5px;color:var(--text-muted);}
-  .field input,.field select,.field textarea{
-    background:var(--surface);
-    border:1px solid var(--border);
-    color:var(--text);
-    padding:13px 14px;font-size:15px;
-    font-family:'IBM Plex Sans Arabic',sans-serif;
-    outline:none;
-  }
-  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);}
-  .field textarea{resize:vertical;min-height:100px;}
-  .form-msg{font-size:14px;color:var(--accent-2);display:none;}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  footer.site{border-top:1px solid var(--border);padding:44px 0;background:var(--surface);}
-  .footer-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center;}
-  .footer-grid .logo{font-size:17px;}
-  .footer-links{display:flex;gap:24px;font-size:14px;color:var(--text-muted);}
-  .footer-note{font-size:13px;color:var(--text-muted);width:100%;padding-top:24px;margin-top:24px;border-top:1px solid var(--border);}
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
 
-  .float-wa{
-    position:fixed;bottom:26px;left:26px;z-index:60;
-    width:58px;height:58px;border-radius:50%;
-    background:var(--accent-2);color:#0d1a17;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 8px 24px rgba(0,0,0,0.35);
-  }
+  <style>
 
-  @media (max-width:1080px){
-    .services-grid{grid-template-columns:repeat(2,1fr);}
-  }
-  @media (max-width:900px){
-    .hero-grid{grid-template-columns:1fr;}
-    .circuit-box{max-width:340px;margin:0 auto;order:-1;}
-    .services-grid{grid-template-columns:1fr;}
-    .showcase-grid{grid-template-columns:1fr;}
-    .process-list{grid-template-columns:1fr 1fr;}
-    .step{border-inline-start:none;border-top:1px solid var(--border);}
-    .step:nth-child(odd){border-inline-start:none;}
-    .pricing-grid{grid-template-columns:1fr;}
-    .t-grid{grid-template-columns:1fr;}
-    .contact-grid{grid-template-columns:1fr;gap:36px;}
-    .nav-links{display:none;}
-    .menu-toggle{display:block;}
-    .trust-strip .wrap{justify-content:flex-start;}
-  }
-</style>
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root{
+      --bg:#080d12;
+      --bg-2:#0c131b;
+      --surface:#111923;
+      --surface-2:#17212c;
+
+      --gold:#e6a23c;
+      --gold-light:#f6d28e;
+      --gold-dark:#b87524;
+
+      --teal:#36b8a7;
+      --teal-light:#65d5c5;
+
+      --text:#f2f0ea;
+      --muted:#8d98a5;
+      --muted-2:#66727f;
+
+      --border:rgba(255,255,255,.09);
+      --border-gold:rgba(230,162,60,.35);
+
+      --radius:18px;
+      --shadow:0 25px 80px rgba(0,0,0,.38);
+
+      --container:1180px;
+    }
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+      scroll-padding-top:90px;
+    }
+
+    body{
+      background:
+        radial-gradient(
+          circle at 10% -10%,
+          rgba(230,162,60,.13),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 100% 15%,
+          rgba(54,184,167,.09),
+          transparent 30%
+        ),
+        var(--bg);
+
+      color:var(--text);
+      font-family:'IBM Plex Sans Arabic','Tajawal',sans-serif;
+      line-height:1.75;
+      overflow-x:hidden;
+    }
+
+    body.menu-open{
+      overflow:hidden;
+    }
+
+    ::selection{
+      background:var(--gold);
+      color:#111;
+    }
+
+    img{
+      display:block;
+      width:100%;
+      max-width:100%;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,
+    input,
+    textarea,
+    select{
+      font:inherit;
+    }
+
+    button{
+      cursor:pointer;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 40px));
+      margin-inline:auto;
+    }
+
+    .section{
+      padding:110px 0;
+    }
+
+    /* =========================================================
+       LOADING SCREEN
+    ========================================================= */
+
+    .loader{
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      background:#070b10;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:opacity .6s ease, visibility .6s ease;
+    }
+
+    .loader.hidden{
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+    }
+
+    .loader-inner{
+      text-align:center;
+    }
+
+    .loader-logo{
+      width:70px;
+      height:70px;
+      margin:0 auto 20px;
+      border-radius:50%;
+      border:1px solid rgba(230,162,60,.5);
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      box-shadow:
+        0 0 0 8px rgba(230,162,60,.05),
+        0 0 45px rgba(230,162,60,.16);
+      animation:pulse 1.8s infinite;
+    }
+
+    .loader-logo svg{
+      width:34px;
+      height:34px;
+    }
+
+    .loader-title{
+      font-family:'Amiri',serif;
+      font-size:28px;
+      color:var(--text);
+    }
+
+    .loader-line{
+      width:150px;
+      height:2px;
+      background:rgba(255,255,255,.08);
+      margin:14px auto 0;
+      overflow:hidden;
+    }
+
+    .loader-line::after{
+      content:"";
+      display:block;
+      width:45%;
+      height:100%;
+      background:var(--gold);
+      animation:loading 1.2s infinite ease-in-out;
+    }
+
+    @keyframes loading{
+      0%{transform:translateX(250%);}
+      100%{transform:translateX(-250%);}
+    }
+
+    @keyframes pulse{
+      50%{
+        transform:scale(1.05);
+        box-shadow:
+          0 0 0 12px rgba(230,162,60,.03),
+          0 0 55px rgba(230,162,60,.22);
+      }
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+      background:rgba(8,13,18,.84);
+      border-bottom:1px solid var(--border);
+
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      min-height:78px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:30px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+    }
+
+    .logo-mark{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+
+      display:grid;
+      place-items:center;
+
+      background:
+        linear-gradient(var(--bg),var(--bg)) padding-box,
+        linear-gradient(135deg,var(--gold-light),var(--gold-dark)) border-box;
+
+      border:1.5px solid transparent;
+
+      box-shadow:
+        0 0 0 4px rgba(230,162,60,.05),
+        0 8px 30px rgba(230,162,60,.12);
+    }
+
+    .logo-mark svg{
+      width:24px;
+      height:24px;
+    }
+
+    .logo-name{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+
+    .logo-name strong{
+      font-size:19px;
+      font-weight:900;
+    }
+
+    .logo-name small{
+      color:var(--muted);
+      font-size:10px;
+      margin-top:4px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+      margin-inline-start:auto;
+    }
+
+    .nav-links a{
+      position:relative;
+      color:var(--muted);
+      font-size:14px;
+      transition:.25s ease;
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      right:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--gold);
+      transition:.25s ease;
+    }
+
+    .nav-links a:hover{
+      color:var(--text);
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .phone-btn{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 15px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      color:var(--teal-light);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:12px;
+      transition:.25s ease;
+    }
+
+    .phone-btn:hover{
+      border-color:var(--teal);
+      background:rgba(54,184,167,.06);
+    }
+
+    .menu-toggle{
+      display:none;
+
+      width:44px;
+      height:44px;
+
+      border:1px solid var(--border);
+      background:var(--surface);
+      color:var(--text);
+      border-radius:10px;
+    }
+
+    /* Mobile menu */
+
+    .mobile-menu{
+      position:fixed;
+      top:78px;
+      right:0;
+      left:0;
+
+      background:rgba(8,13,18,.97);
+      border-bottom:1px solid var(--border);
+
+      padding:20px;
+
+      transform:translateY(-130%);
+      opacity:0;
+      pointer-events:none;
+
+      transition:.3s ease;
+      z-index:999;
+    }
+
+    .mobile-menu.open{
+      transform:translateY(0);
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .mobile-menu a{
+      display:block;
+      padding:14px;
+      border-bottom:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    .mobile-menu a:last-child{
+      border-bottom:0;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero{
+      position:relative;
+      min-height:calc(100vh - 78px);
+      display:flex;
+      align-items:center;
+
+      padding:80px 0 100px;
+
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+
+      background-size:70px 70px;
+
+      mask-image:radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 72%
+      );
+
+      pointer-events:none;
+    }
+
+    .hero-glow{
+      position:absolute;
+      width:600px;
+      height:600px;
+      border-radius:50%;
+
+      background:rgba(230,162,60,.09);
+      filter:blur(100px);
+
+      left:-250px;
+      top:100px;
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      position:relative;
+      z-index:2;
+
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      align-items:center;
+
+      gap:70px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+
+      color:var(--gold-light);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:12px;
+
+      padding:7px 12px;
+      border:1px solid rgba(230,162,60,.22);
+      background:rgba(230,162,60,.05);
+      border-radius:100px;
+
+      margin-bottom:22px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--teal);
+      box-shadow:0 0 0 5px rgba(54,184,167,.1);
+    }
+
+    .hero h1{
+      font-family:'Amiri',serif;
+      font-size:clamp(42px,5.2vw,72px);
+      line-height:1.22;
+      letter-spacing:-1px;
+      margin-bottom:24px;
+    }
+
+    .hero h1 span{
+      color:var(--gold);
+      position:relative;
+    }
+
+    .hero-description{
+      max-width:590px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:2;
+      margin-bottom:34px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:13px;
+      margin-bottom:38px;
+    }
+
+    .btn{
+      min-height:50px;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+
+      padding:12px 22px;
+
+      border-radius:10px;
+      border:1px solid transparent;
+
+      font-weight:700;
+      font-size:14px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-primary{
+      color:#171007;
+      background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+      );
+
+      box-shadow:
+        0 15px 40px rgba(230,162,60,.2);
+    }
+
+    .btn-primary:hover{
+      box-shadow:
+        0 18px 45px rgba(230,162,60,.32);
+    }
+
+    .btn-outline{
+      border-color:var(--border);
+      background:rgba(255,255,255,.025);
+      color:var(--text);
+    }
+
+    .btn-outline:hover{
+      border-color:var(--gold);
+      color:var(--gold-light);
+    }
+
+    .hero-stats{
+      display:flex;
+      flex-wrap:wrap;
+      gap:28px;
+    }
+
+    .hero-stat{
+      padding-inline-start:15px;
+      border-inline-start:2px solid var(--gold);
+    }
+
+    .hero-stat strong{
+      display:block;
+      font-family:'IBM Plex Mono',monospace;
+      color:var(--teal-light);
+      font-size:23px;
+    }
+
+    .hero-stat span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* =========================================================
+       REALISTIC LAPTOP
+    ========================================================= */
+
+    .hero-device{
+      position:relative;
+      min-height:540px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      perspective:1300px;
+    }
+
+    .device-glow{
+      position:absolute;
+      width:390px;
+      height:260px;
+
+      background:rgba(230,162,60,.13);
+      filter:blur(80px);
+      border-radius:50%;
+    }
+
+    .laptop{
+      position:relative;
+      width:min(560px,100%);
+      transform:rotateX(3deg) rotateY(-8deg);
+      transform-style:preserve-3d;
+
+      animation:laptopFloat 5s ease-in-out infinite;
+    }
+
+    @keyframes laptopFloat{
+      0%,100%{
+        transform:
+          translateY(0)
+          rotateX(3deg)
+          rotateY(-8deg);
+      }
+
+      50%{
+        transform:
+          translateY(-13px)
+          rotateX(3deg)
+          rotateY(-8deg);
+      }
+    }
+
+    .laptop-screen{
+      position:relative;
+      width:76%;
+      aspect-ratio:16/10;
+
+      margin:auto;
+
+      padding:10px;
+
+      background:#070a0e;
+
+      border:1px solid #394451;
+      border-radius:14px 14px 5px 5px;
+
+      box-shadow:
+        0 30px 60px rgba(0,0,0,.5),
+        inset 0 0 0 2px rgba(255,255,255,.025);
+    }
+
+    .laptop-camera{
+      position:absolute;
+      top:5px;
+      left:50%;
+      transform:translateX(-50%);
+
+      width:4px;
+      height:4px;
+
+      border-radius:50%;
+      background:#222b34;
+    }
+
+    .screen-display{
+      position:relative;
+      height:100%;
+      overflow:hidden;
+
+      border-radius:6px;
+
+      background:
+        radial-gradient(
+          circle at 60% 35%,
+          rgba(54,184,167,.2),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #121b25,
+          #070b10
+        );
+
+      border:1px solid rgba(255,255,255,.05);
+    }
+
+    .screen-grid{
+      position:absolute;
+      inset:0;
+
+      background-image:
+        linear-gradient(rgba(54,184,167,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(54,184,167,.07) 1px,transparent 1px);
+
+      background-size:28px 28px;
+    }
+
+    .screen-content{
+      position:absolute;
+      inset:0;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+
+      padding:35px;
+    }
+
+    .screen-logo{
+      color:var(--gold);
+      font-family:'Amiri',serif;
+      font-size:30px;
+      margin-bottom:5px;
+    }
+
+    .screen-line{
+      height:6px;
+      border-radius:20px;
+      background:#26323e;
+      margin:6px 0;
+    }
+
+    .screen-line.short{
+      width:45%;
+    }
+
+    .screen-line.medium{
+      width:65%;
+    }
+
+    .screen-status{
+      display:flex;
+      align-items:center;
+      gap:8px;
+
+      margin-top:20px;
+
+      color:var(--teal-light);
+      font-size:10px;
+      font-family:'IBM Plex Mono',monospace;
+    }
+
+    .status-dot{
+      width:6px;
+      height:6px;
+      background:var(--teal);
+      border-radius:50%;
+      box-shadow:0 0 10px var(--teal);
+    }
+
+    .laptop-base{
+      position:relative;
+
+      width:100%;
+      height:30px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #303a45,
+          #121820
+        );
+
+      border-radius:3px 3px 18px 18px;
+
+      box-shadow:
+        0 25px 35px rgba(0,0,0,.5);
+    }
+
+    .laptop-base::before{
+      content:"";
+      position:absolute;
+
+      width:150px;
+      height:5px;
+
+      left:50%;
+      top:5px;
+
+      transform:translateX(-50%);
+
+      background:#0a0f14;
+      border-radius:0 0 8px 8px;
+    }
+
+    .laptop-base::after{
+      content:"";
+      position:absolute;
+
+      left:-4%;
+      right:-4%;
+      bottom:-9px;
+
+      height:10px;
+
+      background:#0c1117;
+      clip-path:polygon(
+        4% 0,
+        96% 0,
+        100% 100%,
+        0 100%
+      );
+    }
+
+    /* Floating computer components */
+
+    .hardware{
+      position:absolute;
+
+      padding:13px 16px;
+
+      background:rgba(14,21,29,.9);
+      border:1px solid var(--border);
+
+      border-radius:12px;
+
+      box-shadow:var(--shadow);
+
+      backdrop-filter:blur(10px);
+
+      z-index:5;
+    }
+
+    .hardware-icon{
+      width:38px;
+      height:38px;
+
+      display:grid;
+      place-items:center;
+
+      margin-bottom:7px;
+
+      border-radius:9px;
+
+      color:var(--gold);
+      background:rgba(230,162,60,.08);
+      border:1px solid rgba(230,162,60,.18);
+    }
+
+    .hardware strong{
+      display:block;
+      font-size:12px;
+    }
+
+    .hardware span{
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+      margin-top:2px;
+    }
+
+    .hardware-ram{
+      right:-15px;
+      top:70px;
+      animation:hardware1 4s ease-in-out infinite;
+    }
+
+    .hardware-ssd{
+      left:-10px;
+      bottom:125px;
+      animation:hardware2 4.5s ease-in-out infinite;
+    }
+
+    .hardware-cpu{
+      right:25px;
+      bottom:40px;
+      animation:hardware3 5s ease-in-out infinite;
+    }
+
+    @keyframes hardware1{
+      50%{transform:translateY(-10px);}
+    }
+
+    @keyframes hardware2{
+      50%{transform:translateY(9px);}
+    }
+
+    @keyframes hardware3{
+      50%{transform:translateY(-7px);}
+    }
+
+    /* =========================================================
+       TRUST BAR
+    ========================================================= */
+
+    .trust{
+      border-block:1px solid var(--border);
+      background:rgba(255,255,255,.018);
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+    }
+
+    .trust-item{
+      display:flex;
+      align-items:center;
+      gap:13px;
+
+      padding:22px;
+
+      border-inline-start:1px solid var(--border);
+    }
+
+    .trust-item:first-child{
+      border-inline-start:0;
+    }
+
+    .trust-icon{
+      color:var(--gold);
+      flex-shrink:0;
+    }
+
+    .trust-item strong{
+      display:block;
+      font-size:13px;
+    }
+
+    .trust-item span{
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    /* =========================================================
+       SECTION HEAD
+    ========================================================= */
+
+    .section-head{
+      max-width:720px;
+      margin-bottom:55px;
+    }
+
+    .section-label{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+
+      color:var(--gold-light);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;
+
+      margin-bottom:13px;
+    }
+
+    .section-label::before{
+      content:"";
+      width:6px;
+      height:6px;
+      background:var(--gold);
+      transform:rotate(45deg);
+    }
+
+    .section-head h2{
+      font-family:'Amiri',serif;
+      font-size:clamp(34px,4vw,52px);
+      line-height:1.3;
+      margin-bottom:13px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services{
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(255,255,255,.015)
+        );
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:15px;
+    }
+
+    .service-card{
+      position:relative;
+
+      padding:30px 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.035),
+          rgba(255,255,255,.012)
+        );
+
+      border:1px solid var(--border);
+      border-radius:15px;
+
+      overflow:hidden;
+
+      transition:.3s ease;
+    }
+
+    .service-card::before{
+      content:"";
+      position:absolute;
+      width:120px;
+      height:120px;
+
+      top:-70px;
+      left:-60px;
+
+      background:rgba(230,162,60,.08);
+      filter:blur(35px);
+    }
+
+    .service-card:hover{
+      transform:translateY(-7px);
+      border-color:var(--border-gold);
+      box-shadow:0 20px 50px rgba(0,0,0,.25);
+    }
+
+    .service-number{
+      position:absolute;
+      top:20px;
+      left:20px;
+
+      color:rgba(230,162,60,.35);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:11px;
+    }
+
+    .service-image{
+      position:relative;
+      height:175px;
+
+      margin-bottom:20px;
+
+      overflow:hidden;
+      border-radius:11px;
+
+      background:#0c131b;
+    }
+
+    .service-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+
+      opacity:.82;
+      transition:.5s ease;
+    }
+
+    .service-card:hover .service-image img{
+      transform:scale(1.06);
+      opacity:1;
+    }
+
+    .service-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+
+      background:
+        linear-gradient(
+          180deg,
+          transparent 45%,
+          rgba(8,13,18,.75)
+        );
+    }
+
+    .service-card h3{
+      font-size:18px;
+      margin-bottom:8px;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.9;
+    }
+
+    .service-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      margin-top:18px;
+      padding-top:14px;
+
+      border-top:1px dashed var(--border);
+
+      color:var(--muted);
+      font-size:11px;
+    }
+
+    .service-meta strong{
+      color:var(--teal-light);
+      font-family:'IBM Plex Mono',monospace;
+    }
+
+    /* =========================================================
+       GALLERY
+    ========================================================= */
+
+    .gallery{
+      background:var(--surface);
+      border-block:1px solid var(--border);
+    }
+
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:1.35fr .65fr .65fr;
+      grid-auto-rows:230px;
+      gap:14px;
+    }
+
+    .gallery-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:15px;
+      border:1px solid var(--border);
+      background:#0d141c;
+    }
+
+    .gallery-item:first-child{
+      grid-row:span 2;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:.5s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.07);
+    }
+
+    .gallery-overlay{
+      position:absolute;
+      inset:0;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+
+      padding:20px;
+
+      background:
+        linear-gradient(
+          transparent 35%,
+          rgba(5,8,12,.85)
+        );
+    }
+
+    .gallery-overlay strong{
+      font-size:16px;
+    }
+
+    .gallery-overlay span{
+      color:#b8c0c8;
+      font-size:11px;
+    }
+
+    /* =========================================================
+       PROCESS
+    ========================================================= */
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+
+      border:1px solid var(--border);
+      border-radius:15px;
+      overflow:hidden;
+    }
+
+    .process-card{
+      padding:34px 26px;
+      background:rgba(255,255,255,.015);
+      border-inline-start:1px solid var(--border);
+    }
+
+    .process-card:first-child{
+      border-inline-start:0;
+    }
+
+    .process-number{
+      color:var(--gold);
+      font-family:'IBM Plex Mono',monospace;
+      font-size:28px;
+
+      margin-bottom:18px;
+    }
+
+    .process-card h3{
+      font-size:17px;
+      margin-bottom:8px;
+    }
+
+    .process-card p{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* =========================================================
+       PRICING
+    ========================================================= */
+
+    .pricing{
+      background:
+        radial-gradient(
+          ellipse at center top,
+          rgba(230,162,60,.08),
+          transparent 50%
+        );
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .price-card{
+      position:relative;
+
+      padding:36px 30px;
+
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px;
+
+      display:flex;
+      flex-direction:column;
+
+      transition:.3s ease;
+    }
+
+    .price-card:hover{
+      transform:translateY(-6px);
+      box-shadow:var(--shadow);
+    }
+
+    .price-card.featured{
+      border-color:var(--gold);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(230,162,60,.08),
+          transparent 45%
+        ),
+        var(--surface);
+    }
+
+    .popular{
+      position:absolute;
+      top:0;
+      left:0;
+
+      padding:7px 14px;
+
+      color:#171007;
+      background:linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+      );
+
+      border-radius:16px 0 10px 0;
+
+      font-size:11px;
+      font-weight:800;
+    }
+
+    .price-tag{
+      color:var(--muted);
+      font-size:12px;
+      margin-bottom:6px;
+    }
+
+    .price-card h3{
+      font-size:21px;
+      margin-bottom:16px;
+    }
+
+    .price{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:34px;
+      color:var(--text);
+    }
+
+    .price small{
+      font-family:'Tajawal',sans-serif;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .price-list{
+      list-style:none;
+      margin:25px 0 30px;
+      flex:1;
+    }
+
+    .price-list li{
+      position:relative;
+
+      padding:9px 20px 9px 0;
+
+      border-top:1px solid var(--border);
+
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .price-list li::before{
+      content:"✓";
+
+      position:absolute;
+      right:0;
+
+      color:var(--teal-light);
+      font-weight:bold;
+    }
+
+    /* =========================================================
+       MAP / CONTACT
+    ========================================================= */
+
+    .contact{
+      background:var(--surface);
+      border-block:1px solid var(--border);
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:50px;
+      align-items:start;
+    }
+
+    .contact-info h2{
+      font-family:'Amiri',serif;
+      font-size:48px;
+      line-height:1.3;
+      margin-bottom:12px;
+    }
+
+    .contact-info > p{
+      color:var(--muted);
+      max-width:500px;
+      font-size:15px;
+    }
+
+    .contact-details{
+      display:grid;
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .contact-box{
+      display:flex;
+      align-items:center;
+      gap:13px;
+
+      padding:15px;
+
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--border);
+      border-radius:12px;
+    }
+
+    .contact-icon{
+      width:42px;
+      height:42px;
+
+      display:grid;
+      place-items:center;
+
+      color:var(--gold);
+      background:rgba(230,162,60,.07);
+
+      border-radius:9px;
+      flex-shrink:0;
+    }
+
+    .contact-box small{
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+    }
+
+    .contact-box strong{
+      display:block;
+      color:var(--text);
+      font-size:13px;
+      margin-top:2px;
+    }
+
+    .map{
+      min-height:520px;
+
+      border:1px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+
+      background:#101820;
+      box-shadow:var(--shadow);
+    }
+
+    .map iframe{
+      width:100%;
+      height:100%;
+      min-height:520px;
+      border:0;
+      display:block;
+    }
+
+    /* =========================================================
+       BOOKING FORM
+    ========================================================= */
+
+    .booking{
+      padding-top:30px;
+    }
+
+    .booking-card{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:40px;
+
+      padding:40px;
+
+      background:
+        radial-gradient(
+          circle at 0 0,
+          rgba(230,162,60,.08),
+          transparent 35%
+        ),
+        var(--surface);
+
+      border:1px solid var(--border);
+      border-radius:20px;
+    }
+
+    .booking-copy h2{
+      font-family:'Amiri',serif;
+      font-size:40px;
+      line-height:1.35;
+      margin-bottom:10px;
+    }
+
+    .booking-copy p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .booking-note{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+
+      margin-top:22px;
+      padding:14px;
+
+      border:1px solid rgba(54,184,167,.16);
+      background:rgba(54,184,167,.04);
+
+      color:#a7c9c4;
+      font-size:12px;
+      border-radius:10px;
+    }
+
+    .form{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:15px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:7px;
+    }
+
+    .field.full{
+      grid-column:1/-1;
+    }
+
+    .field label{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+
+      background:#0c131b;
+      color:var(--text);
+
+      border:1px solid var(--border);
+      border-radius:10px;
+
+      padding:13px 14px;
+
+      outline:none;
+
+      transition:.2s ease;
+    }
+
+    .field textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder{
+      color:#56616d;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus{
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(230,162,60,.06);
+    }
+
+    .form-submit{
+      grid-column:1/-1;
+    }
+
+    .form-submit .btn{
+      width:100%;
+    }
+
+    /* =========================================================
+       SUCCESS MODAL
+    ========================================================= */
+
+    .success-modal{
+      position:fixed;
+      inset:0;
+      z-index:5000;
+
+      display:grid;
+      place-items:center;
+
+      padding:20px;
+
+      background:rgba(2,5,8,.75);
+      backdrop-filter:blur(12px);
+
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+
+      transition:.3s ease;
+    }
+
+    .success-modal.show{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .success-box{
+      width:min(440px,100%);
+
+      padding:35px 28px;
+
+      background:#101821;
+      border:1px solid rgba(54,184,167,.3);
+      border-radius:18px;
+
+      text-align:center;
+
+      box-shadow:0 30px 100px rgba(0,0,0,.55);
+
+      transform:translateY(20px) scale(.97);
+      transition:.3s ease;
+    }
+
+    .success-modal.show .success-box{
+      transform:none;
+    }
+
+    .success-icon{
+      width:65px;
+      height:65px;
+
+      display:grid;
+      place-items:center;
+
+      margin:0 auto 18px;
+
+      border-radius:50%;
+
+      color:var(--teal-light);
+      background:rgba(54,184,167,.08);
+      border:1px solid rgba(54,184,167,.3);
+    }
+
+    .success-box h3{
+      font-size:23px;
+      margin-bottom:8px;
+    }
+
+    .success-box p{
+      color:var(--muted);
+      font-size:13px;
+      margin-bottom:22px;
+    }
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta{
+      position:relative;
+      padding:100px 0;
+
+      overflow:hidden;
+
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(230,162,60,.13),
+          transparent 60%
+        );
+    }
+
+    .cta-content{
+      position:relative;
+      z-index:2;
+
+      max-width:720px;
+      margin:auto;
+
+      text-align:center;
+    }
+
+    .cta h2{
+      font-family:'Amiri',serif;
+      font-size:clamp(34px,5vw,54px);
+      line-height:1.35;
+      margin-bottom:13px;
+    }
+
+    .cta p{
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .cta-buttons{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer{
+      border-top:1px solid var(--border);
+      background:#070b10;
+      padding:45px 0 25px;
+    }
+
+    .footer-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .footer-links a:hover{
+      color:var(--gold-light);
+    }
+
+    .copyright{
+      margin-top:30px;
+      padding-top:20px;
+
+      border-top:1px solid var(--border);
+
+      color:var(--muted-2);
+      font-size:11px;
+      text-align:center;
+    }
+
+    /* =========================================================
+       FLOATING WHATSAPP
+    ========================================================= */
+
+    .whatsapp{
+      position:fixed;
+
+      left:20px;
+      bottom:20px;
+
+      z-index:900;
+
+      width:58px;
+      height:58px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:50%;
+
+      color:#061510;
+      background:#28c76f;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,.35),
+        0 0 0 5px rgba(40,199,111,.08);
+
+      transition:.25s ease;
+    }
+
+    .whatsapp:hover{
+      transform:scale(1.08);
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+    ========================================================= */
+
+    .reveal{
+      opacity:0;
+      transform:translateY(25px);
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media(max-width:1100px){
+
+      .hero-grid{
+        gap:35px;
+      }
+
+      .services-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero-device{
+        min-height:470px;
+      }
+
+      .hardware{
+        transform:scale(.9);
+      }
+    }
+
+    @media(max-width:900px){
+
+      .nav-links,
+      .phone-btn{
+        display:none;
+      }
+
+      .menu-toggle{
+        display:grid;
+        place-items:center;
+      }
+
+      .hero{
+        min-height:auto;
+        padding:70px 0 80px;
+      }
+
+      .hero-grid{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-content{
+        order:1;
+      }
+
+      .hero-device{
+        order:0;
+        min-height:420px;
+        max-width:650px;
+        width:100%;
+        margin:auto;
+      }
+
+      .hero-description{
+        margin-inline:auto;
+      }
+
+      .hero-buttons,
+      .hero-stats{
+        justify-content:center;
+      }
+
+      .trust-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .trust-item:nth-child(3){
+        border-inline-start:0;
+        border-top:1px solid var(--border);
+      }
+
+      .trust-item:nth-child(4){
+        border-top:1px solid var(--border);
+      }
+
+      .process-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .process-card:nth-child(3){
+        border-inline-start:0;
+        border-top:1px solid var(--border);
+      }
+
+      .process-card:nth-child(4){
+        border-top:1px solid var(--border);
+      }
+
+      .pricing-grid{
+        grid-template-columns:1fr;
+        max-width:650px;
+        margin:auto;
+      }
+
+      .contact-grid,
+      .booking-card{
+        grid-template-columns:1fr;
+      }
+
+      .map{
+        min-height:400px;
+      }
+
+      .map iframe{
+        min-height:400px;
+      }
+
+      .booking-card{
+        padding:30px;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .gallery-item:first-child{
+        grid-column:1/-1;
+        grid-row:auto;
+      }
+    }
+
+    @media(max-width:620px){
+
+      .container{
+        width:min(var(--container), calc(100% - 28px));
+      }
+
+      .section{
+        padding:75px 0;
+      }
+
+      .nav{
+        min-height:70px;
+      }
+
+      .mobile-menu{
+        top:70px;
+      }
+
+      .logo-mark{
+        width:40px;
+        height:40px;
+      }
+
+      .logo-name strong{
+        font-size:17px;
+      }
+
+      .logo-name small{
+        font-size:9px;
+      }
+
+      .hero{
+        padding:45px 0 60px;
+      }
+
+      .hero h1{
+        font-size:42px;
+      }
+
+      .hero-description{
+        font-size:15px;
+        line-height:1.9;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .hero-buttons .btn{
+        width:100%;
+      }
+
+      .hero-stats{
+        gap:15px;
+      }
+
+      .hero-stat{
+        flex:1 1 100px;
+      }
+
+      .hero-stat strong{
+        font-size:19px;
+      }
+
+      .hero-device{
+        min-height:310px;
+      }
+
+      .laptop{
+        width:100%;
+      }
+
+      .hardware{
+        padding:8px;
+        transform:scale(.72);
+      }
+
+      .hardware-ram{
+        right:-5px;
+        top:20px;
+      }
+
+      .hardware-ssd{
+        left:-15px;
+        bottom:70px;
+      }
+
+      .hardware-cpu{
+        right:5px;
+        bottom:5px;
+      }
+
+      .screen-content{
+        padding:20px;
+      }
+
+      .screen-logo{
+        font-size:20px;
+      }
+
+      .trust-grid{
+        grid-template-columns:1fr;
+      }
+
+      .trust-item,
+      .trust-item:nth-child(3),
+      .trust-item:nth-child(4){
+        border-inline-start:0;
+        border-top:1px solid var(--border);
+      }
+
+      .trust-item:first-child{
+        border-top:0;
+      }
+
+      .services-grid{
+        grid-template-columns:1fr;
+      }
+
+      .service-image{
+        height:190px;
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr;
+        grid-auto-rows:230px;
+      }
+
+      .gallery-item:first-child{
+        grid-column:auto;
+      }
+
+      .process-grid{
+        grid-template-columns:1fr;
+      }
+
+      .process-card,
+      .process-card:nth-child(3),
+      .process-card:nth-child(4){
+        border-inline-start:0;
+        border-top:1px solid var(--border);
+      }
+
+      .process-card:first-child{
+        border-top:0;
+      }
+
+      .contact-info h2{
+        font-size:39px;
+      }
+
+      .form{
+        grid-template-columns:1fr;
+      }
+
+      .field.full,
+      .form-submit{
+        grid-column:auto;
+      }
+
+      .booking-card{
+        padding:22px;
+      }
+
+      .booking-copy h2{
+        font-size:34px;
+      }
+
+      .map,
+      .map iframe{
+        min-height:330px;
+      }
+
+      .footer-top{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .whatsapp{
+        width:54px;
+        height:54px;
+        left:15px;
+        bottom:15px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+
+      *,
+      *::before,
+      *::after{
+        scroll-behavior:auto !important;
+        animation:none !important;
+        transition:none !important;
+      }
+
+      .reveal{
+        opacity:1;
+        transform:none;
+      }
+    }
+
+  </style>
 </head>
+
 <body>
 
+<!-- =========================================================
+     LOADING
+========================================================= -->
+
+<div class="loader" id="loader">
+  <div class="loader-inner">
+
+    <div class="loader-logo">
+
+      <svg viewBox="0 0 24 24" fill="none"
+           stroke="currentColor"
+           stroke-width="1.5"
+           stroke-linecap="round">
+
+        <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
+        <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
+        <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
+        <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
+        <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
+
+      </svg>
+
+    </div>
+
+    <div class="loader-title">بصمة</div>
+
+    <div class="loader-line"></div>
+
+  </div>
+</div>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
 <header>
-  <div class="wrap nav">
-    <div class="logo">
+
+  <div class="container nav">
+
+    <a href="#" class="logo" aria-label="بصمة للكمبيوتر والهواتف">
+
       <span class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="url(#fpGrad1)" stroke-width="1.4" stroke-linecap="round">
-          <defs><linearGradient id="fpGrad1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3CD87"/><stop offset="100%" stop-color="#C6862F"/></linearGradient></defs>
+
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="url(#logoGradient)"
+             stroke-width="1.4"
+             stroke-linecap="round">
+
+          <defs>
+            <linearGradient id="logoGradient"
+                            x1="0" y1="0"
+                            x2="1" y2="1">
+
+              <stop offset="0%" stop-color="#F6D28E"/>
+              <stop offset="100%" stop-color="#B87524"/>
+
+            </linearGradient>
+          </defs>
+
           <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
           <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
           <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
           <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
           <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
+
         </svg>
+
       </span>
-      <span class="logo-name"><b>بصمة</b><small>للكمبيوتر والهواتف</small></span>
-    </div>
-      <a href="#services">خدماتنا</a>
+
+      <span class="logo-name">
+        <strong>بصمة</strong>
+        <small>للكمبيوتر والهواتف</small>
+      </span>
+
+    </a>
+
+
+    <nav class="nav-links">
+
+      <a href="#services">الخدمات</a>
+      <a href="#gallery">أعمالنا</a>
       <a href="#process">آلية العمل</a>
       <a href="#pricing">الأسعار</a>
-      <a href="#testimonials">آراء العملاء</a>
-      <a href="#contact">تواصل معنا</a>
+      <a href="#contact">موقعنا</a>
+      <a href="#booking">احجز الآن</a>
+
     </nav>
-    <div class="nav-cta">
-      <a class="btn btn-ghost" href="tel:07815685661">07815685661</a>
-      <button class="menu-toggle">☰</button>
+
+
+    <div class="nav-actions">
+
+      <a class="phone-btn" href="tel:07815685661">
+        ☎ 07815685661
+      </a>
+
+      <button class="menu-toggle"
+              id="menuToggle"
+              aria-label="فتح القائمة">
+
+        ☰
+
+      </button>
+
     </div>
+
   </div>
+
 </header>
 
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+  <a href="#services">الخدمات</a>
+  <a href="#gallery">أعمالنا</a>
+  <a href="#process">آلية العمل</a>
+  <a href="#pricing">الأسعار</a>
+  <a href="#contact">موقعنا</a>
+  <a href="#booking">احجز الآن</a>
+
+</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
 <section class="hero">
-  <div class="hero-badge"><span class="dot"></span> فني متاح الآن بالقرب منك</div>
-  <div class="wrap hero-grid">
-    <div>
-      <div class="kicker mono">صيانة حاسوب وهواتف منزلية ومكتبية</div>
-      <h1>نصلح جهازك <em>في موقعك</em>، من غير ما تطلع من بيتك</h1>
-      <p class="lead">فنيون معتمدون يوصلونك خلال نفس اليوم، يشخّصون العطل أمامك، ويصلحونه على مسؤوليتهم — مع ضمان مكتوب على كل خدمة.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">احجز فني الآن</a>
-        <a href="https://wa.me/9647815685661" class="btn btn-ghost">راسلنا على واتساب</a>
+
+  <div class="hero-glow"></div>
+
+  <div class="container hero-grid">
+
+    <div class="hero-content reveal">
+
+      <div class="eyebrow">
+        فني صيانة متاح في النجف
       </div>
+
+      <h1>
+        جهازك خربان؟
+        <span>نوصلك ونصلحه.</span>
+      </h1>
+
+      <p class="hero-description">
+        صيانة الكمبيوتر واللابتوب والهواتف في موقعك.
+        تشخيص واضح، أسعار معلومة قبل الإصلاح،
+        واهتمام حقيقي بجهازك من أول دقيقة إلى آخر خطوة.
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a href="#booking" class="btn btn-primary">
+          احجز فني الآن
+          <span>←</span>
+        </a>
+
+        <a href="tel:07815685661" class="btn btn-outline">
+          اتصل مباشرة
+        </a>
+
+      </div>
+
+
       <div class="hero-stats">
-        <div><strong>4</strong><span>سنوات خبرة</span></div>
-        <div><strong>420+</strong><span>جهاز تمت صيانته</span></div>
-        <div><strong>45</strong><span>دقيقة متوسط الوصول</span></div>
+
+        <div class="hero-stat">
+          <strong>420+</strong>
+          <span>جهاز تمت صيانته</span>
+        </div>
+
+        <div class="hero-stat">
+          <strong>4+</strong>
+          <span>سنوات خبرة</span>
+        </div>
+
+        <div class="hero-stat">
+          <strong>45 د</strong>
+          <span>متوسط الوصول</span>
+        </div>
+
       </div>
+
     </div>
-    <div class="circuit-box">
-      <svg viewBox="0 0 480 480" fill="none">
-        <defs>
-          <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#F3CD87"/>
-            <stop offset="100%" stop-color="#C6862F"/>
-          </linearGradient>
-          <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#232B35"/>
-            <stop offset="100%" stop-color="#161C23"/>
-          </linearGradient>
-          <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
-            <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity="0.45"/>
-          </filter>
-          <filter id="chipShadow" x="-60%" y="-60%" width="220%" height="220%">
-            <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.5"/>
-          </filter>
-        </defs>
 
-        <ellipse cx="240" cy="410" rx="150" ry="18" fill="#000" opacity="0.35"/>
 
-        <!-- Laptop base -->
-        <g filter="url(#softShadow)">
-          <path d="M120 340 L360 340 L392 372 L88 372 Z" fill="#1E252E" stroke="#323C48" stroke-width="1.5"/>
-          <rect x="150" y="352" width="180" height="6" rx="3" fill="#323C48"/>
-        </g>
+    <!-- REALISTIC LAPTOP -->
 
-        <!-- Screen -->
-        <g filter="url(#softShadow)">
-          <rect x="130" y="100" width="220" height="245" rx="10" fill="#0F1319" stroke="url(#goldGrad)" stroke-width="2"/>
-          <rect x="146" y="118" width="188" height="205" rx="4" fill="url(#screenGrad)"/>
-          <!-- diagnostic UI lines -->
-          <rect x="162" y="136" width="90" height="9" rx="2" fill="#3A4552"/>
-          <rect x="162" y="154" width="140" height="7" rx="2" fill="#2A323C"/>
-          <rect x="162" y="168" width="120" height="7" rx="2" fill="#2A323C"/>
-          <rect x="162" y="192" width="156" height="1" fill="#2A323C"/>
-          <circle cx="172" cy="214" r="9" fill="none" stroke="#4FB6A8" stroke-width="2"/>
-          <path d="M168 214l3 3 7-7" stroke="#4FB6A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="190" y="209" width="112" height="10" rx="2" fill="#2A323C"/>
-          <circle cx="172" cy="246" r="9" fill="none" stroke="#4FB6A8" stroke-width="2"/>
-          <path d="M168 246l3 3 7-7" stroke="#4FB6A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="190" y="241" width="90" height="10" rx="2" fill="#2A323C"/>
-          <circle cx="172" cy="278" r="9" fill="url(#goldGrad)"/>
-          <rect x="190" y="273" width="98" height="10" rx="2" fill="#3A4552"/>
-        </g>
+    <div class="hero-device reveal">
 
-        <!-- floating chip: guarantee -->
-        <g filter="url(#chipShadow)">
-          <rect x="30" y="150" width="118" height="52" rx="26" fill="#1B2129" stroke="url(#goldGrad)" stroke-width="1.5"/>
-          <circle cx="58" cy="176" r="14" fill="none" stroke="#E8A33D" stroke-width="2"/>
-          <path d="M52 176l4 4 8-9" stroke="#E8A33D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <text x="80" y="172" fill="#EDEBE4" font-family="Tajawal" font-size="12" font-weight="700">ضمان</text>
-          <text x="80" y="187" fill="#8B94A0" font-family="Tajawal" font-size="11">30 يوم</text>
-          <animateTransform attributeName="transform" type="translate" values="0 0; 0 -10; 0 0" dur="4s" repeatCount="indefinite"/>
-        </g>
+      <div class="device-glow"></div>
 
-        <!-- floating chip: SSD -->
-        <g filter="url(#chipShadow)">
-          <rect x="322" y="230" width="128" height="52" rx="26" fill="#1B2129" stroke="#4FB6A8" stroke-width="1.5"/>
-          <rect x="342" y="244" width="24" height="24" rx="5" fill="none" stroke="#4FB6A8" stroke-width="2"/>
-          <path d="M348 256h12M354 250v12" stroke="#4FB6A8" stroke-width="2" stroke-linecap="round"/>
-          <text x="378" y="252" fill="#EDEBE4" font-family="Tajawal" font-size="12" font-weight="700">قرص SSD</text>
-          <text x="378" y="267" fill="#8B94A0" font-family="IBM Plex Mono" font-size="10">2x أسرع</text>
-          <animateTransform attributeName="transform" type="translate" values="0 0; 0 10; 0 0" dur="5s" repeatCount="indefinite"/>
-        </g>
+      <div class="laptop">
 
-        <!-- floating chip: on-site -->
-        <g filter="url(#chipShadow)">
-          <rect x="60" y="330" width="110" height="46" rx="23" fill="#1B2129" stroke="var(--border)" stroke-width="1.5" opacity="0.96"/>
-          <circle cx="86" cy="353" r="10" fill="#E8A33D"/>
-          <text x="106" y="358" fill="#EDEBE4" font-family="Tajawal" font-size="12" font-weight="700">في موقعك</text>
-          <animateTransform attributeName="transform" type="translate" values="0 0; -6 -6; 0 0" dur="4.6s" repeatCount="indefinite"/>
-        </g>
-      </svg>
+        <div class="laptop-screen">
+
+          <span class="laptop-camera"></span>
+
+          <div class="screen-display">
+
+            <div class="screen-grid"></div>
+
+            <div class="screen-content">
+
+              <div class="screen-logo">
+                بصمة
+              </div>
+
+              <div class="screen-line"></div>
+              <div class="screen-line medium"></div>
+              <div class="screen-line short"></div>
+
+              <div class="screen-status">
+                <span class="status-dot"></span>
+                SYSTEM DIAGNOSTIC OK
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="laptop-base"></div>
+
+
+        <!-- RAM -->
+
+        <div class="hardware hardware-ram">
+
+          <div class="hardware-icon">
+
+            <svg width="22" height="22"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.5">
+
+              <rect x="3" y="7" width="18" height="10" rx="1"/>
+              <path d="M7 7V4M11 7V4M15 7V4M19 7V4"/>
+              <path d="M7 17v3M11 17v3M15 17v3M19 17v3"/>
+
+            </svg>
+
+          </div>
+
+          <strong>RAM</strong>
+          <span>ترقية الذاكرة</span>
+
+        </div>
+
+
+        <!-- SSD -->
+
+        <div class="hardware hardware-ssd">
+
+          <div class="hardware-icon">
+
+            <svg width="22" height="22"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.5">
+
+              <rect x="4" y="3" width="16" height="18" rx="2"/>
+              <circle cx="12" cy="9" r="2"/>
+              <path d="M8 15h8M8 18h5"/>
+
+            </svg>
+
+          </div>
+
+          <strong>SSD</strong>
+          <span>سرعة وأداء</span>
+
+        </div>
+
+
+        <!-- CPU -->
+
+        <div class="hardware hardware-cpu">
+
+          <div class="hardware-icon">
+
+            <svg width="22" height="22"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.5">
+
+              <rect x="7" y="7" width="10" height="10"/>
+              <rect x="10" y="10" width="4" height="4"/>
+              <path d="M9 2v5M15 2v5M9 17v5M15 17v5"/>
+              <path d="M2 9h5M17 9h5M2 15h5M17 15h5"/>
+
+            </svg>
+
+          </div>
+
+          <strong>CPU</strong>
+          <span>فحص المعالج</span>
+
+        </div>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
 
-<div class="trust-strip">
-  <div class="wrap">
-    <span><strong>ضمان 30 يوم</strong> على كل قطعة وإصلاح</span>
-    <span><strong>فحص مجاني</strong> قبل أي التزام بالسعر</span>
-    <span><strong>خدمة يومية</strong> من 9 صباحًا حتى 11 مساءً</span>
-  </div>
-</div>
 
-<section class="section showcase">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div class="kicker mono">ورشتنا</div>
-      <h2>أدوات أصلية، وفنيون يعرفون كل قطعة بيدهم</h2>
+<!-- =========================================================
+     TRUST
+========================================================= -->
+
+<section class="trust">
+
+  <div class="container trust-grid">
+
+    <div class="trust-item">
+
+      <div class="trust-icon">✓</div>
+
+      <div>
+        <strong>فحص قبل الإصلاح</strong>
+        <span>تعرف المشكلة قبل دفع السعر</span>
+      </div>
+
     </div>
-    <div class="showcase-grid reveal">
-      <figure class="frame">
-        <span class="c2"></span><span class="c3"></span>
-        <div class="frame-media">
-          <svg viewBox="0 0 100 100" fill="none">
-            <rect x="20" y="18" width="60" height="40" rx="3" stroke="#E8A33D" stroke-width="2"/>
-            <rect x="30" y="26" width="40" height="4" rx="2" fill="#3A4552"/>
-            <rect x="30" y="34" width="28" height="4" rx="2" fill="#3A4552"/>
-            <path d="M15 66h70M25 66v10M75 66v10" stroke="#4FB6A8" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="50" cy="38" r="3" fill="#E8A33D"/>
-          </svg>
-        </div>
-        <figcaption><strong>تشخيص دقيق</strong><span>فحص كامل بأجهزة قياس متخصصة قبل أي قرار</span></figcaption>
-      </figure>
-      <figure class="frame">
-        <span class="c2"></span><span class="c3"></span>
-        <div class="frame-media">
-          <svg viewBox="0 0 100 100" fill="none">
-            <path d="M50 15L30 45h14l-4 40 30-45H56l4-25z" fill="none" stroke="#E8A33D" stroke-width="2" stroke-linejoin="round"/>
-            <circle cx="50" cy="50" r="38" stroke="#3A4552" stroke-width="1.5" stroke-dasharray="4 5"/>
-          </svg>
-        </div>
-        <figcaption><strong>قطع أصلية</strong><span>نستخدم قطع معتمدة فقط، مع فاتورة وضمان مكتوب</span></figcaption>
-      </figure>
-      <figure class="frame">
-        <span class="c2"></span><span class="c3"></span>
-        <div class="frame-media">
-          <svg viewBox="0 0 100 100" fill="none">
-            <path d="M50 12l28 10v22c0 18-12 30-28 34-16-4-28-16-28-34V22z" stroke="#4FB6A8" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M38 50l9 9 16-18" stroke="#E8A33D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <figcaption><strong>ضمان موثّق</strong><span>كل خدمة تُسلَّم مع بطاقة ضمان بتاريخ ومدة واضحة</span></figcaption>
-      </figure>
+
+    <div class="trust-item">
+
+      <div class="trust-icon">◆</div>
+
+      <div>
+        <strong>قطع موثوقة</strong>
+        <span>اختيار القطعة المناسبة لجهازك</span>
+      </div>
+
     </div>
+
+    <div class="trust-item">
+
+      <div class="trust-icon">⚡</div>
+
+      <div>
+        <strong>خدمة سريعة</strong>
+        <span>إمكانية الخدمة في نفس اليوم</span>
+      </div>
+
+    </div>
+
+    <div class="trust-item">
+
+      <div class="trust-icon">⌂</div>
+
+      <div>
+        <strong>في موقعك</strong>
+        <span>نجف وضواحيها</span>
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
-<section class="section" id="services">
-  <div class="wrap">
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="section services" id="services">
+
+  <div class="container">
+
     <div class="section-head reveal">
-      <div class="kicker mono">خدماتنا</div>
-      <h2>كل أعطال الحاسوب والهاتف، بفني مختلف يوصلك</h2>
-      <p>من البطء والفيروسات إلى كسر شاشة الجوال — نتعامل مع كافة أجهزة اللابتوب، والهواتف.</p>
+
+      <div class="section-label">
+        خدماتنا
+      </div>
+
+      <h2>
+        كل ما يحتاجه جهازك في مكان واحد
+      </h2>
+
+      <p>
+        من مشاكل النظام والبطء إلى صيانة القطع والشاشات والبطاريات،
+        نقدم حلولًا عملية للكمبيوتر واللابتوب والهواتف.
+      </p>
+
     </div>
-    <div class="services-grid reveal">
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">01</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v12H4z"/><path d="M9 20h6M12 16v4"/><path d="M8 8l3 3-3 3"/></svg></span>
+
+
+    <div class="services-grid">
+
+
+      <!-- 01 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">01</span>
+
+        <div class="service-image">
+          <img
+            data-photo="laptop-cleaning"
+            alt="تنظيف وصيانة لابتوب"
+            loading="lazy">
         </div>
+
         <h3>تنظيف وتسريع الجهاز</h3>
-        <p>إزالة الفيروسات والبرامج الدخيلة، وتنظيف داخلي للمروحة والمعالج لتفادي ارتفاع الحرارة.</p>
-        <div class="spec"><span>المدة</span><b>45 دقيقة</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">02</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="3" width="16" height="12" rx="1"/><path d="M2 19h20M9 19l1-4h4l1 4"/></svg></span>
+
+        <p>
+          تنظيف الجهاز من الغبار والبرامج غير الضرورية،
+          إزالة المشاكل البرمجية وتحسين الأداء والحرارة.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>45 دقيقة</strong>
         </div>
-        <h3>تركيب ويندوز وبرامج</h3>
-        <p>تهيئة كاملة للنظام، تعريفات الجهاز، وتثبيت حزمة برامجك الأساسية مع ترحيل الملفات.</p>
-        <div class="spec"><span>المدة</span><b>60 دقيقة</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">03</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 10-2.34 5.66"/><path d="M20 8v4h-4"/></svg></span>
+
+      </article>
+
+
+      <!-- 02 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">02</span>
+
+        <div class="service-image">
+          <img
+            data-photo="laptop-repair"
+            alt="صيانة لابتوب"
+            loading="lazy">
         </div>
+
+        <h3>تنصيب ويندوز وبرامج</h3>
+
+        <p>
+          تهيئة النظام، التعريفات، البرامج الأساسية،
+          وترتيب الجهاز بطريقة مناسبة لاستخدامك.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>60 دقيقة</strong>
+        </div>
+
+      </article>
+
+
+      <!-- 03 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">03</span>
+
+        <div class="service-image">
+          <img
+            data-photo="data-recovery"
+            alt="استرجاع ملفات من هارد"
+            loading="lazy">
+        </div>
+
         <h3>استرجاع الملفات</h3>
-        <p>استعادة البيانات من الأقراص التالفة أو المهيّأة بالخطأ، بدون المساس بالملفات الأصلية.</p>
-        <div class="spec"><span>المدة</span><b>يحدد بعد الفحص</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">04</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="12" height="12" rx="1"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span>
+
+        <p>
+          محاولة استعادة الملفات المهمة من الأقراص
+          التي تعرضت للحذف أو التهيئة أو الأعطال.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>بعد الفحص</strong>
         </div>
+
+      </article>
+
+
+      <!-- 04 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">04</span>
+
+        <div class="service-image">
+          <img
+            data-photo="computer-components"
+            alt="قطع كمبيوتر وترقية جهاز"
+            loading="lazy">
+        </div>
+
         <h3>ترقية القطع</h3>
-        <p>زيادة الرام، تركيب قرص SSD بدل الهارد التقليدي، وتوصية بأفضل قطعة حسب استخدامك.</p>
-        <div class="spec"><span>المدة</span><b>30 دقيقة</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">05</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></span>
+
+        <p>
+          تركيب SSD ورام وترقية القطع المناسبة حسب
+          إمكانيات جهازك وطريقة استخدامك.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>30 دقيقة</strong>
         </div>
-        <h3>إصلاح الأعطال الكهربائية</h3>
-        <p>أعطال الشاشة، المنافذ، اللوحة الأم، وموصلات الشحن في أجهزة اللابتوب.</p>
-        <div class="spec"><span>المدة</span><b>يحدد بعد الفحص</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">06</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
+
+      </article>
+
+
+      <!-- 05 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">05</span>
+
+        <div class="service-image">
+          <img
+            data-photo="motherboard"
+            alt="صيانة اللوحة الأم"
+            loading="lazy">
         </div>
-        <h3>دعم عن بُعد</h3>
-        <p>حل الأعطال البرمجية البسيطة مباشرة عبر الاتصال عن بُعد، دون الحاجة لزيارة ميدانية.</p>
-        <div class="spec"><span>المدة</span><b>20 دقيقة</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">07</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 5h2"/></svg></span>
+
+        <h3>أعطال كهربائية وهاردوير</h3>
+
+        <p>
+          فحص مشاكل الطاقة والمنافذ واللوحة الأم
+          ومكونات اللابتوب المختلفة.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>بعد الفحص</strong>
         </div>
+
+      </article>
+
+
+      <!-- 06 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">06</span>
+
+        <div class="service-image">
+          <img
+            data-photo="technician"
+            alt="فني كمبيوتر"
+            loading="lazy">
+        </div>
+
+        <h3>دعم فني عن بُعد</h3>
+
+        <p>
+          حل المشاكل البرمجية البسيطة دون الحاجة
+          إلى زيارة ميدانية عندما يكون ذلك ممكنًا.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>20 دقيقة</strong>
+        </div>
+
+      </article>
+
+
+      <!-- 07 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">07</span>
+
+        <div class="service-image">
+          <img
+            data-photo="phone-repair"
+            alt="صيانة شاشة هاتف"
+            loading="lazy">
+        </div>
+
         <h3>تبديل شاشات الهواتف</h3>
-        <p>استبدال الشاشات المكسورة أو التي فقدت اللمس لكل الأنواع، بقطع أصلية وضمان.</p>
-        <div class="spec"><span>المدة</span><b>40 دقيقة</b></div>
-      </div>
-      <div class="service-card">
-        <div class="icon-row">
-          <span class="idx mono">08</span>
-          <span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M17 6h-2V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v2H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V8a2 2 0 00-2-2z"/><path d="M10 12h4M12 10v4"/></svg></span>
+
+        <p>
+          تبديل الشاشة المكسورة أو إصلاح مشاكل
+          اللمس والعرض حسب نوع الهاتف.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>40 دقيقة</strong>
         </div>
+
+      </article>
+
+
+      <!-- 08 -->
+
+      <article class="service-card reveal">
+
+        <span class="service-number">08</span>
+
+        <div class="service-image">
+          <img
+            data-photo="phone-battery"
+            alt="تبديل بطارية هاتف"
+            loading="lazy">
+        </div>
+
         <h3>تبديل بطاريات الهواتف</h3>
-        <p>معالجة مشاكل التفريغ السريع والانطفاء المفاجئ باستبدال البطارية الأصلية.</p>
-        <div class="spec"><span>المدة</span><b>30 دقيقة</b></div>
-      </div>
+
+        <p>
+          معالجة مشاكل البطارية والتفريغ السريع
+          والانطفاء المفاجئ باستبدال البطارية المناسبة.
+        </p>
+
+        <div class="service-meta">
+          <span>المدة</span>
+          <strong>30 دقيقة</strong>
+        </div>
+
+      </article>
+
     </div>
+
   </div>
+
 </section>
 
-<div class="process" id="process">
-  <div class="wrap section">
-    <div class="section-head reveal">
-      <div class="kicker mono">آلية العمل</div>
-      <h2>من الاتصال إلى تشغيل الجهاز، أربع خطوات</h2>
-    </div>
-    <div class="process-list reveal">
-      <div class="step">
-        <span class="num mono">1</span>
-        <h3>تتصل أو تراسل</h3>
-        <p>تشرح العطل باختصار، ونحدد موعد الزيارة خلال نفس اليوم غالبًا.</p>
-      </div>
-      <div class="step">
-        <span class="num mono">2</span>
-        <h3>الفني يوصلك</h3>
-        <p>يفحص الجهاز أمامك ويشرح لك سبب العطل والحل المقترح قبل البدء.</p>
-      </div>
-      <div class="step">
-        <span class="num mono">3</span>
-        <h3>الإصلاح في موقعك</h3>
-        <p>معظم الأعطال تُحل في نفس الزيارة، وإن احتاجت قطعة نطلبها ونعود سريعًا.</p>
-      </div>
-      <div class="step">
-        <span class="num mono">4</span>
-        <h3>تجربة وضمان</h3>
-        <p>نشغّل الجهاز معك للتأكد، ونسلمك بطاقة ضمان مكتوبة على الخدمة.</p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<section class="section" id="pricing">
-  <div class="wrap">
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="section gallery" id="gallery">
+
+  <div class="container">
+
     <div class="section-head reveal">
-      <div class="kicker mono">الأسعار</div>
-      <h2>أسعار واضحة، بدون مفاجآت في الفاتورة</h2>
-      <p>الفحص دائمًا مجاني. تدفع فقط مقابل الخدمة التي توافق عليها بعد التشخيص.</p>
+
+      <div class="section-label">
+        معرض الأعمال
+      </div>
+
+      <h2>
+        شغلنا يبدأ من التفاصيل
+      </h2>
+
+      <p>
+        صور توضيحية لأعمال الصيانة والأجهزة والقطع التي نتعامل معها.
+      </p>
+
     </div>
-    <div class="pricing-grid reveal">
-      <div class="price-card">
-        <span class="tag">للاستخدام الخفيف</span>
-        <h3>فحص وتنظيف</h3>
-        <div class="amount">25,000 <span>د.ع</span></div>
-        <ul>
+
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item reveal">
+
+        <img
+          data-gallery="1"
+          alt="صيانة كمبيوتر ولابتوب"
+          loading="lazy">
+
+        <div class="gallery-overlay">
+          <strong>صيانة أجهزة الكمبيوتر</strong>
+          <span>فحص وتنظيف وترقية</span>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          data-gallery="2"
+          alt="قطع كمبيوتر"
+          loading="lazy">
+
+        <div class="gallery-overlay">
+          <strong>قطع الكمبيوتر</strong>
+          <span>RAM / SSD / CPU</span>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          data-gallery="3"
+          alt="صيانة لابتوب"
+          loading="lazy">
+
+        <div class="gallery-overlay">
+          <strong>صيانة اللابتوب</strong>
+          <span>تشخيص الهاردوير</span>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          data-gallery="4"
+          alt="صيانة هاتف"
+          loading="lazy">
+
+        <div class="gallery-overlay">
+          <strong>صيانة الهواتف</strong>
+          <span>شاشات وبطاريات</span>
+        </div>
+
+      </div>
+
+
+      <div class="gallery-item reveal">
+
+        <img
+          data-gallery="5"
+          alt="لوحة أم"
+          loading="lazy">
+
+        <div class="gallery-overlay">
+          <strong>فحص اللوحة الأم</strong>
+          <span>تشخيص الأعطال</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section class="section" id="process">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div class="section-label">
+        آلية العمل
+      </div>
+
+      <h2>
+        بسيطة من أول اتصال إلى تسليم الجهاز
+      </h2>
+
+    </div>
+
+
+    <div class="process-grid">
+
+      <div class="process-card reveal">
+
+        <div class="process-number">01</div>
+
+        <h3>تتصل بنا</h3>
+
+        <p>
+          ترسل بياناتك ووصف المشكلة ونحدد معك الوقت المناسب.
+        </p>
+
+      </div>
+
+
+      <div class="process-card reveal">
+
+        <div class="process-number">02</div>
+
+        <h3>الفحص والتشخيص</h3>
+
+        <p>
+          نفحص الجهاز ونوضح لك سبب المشكلة والحل المقترح.
+        </p>
+
+      </div>
+
+
+      <div class="process-card reveal">
+
+        <div class="process-number">03</div>
+
+        <h3>تنفيذ الإصلاح</h3>
+
+        <p>
+          بعد موافقتك يتم تنفيذ الخدمة أو تركيب القطعة المناسبة.
+        </p>
+
+      </div>
+
+
+      <div class="process-card reveal">
+
+        <div class="process-number">04</div>
+
+        <h3>التجربة والتسليم</h3>
+
+        <p>
+          نختبر الجهاز معك ونتأكد من عمله قبل إنهاء الخدمة.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRICING
+========================================================= -->
+
+<section class="section pricing" id="pricing">
+
+  <div class="container">
+
+    <div class="section-head reveal">
+
+      <div class="section-label">
+        الأسعار
+      </div>
+
+      <h2>
+        أسعار واضحة بدون مفاجآت
+      </h2>
+
+      <p>
+        الأسعار الأساسية كما تم تحديدها، أما القطع والأعطال
+        التي تحتاج تشخيصًا فيتم تحديدها بعد الفحص.
+      </p>
+
+    </div>
+
+
+    <div class="pricing-grid">
+
+
+      <article class="price-card reveal">
+
+        <span class="price-tag">
+          للاستخدام الخفيف
+        </span>
+
+        <h3>
+          فحص وتنظيف
+        </h3>
+
+        <div class="price">
+          25,000
+          <small>د.ع</small>
+        </div>
+
+        <ul class="price-list">
+
           <li>فحص شامل للجهاز</li>
           <li>إزالة الفيروسات والبرامج الدخيلة</li>
           <li>تنظيف داخلي وتحسين الأداء</li>
           <li>ضمان 15 يوم</li>
+
         </ul>
-        <a href="#contact" class="btn btn-ghost btn-block">اطلب هذه الخدمة</a>
-      </div>
-      <div class="price-card featured">
-        <span class="tag">الأكثر طلبًا</span>
-        <h3>صيانة شاملة</h3>
-        <div class="amount">40,000 <span>د.ع</span></div>
-        <ul>
+
+        <a href="#booking"
+           class="btn btn-outline">
+          اطلب هذه الخدمة
+        </a>
+
+      </article>
+
+
+      <article class="price-card featured reveal">
+
+        <span class="popular">
+          الأكثر طلبًا
+        </span>
+
+        <span class="price-tag">
+          صيانة متكاملة
+        </span>
+
+        <h3>
+          صيانة شاملة
+        </h3>
+
+        <div class="price">
+          40,000
+          <small>د.ع</small>
+        </div>
+
+        <ul class="price-list">
+
           <li>كل ما في باقة الفحص والتنظيف</li>
           <li>تحديث النظام والتعريفات</li>
           <li>فحص القطع الداخلية والمروحة</li>
           <li>نسخة احتياطية للملفات المهمة</li>
           <li>ضمان 30 يوم</li>
+
         </ul>
-        <a href="#contact" class="btn btn-primary btn-block">اطلب هذه الخدمة</a>
-      </div>
-      <div class="price-card">
-        <span class="tag">للمكاتب والشركات</span>
-        <h3>عقد سنوي</h3>
-        <div class="amount">يُحدد <span>حسب عدد الأجهزة</span></div>
-        <ul>
+
+        <a href="#booking"
+           class="btn btn-primary">
+          اطلب هذه الخدمة
+        </a>
+
+      </article>
+
+
+      <article class="price-card reveal">
+
+        <span class="price-tag">
+          للمكاتب والشركات
+        </span>
+
+        <h3>
+          عقد سنوي
+        </h3>
+
+        <div class="price">
+          يُحدد
+          <small>حسب عدد الأجهزة</small>
+        </div>
+
+        <ul class="price-list">
+
           <li>زيارات دورية شهرية</li>
           <li>أولوية في مواعيد الطوارئ</li>
           <li>صيانة وقائية لكل الأجهزة</li>
           <li>تقرير حالة بعد كل زيارة</li>
+
         </ul>
-        <a href="#contact" class="btn btn-ghost btn-block">اطلب عرض سعر</a>
-      </div>
+
+        <a href="#booking"
+           class="btn btn-outline">
+          اطلب عرض سعر
+        </a>
+
+      </article>
+
     </div>
+
   </div>
+
 </section>
 
-<div class="testimonials" id="testimonials">
-  <div class="wrap section">
-    <div class="section-head reveal">
-      <div class="kicker mono">آراء العملاء</div>
-      <h2>ماذا يقول من جربنا</h2>
-    </div>
-    <div class="t-grid reveal">
-      <div class="t-card">
-        <p>"جهازي كان بطيء جدًا واعتقدت إني محتاج جهاز جديد. الفني وصل، شخّص المشكلة، وصار الجهاز يشتغل مثل الأول."</p>
-        <footer><span class="t-avatar">ف</span> أبو فهد، حي الكرادة</footer>
-      </div>
-      <div class="t-card">
-        <p>"استرجعوا لي ملفات مشروع تخرجي بعدما هيّأت الهارد بالغلط. ما كنت أتوقع إنها ترجع."</p>
-        <footer><span class="t-avatar">س</span> سارة، طالبة في جامعة بغداد</footer>
-      </div>
-      <div class="t-card">
-        <p>"عندنا عقد صيانة لأجهزة المكتب كلها. أي عطل يتحل بنفس اليوم، وما نحتاج نقلق على النسخ الاحتياطية."</p>
-        <footer><span class="t-avatar">د</span> شركة دجلة للمقاولات</footer>
-      </div>
-    </div>
-  </div>
-</div>
 
-<section class="section" id="contact">
-  <div class="wrap contact-grid">
-    <div class="contact-info">
-      <div class="kicker mono">تواصل معنا</div>
-      <h2>احجز زيارة الفني</h2>
-      <p style="color:var(--text-muted);max-width:420px;">عبّي النموذج وسنعاود الاتصال بك خلال ساعة لتحديد أقرب موعد متاح.</p>
-      <dl>
-        <dt>الهاتف والواتساب</dt>
-        <dd>07815685661</dd>
-        <dt>معتمدون</dt>
-        <dd>راسلنا</dd>
-        <dt>ساعات العمل</dt>
-        <dd>يوميًا 9:00 ص — 11:00 م</dd>
-        <dt>نطاق التغطية</dt>
-        <dd>النجف وضواحيها</dd>
-      </dl>
+<!-- =========================================================
+     LOCATION
+========================================================= -->
+
+<section class="section contact" id="contact">
+
+  <div class="container contact-grid">
+
+
+    <div class="contact-info reveal">
+
+      <div class="section-label">
+        موقعنا
+      </div>
+
+      <h2>
+        نخدمك في النجف وضواحيها
+      </h2>
+
+      <p>
+        إذا كنت داخل النجف وتحتاج فني كمبيوتر أو هواتف،
+        تواصل معنا وحدد موقعك وسنرتب معك أقرب موعد متاح.
+      </p>
+
+
+      <div class="contact-details">
+
+        <a href="tel:07815685661" class="contact-box">
+
+          <div class="contact-icon">☎</div>
+
+          <div>
+            <small>الهاتف</small>
+            <strong>07815685661</strong>
+          </div>
+
+        </a>
+
+
+        <a
+          id="whatsappContact"
+          class="contact-box"
+          href="#">
+
+          <div class="contact-icon">✆</div>
+
+          <div>
+            <small>واتساب</small>
+            <strong>راسلنا مباشرة</strong>
+          </div>
+
+        </a>
+
+
+        <div class="contact-box">
+
+          <div class="contact-icon">⌂</div>
+
+          <div>
+            <small>نطاق الخدمة</small>
+            <strong>النجف وضواحيها</strong>
+          </div>
+
+        </div>
+
+
+        <div class="contact-box">
+
+          <div class="contact-icon">◷</div>
+
+          <div>
+            <small>ساعات العمل</small>
+            <strong>يوميًا 9:00 ص — 11:00 م</strong>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
-    <form id="bookingForm">
-      <div class="field">
-        <label for="name">الاسم</label>
-        <input type="text" id="name" required placeholder="اسمك الكامل">
-      </div>
-      <div class="field">
-        <label for="phone">رقم الجوال</label>
-        <input type="tel" id="phone" required placeholder="07xxxxxxxxx">
-      </div>
-      <div class="field">
-        <label for="service">نوع الخدمة</label>
-        <select id="service">
-          <option>فحص وتنظيف</option>
-          <option>صيانة شاملة</option>
-          <option>استرجاع ملفات</option>
-          <option>إصلاح عطل كهربائي</option>
-          <option>تبديل شاشة هاتف</option>
-          <option>تبديل بطارية هاتف</option>
-          <option>عقد صيانة للمكاتب</option>
-          <option>غير ذلك</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="notes">وصف العطل</label>
-        <textarea id="notes" placeholder="اكتب وصف بسيط للمشكلة اللي تواجهك"></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">إرسال طلب الحجز</button>
-      <p class="form-msg" id="formMsg">تم استلام طلبك، سنتواصل معك قريبًا.</p>
-    </form>
+
+
+    <div class="map reveal">
+
+      <iframe
+        id="najafMap"
+        title="خريطة موقع النجف"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    </div>
+
   </div>
+
 </section>
 
-<div class="lux-cta">
-  <div class="wrap lux-cta-inner reveal">
-    <div class="kicker mono" style="justify-content:center;">جاهزون الآن</div>
-    <h2>جهازك يستحق فني يوصله اليوم، لا بعد أسبوع</h2>
-    <p>احجز الآن واحصل على فحص مجاني، وقرار واضح بالسعر قبل أي خطوة.</p>
-    <div class="actions">
-      <a href="#contact" class="btn btn-primary">احجز فني الآن</a>
-      <a href="tel:07815685661" class="btn btn-ghost">اتصل مباشرة</a>
-    </div>
-  </div>
-</div>
 
-<footer class="site">
-  <div class="wrap footer-grid">
-    <div class="logo">
-      <span class="logo-mark">
-        <svg viewBox="0 0 24 24" fill="none" stroke="url(#fpGrad2)" stroke-width="1.4" stroke-linecap="round">
-          <defs><linearGradient id="fpGrad2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F3CD87"/><stop offset="100%" stop-color="#C6862F"/></linearGradient></defs>
-          <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
-          <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
-          <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
-          <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
-          <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
-        </svg>
-      </span>
-      <span class="logo-name"><b>بصمة</b><small>للكمبيوتر والهواتف</small></span>
+<!-- =========================================================
+     BOOKING
+========================================================= -->
+
+<section class="section booking" id="booking">
+
+  <div class="container">
+
+    <div class="booking-card reveal">
+
+
+      <div class="booking-copy">
+
+        <div class="section-label">
+          احجز الآن
+        </div>
+
+        <h2>
+          أرسل طلبك مباشرة إلى واتساب
+        </h2>
+
+        <p>
+          اكتب بياناتك ووصف المشكلة، وبعد الضغط على إرسال
+          سيتم فتح واتساب تلقائيًا برسالة تحتوي على اسمك
+          ورقم هاتفك والخدمة ووصف العطل.
+        </p>
+
+
+        <div class="booking-note">
+
+          <span>✓</span>
+
+          <span>
+            لن يتم تخزين بيانات النموذج داخل الموقع.
+            الطلب ينتقل مباشرة إلى واتساب.
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <form class="form" id="bookingForm">
+
+
+        <div class="field">
+
+          <label for="name">
+            الاسم الكامل
+          </label>
+
+          <input
+            id="name"
+            type="text"
+            placeholder="اكتب اسمك"
+            autocomplete="name"
+            required>
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="phone">
+            رقم الهاتف
+          </label>
+
+          <input
+            id="phone"
+            type="tel"
+            inputmode="tel"
+            placeholder="07xxxxxxxxx"
+            autocomplete="tel"
+            required>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label for="service">
+            نوع الخدمة
+          </label>
+
+          <select id="service" required>
+
+            <option value="">
+              اختر الخدمة
+            </option>
+
+            <option>
+              فحص وتنظيف
+            </option>
+
+            <option>
+              صيانة شاملة
+            </option>
+
+            <option>
+              استرجاع ملفات
+            </option>
+
+            <option>
+              إصلاح عطل كهربائي
+            </option>
+
+            <option>
+              ترقية RAM / SSD
+            </option>
+
+            <option>
+              تبديل شاشة هاتف
+            </option>
+
+            <option>
+              تبديل بطارية هاتف
+            </option>
+
+            <option>
+              عقد صيانة للمكاتب
+            </option>
+
+            <option>
+              غير ذلك
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label for="notes">
+            وصف العطل
+          </label>
+
+          <textarea
+            id="notes"
+            placeholder="اكتب وصفًا بسيطًا للمشكلة..."></textarea>
+
+        </div>
+
+
+        <div class="form-submit">
+
+          <button
+            type="submit"
+            class="btn btn-primary">
+
+            إرسال الطلب إلى واتساب
+            <span>↗</span>
+
+          </button>
+
+        </div>
+
+      </form>
+
     </div>
-    <div class="footer-links">
-      <a href="#services">خدماتنا</a>
-      <a href="#pricing">الأسعار</a>
-      <a href="#contact">تواصل معنا</a>
-    </div>
-    <div class="footer-note">© 2026 تم تطوير الموقع من قبل التقني عقيل محمد.</div>
+
   </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+  <div class="container cta-content reveal">
+
+    <div class="section-label">
+      جاهزون لخدمتك
+    </div>
+
+    <h2>
+      لا تخلي عطل صغير يعطّل يومك
+    </h2>
+
+    <p>
+      احجز فني الآن وخلي التشخيص والخطوة القادمة علينا.
+    </p>
+
+    <div class="cta-buttons">
+
+      <a href="#booking"
+         class="btn btn-primary">
+        احجز فني الآن
+      </a>
+
+      <a href="tel:07815685661"
+         class="btn btn-outline">
+        07815685661
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-top">
+
+      <a href="#" class="logo">
+
+        <span class="logo-mark">
+
+          <svg viewBox="0 0 24 24"
+               fill="none"
+               stroke="url(#footerGradient)"
+               stroke-width="1.4"
+               stroke-linecap="round">
+
+            <defs>
+              <linearGradient id="footerGradient"
+                              x1="0" y1="0"
+                              x2="1" y2="1">
+
+                <stop offset="0%" stop-color="#F6D28E"/>
+                <stop offset="100%" stop-color="#B87524"/>
+
+              </linearGradient>
+            </defs>
+
+            <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
+            <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
+            <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
+            <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
+            <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
+
+          </svg>
+
+        </span>
+
+        <span class="logo-name">
+          <strong>بصمة</strong>
+          <small>للكمبيوتر والهواتف</small>
+        </span>
+
+      </a>
+
+
+      <nav class="footer-links">
+
+        <a href="#services">الخدمات</a>
+        <a href="#gallery">أعمالنا</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#contact">الموقع</a>
+        <a href="#booking">الحجز</a>
+
+      </nav>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 بصمة للكمبيوتر والهواتف — تم تطوير الموقع من قبل التقني عقيل محمد.
+    </div>
+
+  </div>
+
 </footer>
 
-<a class="float-wa" href="https://wa.me/9647815685661" aria-label="راسلنا على واتساب" title="واتساب">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="#0d1a17"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.9.53 3.68 1.44 5.2L2 22l4.94-1.42A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.65 0-3.2-.46-4.52-1.26l-.32-.19-3.02.87.88-2.94-.21-.33A7.93 7.93 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.29-5.7c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z"/></svg>
+
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+
+<a
+  id="floatingWhatsapp"
+  class="whatsapp"
+  href="#"
+  aria-label="راسلنا على واتساب"
+  title="واتساب">
+
+  <svg width="27"
+       height="27"
+       viewBox="0 0 24 24"
+       fill="currentColor">
+
+    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.9.53 3.68 1.44 5.2L2 22l4.94-1.42A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.65 0-3.2-.46-4.52-1.26l-.32-.19-3.02.87.88-2.94-.21-.33A7.93 7.93 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.29-5.7c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z"/>
+
+  </svg>
+
 </a>
 
+
+<!-- =========================================================
+     SUCCESS MODAL
+========================================================= -->
+
+<div class="success-modal" id="successModal">
+
+  <div class="success-box">
+
+    <div class="success-icon">
+
+      <svg width="30"
+           height="30"
+           viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="2">
+
+        <path d="M5 12l4 4L19 6"/>
+
+      </svg>
+
+    </div>
+
+    <h3>
+      تم تجهيز طلبك بنجاح
+    </h3>
+
+    <p>
+      سيتم فتح واتساب الآن برسالة الحجز الخاصة بك.
+      أرسل الرسالة لإكمال الطلب.
+    </p>
+
+    <button
+      class="btn btn-primary"
+      id="closeSuccess"
+      style="width:100%">
+
+      حسنًا
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
 <script>
-  document.getElementById('bookingForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    document.getElementById('formMsg').style.display = 'block';
-    this.reset();
+
+  /* =========================================================
+     BASIC SETTINGS
+  ========================================================= */
+
+  const CONFIG = {
+
+    /*
+      رقم واتساب بصيغة دولية بدون +
+      العراق = 964
+      الرقم الحالي = 7815685661
+    */
+    whatsappNumber: "9647815685661",
+
+    phoneNumber: "07815685661",
+
+    /*
+      صور Unsplash.
+      يتم تركيب الرابط برمجيًا حتى تستطيع تغيير الصور
+      من مكان واحد فقط.
+    */
+
+    photos: {
+
+      "laptop-cleaning":
+        "photo-1593642702821-c8da6771f0c6",
+
+      "laptop-repair":
+        "photo-1588872657578-7efd1f1555ed",
+
+      "data-recovery":
+        "photo-1558494949-ef010cbdcc31",
+
+      "computer-components":
+        "photo-1591799264318-7e6ef8ddb7ea",
+
+      "motherboard":
+        "photo-1518770660439-4636190af475",
+
+      "technician":
+        "photo-1517336714731-489689fd1ca8",
+
+      "phone-repair":
+        "photo-1511707171634-5f897ff02aa9",
+
+      "phone-battery":
+        "photo-1592286927505-1def25115558"
+
+    },
+
+    gallery: {
+
+      1:"photo-1593642632559-0c6d3fc62b89",
+      2:"photo-1591488320449-011701bb6704",
+      3:"photo-1496181133206-80ce9b88a853",
+      4:"photo-1511707171634-5f897ff02aa9",
+      5:"photo-1518770660439-4636190af475"
+
+    }
+
+  };
+
+
+  /* =========================================================
+     CREATE IMAGE URLS
+  ========================================================= */
+
+  function imageUrl(id){
+
+    const base = [
+      "https://",
+      "images.unsplash.com/",
+      id
+    ].join("");
+
+    return base +
+      "?auto=format&fit=crop&w=900&q=78";
+  }
+
+
+  /* =========================================================
+     LOAD SERVICE IMAGES
+  ========================================================= */
+
+  document
+    .querySelectorAll("[data-photo]")
+    .forEach(img => {
+
+      const key = img.dataset.photo;
+
+      if(CONFIG.photos[key]){
+
+        img.src = imageUrl(CONFIG.photos[key]);
+
+      }
+
+    });
+
+
+  /* =========================================================
+     LOAD GALLERY IMAGES
+  ========================================================= */
+
+  document
+    .querySelectorAll("[data-gallery]")
+    .forEach(img => {
+
+      const key = img.dataset.gallery;
+
+      if(CONFIG.gallery[key]){
+
+        img.src = imageUrl(CONFIG.gallery[key]);
+
+      }
+
+    });
+
+
+  /* =========================================================
+     WHATSAPP LINKS
+  ========================================================= */
+
+  const whatsappBase = [
+    "https://",
+    "wa.me/"
+  ].join("");
+
+  const whatsappUrl =
+    whatsappBase + CONFIG.whatsappNumber;
+
+
+  document
+    .getElementById("floatingWhatsapp")
+    .href = whatsappUrl;
+
+
+  document
+    .getElementById("whatsappContact")
+    .href = whatsappUrl;
+
+
+  /* =========================================================
+     MOBILE MENU
+  ========================================================= */
+
+  const menuToggle =
+    document.getElementById("menuToggle");
+
+  const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+  menuToggle.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("open");
+    document.body.classList.toggle(
+      "menu-open"
+    );
+
   });
 
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
+
+  document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("open");
+        document.body.classList.remove("menu-open");
+
+      });
+
     });
-  },{threshold:0.15});
-  revealEls.forEach(el=>observer.observe(el));
+
+
+  /* =========================================================
+     BOOKING FORM
+  ========================================================= */
+
+  const bookingForm =
+    document.getElementById("bookingForm");
+
+  const successModal =
+    document.getElementById("successModal");
+
+  const closeSuccess =
+    document.getElementById("closeSuccess");
+
+
+  bookingForm.addEventListener(
+    "submit",
+    function(event){
+
+      event.preventDefault();
+
+
+      const name =
+        document.getElementById("name")
+        .value
+        .trim();
+
+      const phone =
+        document.getElementById("phone")
+        .value
+        .trim();
+
+      const service =
+        document.getElementById("service")
+        .value
+        .trim();
+
+      const notes =
+        document.getElementById("notes")
+        .value
+        .trim();
+
+
+      if(!name || !phone || !service){
+
+        alert(
+          "يرجى تعبئة الاسم ورقم الهاتف ونوع الخدمة."
+        );
+
+        return;
+
+      }
+
+
+      const message =
+
+`السلام عليكم، أريد حجز خدمة من موقع بصمة.
+
+👤 الاسم: ${name}
+
+📞 الهاتف: ${phone}
+
+🔧 الخدمة: ${service}
+
+📝 وصف العطل:
+${notes || "لم يتم ذكر وصف للعطل"}
+
+📍 المنطقة: النجف
+
+أرجو التواصل معي لتحديد الموعد المناسب.`;
+
+
+
+      const encodedMessage =
+        encodeURIComponent(message);
+
+
+      const finalWhatsappUrl =
+        whatsappBase +
+        CONFIG.whatsappNumber +
+        "?text=" +
+        encodedMessage;
+
+
+      /*
+        نعرض رسالة نجاح أولًا
+      */
+
+      successModal.classList.add("show");
+
+
+      /*
+        ثم نفتح واتساب
+      */
+
+      setTimeout(() => {
+
+        window.open(
+          finalWhatsappUrl,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+      }, 500);
+
+
+      bookingForm.reset();
+
+    }
+  );
+
+
+  /* =========================================================
+     CLOSE SUCCESS
+  ========================================================= */
+
+  closeSuccess.addEventListener(
+    "click",
+    () => {
+
+      successModal.classList.remove("show");
+
+    }
+  );
+
+
+  successModal.addEventListener(
+    "click",
+    event => {
+
+      if(event.target === successModal){
+
+        successModal.classList.remove("show");
+
+      }
+
+    }
+  );
+
+
+  /* =========================================================
+     NAJAF MAP
+  ========================================================= */
+
+  const map = document.getElementById("najafMap");
+
+
+  /*
+    خريطة OpenStreetMap للنجف.
+    يتم تركيب الرابط برمجيًا.
+  */
+
+  const mapBase = [
+    "https://",
+    "www.openstreetmap.org/export/embed.html?"
+  ].join("");
+
+
+  map.src =
+    mapBase +
+    "bbox=44.25%2C31.88%2C44.45%2C32.10" +
+    "&layer=mapnik" +
+    "&marker=32.0000%2C44.3300";
+
+
+  /* =========================================================
+     SCROLL REVEAL
+  ========================================================= */
+
+  const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+  const observer =
+    new IntersectionObserver(
+
+      entries => {
+
+        entries.forEach(entry => {
+
+          if(entry.isIntersecting){
+
+            entry.target.classList.add(
+              "visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold:.12
+      }
+
+    );
+
+
+  revealElements.forEach(
+    element =>
+      observer.observe(element)
+  );
+
+
+  /* =========================================================
+     LOADER
+  ========================================================= */
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      setTimeout(() => {
+
+        document
+          .getElementById("loader")
+          .classList.add("hidden");
+
+      }, 500);
+
+    }
+  );
+
+
+  /* =========================================================
+     PHONE NUMBER NORMALIZATION
+  ========================================================= */
+
+  document
+    .getElementById("phone")
+    .addEventListener(
+      "input",
+      function(){
+
+        /*
+          السماح بالأرقام العربية والإنجليزية
+        */
+
+        this.value =
+          this.value
+            .replace(/[^\d٠-٩+]/g,"");
+
+      }
+    );
+
+
+  /* =========================================================
+     PREVENT EMPTY ANCHOR JUMP
+  ========================================================= */
+
+  document
+    .querySelectorAll('a[href="#"]')
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        event => event.preventDefault()
+      );
+
+    });
+
+</script>
+
+
+<!-- =========================================================
+     SEO STRUCTURED DATA
+========================================================= -->
+
+<script type="application/ld+json">
+
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+
+  "name":"بصمة للكمبيوتر والهواتف",
+
+  "description":
+    "خدمات صيانة الكمبيوتر واللابتوب والهواتف في النجف.",
+
+  "telephone":"+9647815685661",
+
+  "areaServed":{
+    "@type":"City",
+    "name":"Najaf"
+  },
+
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Najaf",
+    "addressCountry":"IQ"
+  },
+
+  "openingHoursSpecification":{
+    "@type":"OpeningHoursSpecification",
+    "dayOfWeek":[
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens":"09:00",
+    "closes":"23:00"
+  },
+
+  "priceRange":"25,000 - 40,000 IQD"
+
+}
+
 </script>
 
 </body>
 </html>
+```
