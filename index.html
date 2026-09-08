@@ -1,4012 +1,1463 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>بصمة للكمبيوتر والهواتف | النجف</title>
 
-  <meta name="theme-color" content="#0b1118">
-  <meta name="color-scheme" content="dark">
+<meta name="description"
+content="بصمة للكمبيوتر والهواتف في النجف - صيانة الكمبيوتر واللابتوب والهواتف، تركيب SSD ورام، تبديل الشاشات والبطاريات وخدمات الصيانة.">
 
-  <title>بصمة للكمبيوتر والهواتف | صيانة أجهزة في النجف</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <meta name="description"
-        content="بصمة لصيانة الكمبيوتر والهواتف في النجف. صيانة لابتوبات، تبديل شاشات وبطاريات، تركيب SSD ورام، تنظيف وتسريع الأجهزة واسترجاع الملفات. خدمة منزلية ومكتبية.">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
 
-  <meta name="keywords"
-        content="صيانة كمبيوتر النجف, صيانة لابتوب النجف, صيانة هواتف النجف, تبديل شاشة, تبديل بطارية, SSD, رام, استرجاع ملفات, فني كمبيوتر النجف">
+<style>
 
-  <meta name="author" content="بصمة للكمبيوتر والهواتف">
+/* =========================
+   BASIC
+========================= */
 
-  <meta property="og:title"
-        content="بصمة للكمبيوتر والهواتف | صيانة في النجف">
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-  <meta property="og:description"
-        content="فني صيانة كمبيوتر وهواتف يصل إلى موقعك في النجف.">
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:80px;
+}
 
-  <meta property="og:type" content="website">
+body{
+    font-family:"Tajawal",sans-serif;
+    background:#070b10;
+    color:#f5f5f5;
+    overflow-x:hidden;
+}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap"
-        rel="stylesheet">
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
 
-  <style>
+.container{
+    width:min(1150px,calc(100% - 35px));
+    margin:auto;
+}
 
-    /* =========================================================
-       ROOT
-    ========================================================= */
 
-    :root{
-      --bg:#080d12;
-      --bg-2:#0c131b;
-      --surface:#111923;
-      --surface-2:#17212c;
+/* =========================
+   HEADER
+========================= */
 
-      --gold:#e6a23c;
-      --gold-light:#f6d28e;
-      --gold-dark:#b87524;
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(7,11,16,.90);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+}
 
-      --teal:#36b8a7;
-      --teal-light:#65d5c5;
+.nav{
+    min-height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
 
-      --text:#f2f0ea;
-      --muted:#8d98a5;
-      --muted-2:#66727f;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
 
-      --border:rgba(255,255,255,.09);
-      --border-gold:rgba(230,162,60,.35);
+.logo-icon{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    border:1px solid #dca33b;
+    color:#e9b85c;
+    font-size:22px;
+    box-shadow:0 0 25px rgba(230,162,60,.15);
+}
 
-      --radius:18px;
-      --shadow:0 25px 80px rgba(0,0,0,.38);
+.logo strong{
+    display:block;
+    font-size:19px;
+}
 
-      --container:1180px;
+.logo small{
+    color:#89939d;
+    font-size:11px;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    color:#9aa4ae;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#e9b85c;
+}
+
+.phone{
+    border:1px solid rgba(54,184,167,.3);
+    color:#65d5c5;
+    padding:9px 14px;
+    border-radius:10px;
+    font-size:13px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:calc(100vh - 75px);
+    padding:65px 0 90px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:radial-gradient(circle at center,#000,transparent 75%);
+}
+
+.hero-grid{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:60px;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 13px;
+    border:1px solid rgba(230,162,60,.3);
+    background:rgba(230,162,60,.06);
+    color:#f2cb88;
+    border-radius:50px;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(42px,5vw,70px);
+    line-height:1.25;
+    margin-bottom:20px;
+    font-weight:900;
+}
+
+.hero h1 span{
+    color:#e6a23c;
+}
+
+.hero p{
+    color:#929ca7;
+    line-height:2;
+    font-size:17px;
+    max-width:580px;
+    margin-bottom:30px;
+}
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 23px;
+    border-radius:10px;
+    font-weight:800;
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#f5d18e,#b87524);
+    color:#171007;
+    box-shadow:0 15px 40px rgba(230,162,60,.18);
+}
+
+.btn-outline{
+    border:1px solid rgba(255,255,255,.1);
+    background:rgba(255,255,255,.03);
+}
+
+.btn-outline:hover{
+    border-color:#e6a23c;
+    color:#e6a23c;
+}
+
+
+/* =========================
+   GAMING LAPTOP + PC
+========================= */
+
+.gaming-devices{
+    position:relative;
+    min-height:540px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.device-glow{
+    position:absolute;
+    width:420px;
+    height:320px;
+    border-radius:50%;
+    background:rgba(230,162,60,.12);
+    filter:blur(80px);
+}
+
+.devices-wrap{
+    position:relative;
+    width:100%;
+    max-width:570px;
+}
+
+.real-laptop{
+    position:relative;
+    z-index:2;
+    width:90%;
+    margin:auto;
+    border-radius:15px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.15);
+    background:#111820;
+    box-shadow:
+        0 35px 70px rgba(0,0,0,.6),
+        0 0 40px rgba(54,184,167,.08);
+    transform:perspective(1000px) rotateY(-5deg);
+    animation:floatLaptop 5s ease-in-out infinite;
+}
+
+.real-laptop img{
+    display:block;
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+}
+
+.laptop-title{
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    background:rgba(0,0,0,.75);
+    padding:8px 13px;
+    border-radius:8px;
+    font-size:11px;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.real-case{
+    position:absolute;
+    left:-15px;
+    bottom:-35px;
+    width:210px;
+    z-index:3;
+    border-radius:15px;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.65),
+        0 0 35px rgba(54,184,167,.15);
+    animation:floatCase 4.5s ease-in-out infinite;
+}
+
+.real-case img{
+    display:block;
+    width:100%;
+    height:245px;
+    object-fit:cover;
+}
+
+.case-title{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    text-align:center;
+    padding:7px;
+    background:rgba(0,0,0,.78);
+    border-radius:7px;
+    font-size:10px;
+}
+
+.device-label{
+    position:absolute;
+    right:-5px;
+    top:-20px;
+    z-index:4;
+    background:rgba(10,15,21,.92);
+    border:1px solid rgba(230,162,60,.3);
+    color:#f3cc89;
+    border-radius:12px;
+    padding:12px 15px;
+    font-size:11px;
+    box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.rgb-ring{
+    position:absolute;
+    width:270px;
+    height:270px;
+    border-radius:50%;
+    border:2px solid transparent;
+    border-top-color:#ff4da6;
+    border-right-color:#5df4ff;
+    border-bottom-color:#8a5cff;
+    border-left-color:#51ff91;
+    filter:blur(.2px);
+    opacity:.5;
+    animation:rotate 7s linear infinite;
+}
+
+@keyframes floatLaptop{
+    0%,100%{
+        transform:perspective(1000px) rotateY(-5deg) translateY(0);
     }
-
-    /* =========================================================
-       RESET
-    ========================================================= */
-
-    *,
-    *::before,
-    *::after{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+    50%{
+        transform:perspective(1000px) rotateY(-5deg) translateY(-12px);
     }
+}
 
-    html{
-      scroll-behavior:smooth;
-      scroll-padding-top:90px;
+@keyframes floatCase{
+    0%,100%{
+        transform:translateY(0);
     }
-
-    body{
-      background:
-        radial-gradient(
-          circle at 10% -10%,
-          rgba(230,162,60,.13),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 100% 15%,
-          rgba(54,184,167,.09),
-          transparent 30%
-        ),
-        var(--bg);
-
-      color:var(--text);
-      font-family:'IBM Plex Sans Arabic','Tajawal',sans-serif;
-      line-height:1.75;
-      overflow-x:hidden;
+    50%{
+        transform:translateY(-10px);
     }
+}
 
-    body.menu-open{
-      overflow:hidden;
+@keyframes rotate{
+    to{
+        transform:rotate(360deg);
     }
+}
 
-    ::selection{
-      background:var(--gold);
-      color:#111;
-    }
 
-    img{
-      display:block;
-      width:100%;
-      max-width:100%;
-    }
+/* =========================
+   STATS
+========================= */
 
-    a{
-      color:inherit;
-      text-decoration:none;
-    }
+.stats{
+    border-top:1px solid rgba(255,255,255,.07);
+    border-bottom:1px solid rgba(255,255,255,.07);
+    background:rgba(255,255,255,.015);
+}
 
-    button,
-    input,
-    textarea,
-    select{
-      font:inherit;
-    }
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
 
-    button{
-      cursor:pointer;
-    }
+.stat{
+    padding:25px;
+    text-align:center;
+    border-left:1px solid rgba(255,255,255,.07);
+}
 
-    .container{
-      width:min(var(--container), calc(100% - 40px));
-      margin-inline:auto;
-    }
+.stat:last-child{
+    border-left:0;
+}
 
-    .section{
-      padding:110px 0;
-    }
+.stat strong{
+    display:block;
+    color:#65d5c5;
+    font-size:23px;
+}
 
-    /* =========================================================
-       LOADING SCREEN
-    ========================================================= */
+.stat span{
+    color:#87919b;
+    font-size:12px;
+}
 
-    .loader{
-      position:fixed;
-      inset:0;
-      z-index:9999;
-      background:#070b10;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:opacity .6s ease, visibility .6s ease;
-    }
 
-    .loader.hidden{
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-    }
+/* =========================
+   SECTIONS
+========================= */
 
-    .loader-inner{
-      text-align:center;
-    }
+.section{
+    padding:100px 0;
+}
 
-    .loader-logo{
-      width:70px;
-      height:70px;
-      margin:0 auto 20px;
-      border-radius:50%;
-      border:1px solid rgba(230,162,60,.5);
-      display:grid;
-      place-items:center;
-      color:var(--gold);
-      box-shadow:
-        0 0 0 8px rgba(230,162,60,.05),
-        0 0 45px rgba(230,162,60,.16);
-      animation:pulse 1.8s infinite;
-    }
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
 
-    .loader-logo svg{
-      width:34px;
-      height:34px;
-    }
+.section-title small{
+    color:#e6a23c;
+    font-size:12px;
+}
 
-    .loader-title{
-      font-family:'Amiri',serif;
-      font-size:28px;
-      color:var(--text);
-    }
+.section-title h2{
+    font-size:40px;
+    margin:8px 0;
+}
 
-    .loader-line{
-      width:150px;
-      height:2px;
-      background:rgba(255,255,255,.08);
-      margin:14px auto 0;
-      overflow:hidden;
-    }
+.section-title p{
+    color:#8d98a5;
+}
 
-    .loader-line::after{
-      content:"";
-      display:block;
-      width:45%;
-      height:100%;
-      background:var(--gold);
-      animation:loading 1.2s infinite ease-in-out;
-    }
 
-    @keyframes loading{
-      0%{transform:translateX(250%);}
-      100%{transform:translateX(-250%);}
-    }
+/* =========================
+   SERVICES
+========================= */
 
-    @keyframes pulse{
-      50%{
-        transform:scale(1.05);
-        box-shadow:
-          0 0 0 12px rgba(230,162,60,.03),
-          0 0 55px rgba(230,162,60,.22);
-      }
-    }
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
 
-    /* =========================================================
-       HEADER
-    ========================================================= */
+.service{
+    background:#111923;
+    border:1px solid rgba(255,255,255,.08);
+    padding:28px 20px;
+    border-radius:15px;
+    transition:.3s;
+}
 
-    header{
-      position:sticky;
-      top:0;
-      z-index:1000;
+.service:hover{
+    transform:translateY(-7px);
+    border-color:rgba(230,162,60,.35);
+}
 
-      background:rgba(8,13,18,.84);
-      border-bottom:1px solid var(--border);
+.service-icon{
+    font-size:30px;
+    margin-bottom:15px;
+}
 
-      backdrop-filter:blur(18px);
-      -webkit-backdrop-filter:blur(18px);
-    }
+.service h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
 
-    .nav{
-      min-height:78px;
+.service p{
+    color:#84909b;
+    font-size:13px;
+    line-height:1.9;
+}
 
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:30px;
-    }
 
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-shrink:0;
-    }
+/* =========================
+   MAP
+========================= */
 
-    .logo-mark{
-      width:44px;
-      height:44px;
-      border-radius:50%;
+.location-box{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    align-items:center;
+}
 
-      display:grid;
-      place-items:center;
+.location-info{
+    background:#111923;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:35px;
+}
 
-      background:
-        linear-gradient(var(--bg),var(--bg)) padding-box,
-        linear-gradient(135deg,var(--gold-light),var(--gold-dark)) border-box;
+.location-info h2{
+    margin-bottom:15px;
+    font-size:32px;
+}
 
-      border:1.5px solid transparent;
+.location-info p{
+    color:#8d98a5;
+    line-height:2;
+    margin-bottom:20px;
+}
 
-      box-shadow:
-        0 0 0 4px rgba(230,162,60,.05),
-        0 8px 30px rgba(230,162,60,.12);
-    }
+.map{
+    width:100%;
+    height:400px;
+    border:0;
+    border-radius:18px;
+}
 
-    .logo-mark svg{
-      width:24px;
-      height:24px;
-    }
+.location-link{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+    padding:13px;
+    border-radius:10px;
+    background:rgba(230,162,60,.08);
+    border:1px solid rgba(230,162,60,.25);
+    color:#f0c77e;
+}
 
-    .logo-name{
-      display:flex;
-      flex-direction:column;
-      line-height:1.1;
-    }
+.location-link:hover{
+    background:rgba(230,162,60,.15);
+}
 
-    .logo-name strong{
-      font-size:19px;
-      font-weight:900;
-    }
 
-    .logo-name small{
-      color:var(--muted);
-      font-size:10px;
-      margin-top:4px;
-    }
+/* =========================
+   BOOKING
+========================= */
+
+.booking{
+    background:
+        radial-gradient(circle at 50% 0,rgba(230,162,60,.07),transparent 40%);
+}
+
+.booking-box{
+    max-width:850px;
+    margin:auto;
+    background:#111923;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 25px 70px rgba(0,0,0,.3);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+.field label{
+    color:#b9c0c7;
+    font-size:13px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    border:1px solid rgba(255,255,255,.09);
+    background:#0b1118;
+    color:#fff;
+    border-radius:10px;
+    padding:13px 14px;
+    outline:none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    border-color:#e6a23c;
+}
+
+.field select option{
+    background:#111923;
+    color:#fff;
+}
+
+.field textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.submit{
+    width:100%;
+    border:0;
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:900;
+    background:linear-gradient(135deg,#f5d18e,#b87524);
+    color:#171007;
+    cursor:pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:35px 0;
+    border-top:1px solid rgba(255,255,255,.07);
+    text-align:center;
+    color:#727d88;
+    font-size:13px;
+}
+
+footer strong{
+    color:#e6a23c;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
 
     .nav-links{
-      display:flex;
-      align-items:center;
-      gap:28px;
-      margin-inline-start:auto;
+        display:none;
     }
-
-    .nav-links a{
-      position:relative;
-      color:var(--muted);
-      font-size:14px;
-      transition:.25s ease;
-    }
-
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      right:0;
-      bottom:-8px;
-      width:0;
-      height:2px;
-      background:var(--gold);
-      transition:.25s ease;
-    }
-
-    .nav-links a:hover{
-      color:var(--text);
-    }
-
-    .nav-links a:hover::after{
-      width:100%;
-    }
-
-    .nav-actions{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .phone-btn{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 15px;
-      border:1px solid var(--border);
-      border-radius:10px;
-      color:var(--teal-light);
-      font-family:'IBM Plex Mono',monospace;
-      font-size:12px;
-      transition:.25s ease;
-    }
-
-    .phone-btn:hover{
-      border-color:var(--teal);
-      background:rgba(54,184,167,.06);
-    }
-
-    .menu-toggle{
-      display:none;
-
-      width:44px;
-      height:44px;
-
-      border:1px solid var(--border);
-      background:var(--surface);
-      color:var(--text);
-      border-radius:10px;
-    }
-
-    /* Mobile menu */
-
-    .mobile-menu{
-      position:fixed;
-      top:78px;
-      right:0;
-      left:0;
-
-      background:rgba(8,13,18,.97);
-      border-bottom:1px solid var(--border);
-
-      padding:20px;
-
-      transform:translateY(-130%);
-      opacity:0;
-      pointer-events:none;
-
-      transition:.3s ease;
-      z-index:999;
-    }
-
-    .mobile-menu.open{
-      transform:translateY(0);
-      opacity:1;
-      pointer-events:auto;
-    }
-
-    .mobile-menu a{
-      display:block;
-      padding:14px;
-      border-bottom:1px solid var(--border);
-      color:var(--muted);
-    }
-
-    .mobile-menu a:last-child{
-      border-bottom:0;
-    }
-
-    /* =========================================================
-       HERO
-    ========================================================= */
 
     .hero{
-      position:relative;
-      min-height:calc(100vh - 78px);
-      display:flex;
-      align-items:center;
-
-      padding:80px 0 100px;
-
-      overflow:hidden;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
-
-      background-size:70px 70px;
-
-      mask-image:radial-gradient(
-        ellipse at center,
-        black 0%,
-        transparent 72%
-      );
-
-      pointer-events:none;
-    }
-
-    .hero-glow{
-      position:absolute;
-      width:600px;
-      height:600px;
-      border-radius:50%;
-
-      background:rgba(230,162,60,.09);
-      filter:blur(100px);
-
-      left:-250px;
-      top:100px;
-      pointer-events:none;
+        padding-top:45px;
     }
 
     .hero-grid{
-      position:relative;
-      z-index:2;
-
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      align-items:center;
-
-      gap:70px;
+        grid-template-columns:1fr;
+        text-align:center;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-
-      color:var(--gold-light);
-      font-family:'IBM Plex Mono',monospace;
-      font-size:12px;
-
-      padding:7px 12px;
-      border:1px solid rgba(230,162,60,.22);
-      background:rgba(230,162,60,.05);
-      border-radius:100px;
-
-      margin-bottom:22px;
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
     }
 
-    .eyebrow::before{
-      content:"";
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:var(--teal);
-      box-shadow:0 0 0 5px rgba(54,184,167,.1);
+    .buttons{
+        justify-content:center;
     }
 
-    .hero h1{
-      font-family:'Amiri',serif;
-      font-size:clamp(42px,5.2vw,72px);
-      line-height:1.22;
-      letter-spacing:-1px;
-      margin-bottom:24px;
+    .gaming-devices{
+        min-height:440px;
+        margin-top:10px;
     }
 
-    .hero h1 span{
-      color:var(--gold);
-      position:relative;
+    .real-case{
+        width:155px;
+        left:0;
+        bottom:-20px;
     }
 
-    .hero-description{
-      max-width:590px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:2;
-      margin-bottom:34px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:13px;
-      margin-bottom:38px;
-    }
-
-    .btn{
-      min-height:50px;
-
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:9px;
-
-      padding:12px 22px;
-
-      border-radius:10px;
-      border:1px solid transparent;
-
-      font-weight:700;
-      font-size:14px;
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease,
-        border-color .2s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-3px);
-    }
-
-    .btn-primary{
-      color:#171007;
-      background:linear-gradient(
-        135deg,
-        var(--gold-light),
-        var(--gold-dark)
-      );
-
-      box-shadow:
-        0 15px 40px rgba(230,162,60,.2);
-    }
-
-    .btn-primary:hover{
-      box-shadow:
-        0 18px 45px rgba(230,162,60,.32);
-    }
-
-    .btn-outline{
-      border-color:var(--border);
-      background:rgba(255,255,255,.025);
-      color:var(--text);
-    }
-
-    .btn-outline:hover{
-      border-color:var(--gold);
-      color:var(--gold-light);
-    }
-
-    .hero-stats{
-      display:flex;
-      flex-wrap:wrap;
-      gap:28px;
-    }
-
-    .hero-stat{
-      padding-inline-start:15px;
-      border-inline-start:2px solid var(--gold);
-    }
-
-    .hero-stat strong{
-      display:block;
-      font-family:'IBM Plex Mono',monospace;
-      color:var(--teal-light);
-      font-size:23px;
-    }
-
-    .hero-stat span{
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    /* =========================================================
-       REALISTIC LAPTOP
-    ========================================================= */
-
-    .hero-device{
-      position:relative;
-      min-height:540px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      perspective:1300px;
-    }
-
-    .device-glow{
-      position:absolute;
-      width:390px;
-      height:260px;
-
-      background:rgba(230,162,60,.13);
-      filter:blur(80px);
-      border-radius:50%;
-    }
-
-    .laptop{
-      position:relative;
-      width:min(560px,100%);
-      transform:rotateX(3deg) rotateY(-8deg);
-      transform-style:preserve-3d;
-
-      animation:laptopFloat 5s ease-in-out infinite;
-    }
-
-    @keyframes laptopFloat{
-      0%,100%{
-        transform:
-          translateY(0)
-          rotateX(3deg)
-          rotateY(-8deg);
-      }
-
-      50%{
-        transform:
-          translateY(-13px)
-          rotateX(3deg)
-          rotateY(-8deg);
-      }
-    }
-
-    .laptop-screen{
-      position:relative;
-      width:76%;
-      aspect-ratio:16/10;
-
-      margin:auto;
-
-      padding:10px;
-
-      background:#070a0e;
-
-      border:1px solid #394451;
-      border-radius:14px 14px 5px 5px;
-
-      box-shadow:
-        0 30px 60px rgba(0,0,0,.5),
-        inset 0 0 0 2px rgba(255,255,255,.025);
-    }
-
-    .laptop-camera{
-      position:absolute;
-      top:5px;
-      left:50%;
-      transform:translateX(-50%);
-
-      width:4px;
-      height:4px;
-
-      border-radius:50%;
-      background:#222b34;
-    }
-
-    .screen-display{
-      position:relative;
-      height:100%;
-      overflow:hidden;
-
-      border-radius:6px;
-
-      background:
-        radial-gradient(
-          circle at 60% 35%,
-          rgba(54,184,167,.2),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #121b25,
-          #070b10
-        );
-
-      border:1px solid rgba(255,255,255,.05);
-    }
-
-    .screen-grid{
-      position:absolute;
-      inset:0;
-
-      background-image:
-        linear-gradient(rgba(54,184,167,.07) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(54,184,167,.07) 1px,transparent 1px);
-
-      background-size:28px 28px;
-    }
-
-    .screen-content{
-      position:absolute;
-      inset:0;
-
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-
-      padding:35px;
-    }
-
-    .screen-logo{
-      color:var(--gold);
-      font-family:'Amiri',serif;
-      font-size:30px;
-      margin-bottom:5px;
-    }
-
-    .screen-line{
-      height:6px;
-      border-radius:20px;
-      background:#26323e;
-      margin:6px 0;
-    }
-
-    .screen-line.short{
-      width:45%;
-    }
-
-    .screen-line.medium{
-      width:65%;
-    }
-
-    .screen-status{
-      display:flex;
-      align-items:center;
-      gap:8px;
-
-      margin-top:20px;
-
-      color:var(--teal-light);
-      font-size:10px;
-      font-family:'IBM Plex Mono',monospace;
-    }
-
-    .status-dot{
-      width:6px;
-      height:6px;
-      background:var(--teal);
-      border-radius:50%;
-      box-shadow:0 0 10px var(--teal);
-    }
-
-    .laptop-base{
-      position:relative;
-
-      width:100%;
-      height:30px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #303a45,
-          #121820
-        );
-
-      border-radius:3px 3px 18px 18px;
-
-      box-shadow:
-        0 25px 35px rgba(0,0,0,.5);
-    }
-
-    .laptop-base::before{
-      content:"";
-      position:absolute;
-
-      width:150px;
-      height:5px;
-
-      left:50%;
-      top:5px;
-
-      transform:translateX(-50%);
-
-      background:#0a0f14;
-      border-radius:0 0 8px 8px;
-    }
-
-    .laptop-base::after{
-      content:"";
-      position:absolute;
-
-      left:-4%;
-      right:-4%;
-      bottom:-9px;
-
-      height:10px;
-
-      background:#0c1117;
-      clip-path:polygon(
-        4% 0,
-        96% 0,
-        100% 100%,
-        0 100%
-      );
-    }
-
-    /* Floating computer components */
-
-    .hardware{
-      position:absolute;
-
-      padding:13px 16px;
-
-      background:rgba(14,21,29,.9);
-      border:1px solid var(--border);
-
-      border-radius:12px;
-
-      box-shadow:var(--shadow);
-
-      backdrop-filter:blur(10px);
-
-      z-index:5;
-    }
-
-    .hardware-icon{
-      width:38px;
-      height:38px;
-
-      display:grid;
-      place-items:center;
-
-      margin-bottom:7px;
-
-      border-radius:9px;
-
-      color:var(--gold);
-      background:rgba(230,162,60,.08);
-      border:1px solid rgba(230,162,60,.18);
-    }
-
-    .hardware strong{
-      display:block;
-      font-size:12px;
-    }
-
-    .hardware span{
-      display:block;
-      color:var(--muted);
-      font-size:10px;
-      margin-top:2px;
-    }
-
-    .hardware-ram{
-      right:-15px;
-      top:70px;
-      animation:hardware1 4s ease-in-out infinite;
-    }
-
-    .hardware-ssd{
-      left:-10px;
-      bottom:125px;
-      animation:hardware2 4.5s ease-in-out infinite;
-    }
-
-    .hardware-cpu{
-      right:25px;
-      bottom:40px;
-      animation:hardware3 5s ease-in-out infinite;
-    }
-
-    @keyframes hardware1{
-      50%{transform:translateY(-10px);}
-    }
-
-    @keyframes hardware2{
-      50%{transform:translateY(9px);}
-    }
-
-    @keyframes hardware3{
-      50%{transform:translateY(-7px);}
-    }
-
-    /* =========================================================
-       TRUST BAR
-    ========================================================= */
-
-    .trust{
-      border-block:1px solid var(--border);
-      background:rgba(255,255,255,.018);
-    }
-
-    .trust-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-    }
-
-    .trust-item{
-      display:flex;
-      align-items:center;
-      gap:13px;
-
-      padding:22px;
-
-      border-inline-start:1px solid var(--border);
-    }
-
-    .trust-item:first-child{
-      border-inline-start:0;
-    }
-
-    .trust-icon{
-      color:var(--gold);
-      flex-shrink:0;
-    }
-
-    .trust-item strong{
-      display:block;
-      font-size:13px;
-    }
-
-    .trust-item span{
-      color:var(--muted);
-      font-size:11px;
-    }
-
-    /* =========================================================
-       SECTION HEAD
-    ========================================================= */
-
-    .section-head{
-      max-width:720px;
-      margin-bottom:55px;
-    }
-
-    .section-label{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-
-      color:var(--gold-light);
-      font-family:'IBM Plex Mono',monospace;
-      font-size:11px;
-
-      margin-bottom:13px;
-    }
-
-    .section-label::before{
-      content:"";
-      width:6px;
-      height:6px;
-      background:var(--gold);
-      transform:rotate(45deg);
-    }
-
-    .section-head h2{
-      font-family:'Amiri',serif;
-      font-size:clamp(34px,4vw,52px);
-      line-height:1.3;
-      margin-bottom:13px;
-    }
-
-    .section-head p{
-      color:var(--muted);
-      font-size:16px;
-    }
-
-    /* =========================================================
-       SERVICES
-    ========================================================= */
-
-    .services{
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(255,255,255,.015)
-        );
+    .real-case img{
+        height:190px;
     }
 
     .services-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:15px;
+        grid-template-columns:1fr 1fr;
     }
 
-    .service-card{
-      position:relative;
-
-      padding:30px 25px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,.035),
-          rgba(255,255,255,.012)
-        );
-
-      border:1px solid var(--border);
-      border-radius:15px;
-
-      overflow:hidden;
-
-      transition:.3s ease;
+    .location-box{
+        grid-template-columns:1fr;
     }
 
-    .service-card::before{
-      content:"";
-      position:absolute;
-      width:120px;
-      height:120px;
-
-      top:-70px;
-      left:-60px;
-
-      background:rgba(230,162,60,.08);
-      filter:blur(35px);
+    .stats-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .service-card:hover{
-      transform:translateY(-7px);
-      border-color:var(--border-gold);
-      box-shadow:0 20px 50px rgba(0,0,0,.25);
+    .stat{
+        border-bottom:1px solid rgba(255,255,255,.07);
+    }
+}
+
+
+@media(max-width:600px){
+
+    .container{
+        width:min(100% - 25px,1150px);
     }
 
-    .service-number{
-      position:absolute;
-      top:20px;
-      left:20px;
-
-      color:rgba(230,162,60,.35);
-      font-family:'IBM Plex Mono',monospace;
-      font-size:11px;
+    .hero h1{
+        font-size:39px;
     }
 
-    .service-image{
-      position:relative;
-      height:175px;
-
-      margin-bottom:20px;
-
-      overflow:hidden;
-      border-radius:11px;
-
-      background:#0c131b;
+    .hero p{
+        font-size:15px;
     }
 
-    .service-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-
-      opacity:.82;
-      transition:.5s ease;
+    .gaming-devices{
+        min-height:350px;
     }
 
-    .service-card:hover .service-image img{
-      transform:scale(1.06);
-      opacity:1;
+    .real-laptop{
+        width:95%;
     }
 
-    .service-image::after{
-      content:"";
-      position:absolute;
-      inset:0;
-
-      background:
-        linear-gradient(
-          180deg,
-          transparent 45%,
-          rgba(8,13,18,.75)
-        );
+    .real-case{
+        width:125px;
     }
 
-    .service-card h3{
-      font-size:18px;
-      margin-bottom:8px;
+    .real-case img{
+        height:155px;
     }
 
-    .service-card p{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.9;
+    .device-label{
+        font-size:9px;
+        padding:9px;
+        right:0;
     }
 
-    .service-meta{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-
-      margin-top:18px;
-      padding-top:14px;
-
-      border-top:1px dashed var(--border);
-
-      color:var(--muted);
-      font-size:11px;
+    .services-grid{
+        grid-template-columns:1fr;
     }
 
-    .service-meta strong{
-      color:var(--teal-light);
-      font-family:'IBM Plex Mono',monospace;
-    }
-
-    /* =========================================================
-       GALLERY
-    ========================================================= */
-
-    .gallery{
-      background:var(--surface);
-      border-block:1px solid var(--border);
-    }
-
-    .gallery-grid{
-      display:grid;
-      grid-template-columns:1.35fr .65fr .65fr;
-      grid-auto-rows:230px;
-      gap:14px;
-    }
-
-    .gallery-item{
-      position:relative;
-      overflow:hidden;
-      border-radius:15px;
-      border:1px solid var(--border);
-      background:#0d141c;
-    }
-
-    .gallery-item:first-child{
-      grid-row:span 2;
-    }
-
-    .gallery-item img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:.5s ease;
-    }
-
-    .gallery-item:hover img{
-      transform:scale(1.07);
-    }
-
-    .gallery-overlay{
-      position:absolute;
-      inset:0;
-
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-
-      padding:20px;
-
-      background:
-        linear-gradient(
-          transparent 35%,
-          rgba(5,8,12,.85)
-        );
-    }
-
-    .gallery-overlay strong{
-      font-size:16px;
-    }
-
-    .gallery-overlay span{
-      color:#b8c0c8;
-      font-size:11px;
-    }
-
-    /* =========================================================
-       PROCESS
-    ========================================================= */
-
-    .process-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-
-      border:1px solid var(--border);
-      border-radius:15px;
-      overflow:hidden;
-    }
-
-    .process-card{
-      padding:34px 26px;
-      background:rgba(255,255,255,.015);
-      border-inline-start:1px solid var(--border);
-    }
-
-    .process-card:first-child{
-      border-inline-start:0;
-    }
-
-    .process-number{
-      color:var(--gold);
-      font-family:'IBM Plex Mono',monospace;
-      font-size:28px;
-
-      margin-bottom:18px;
-    }
-
-    .process-card h3{
-      font-size:17px;
-      margin-bottom:8px;
-    }
-
-    .process-card p{
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    /* =========================================================
-       PRICING
-    ========================================================= */
-
-    .pricing{
-      background:
-        radial-gradient(
-          ellipse at center top,
-          rgba(230,162,60,.08),
-          transparent 50%
-        );
-    }
-
-    .pricing-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .price-card{
-      position:relative;
-
-      padding:36px 30px;
-
-      background:var(--surface);
-      border:1px solid var(--border);
-      border-radius:16px;
-
-      display:flex;
-      flex-direction:column;
-
-      transition:.3s ease;
-    }
-
-    .price-card:hover{
-      transform:translateY(-6px);
-      box-shadow:var(--shadow);
-    }
-
-    .price-card.featured{
-      border-color:var(--gold);
-      background:
-        linear-gradient(
-          180deg,
-          rgba(230,162,60,.08),
-          transparent 45%
-        ),
-        var(--surface);
-    }
-
-    .popular{
-      position:absolute;
-      top:0;
-      left:0;
-
-      padding:7px 14px;
-
-      color:#171007;
-      background:linear-gradient(
-        135deg,
-        var(--gold-light),
-        var(--gold-dark)
-      );
-
-      border-radius:16px 0 10px 0;
-
-      font-size:11px;
-      font-weight:800;
-    }
-
-    .price-tag{
-      color:var(--muted);
-      font-size:12px;
-      margin-bottom:6px;
-    }
-
-    .price-card h3{
-      font-size:21px;
-      margin-bottom:16px;
-    }
-
-    .price{
-      font-family:'IBM Plex Mono',monospace;
-      font-size:34px;
-      color:var(--text);
-    }
-
-    .price small{
-      font-family:'Tajawal',sans-serif;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .price-list{
-      list-style:none;
-      margin:25px 0 30px;
-      flex:1;
-    }
-
-    .price-list li{
-      position:relative;
-
-      padding:9px 20px 9px 0;
-
-      border-top:1px solid var(--border);
-
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .price-list li::before{
-      content:"✓";
-
-      position:absolute;
-      right:0;
-
-      color:var(--teal-light);
-      font-weight:bold;
-    }
-
-    /* =========================================================
-       MAP / CONTACT
-    ========================================================= */
-
-    .contact{
-      background:var(--surface);
-      border-block:1px solid var(--border);
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns:.8fr 1.2fr;
-      gap:50px;
-      align-items:start;
-    }
-
-    .contact-info h2{
-      font-family:'Amiri',serif;
-      font-size:48px;
-      line-height:1.3;
-      margin-bottom:12px;
-    }
-
-    .contact-info > p{
-      color:var(--muted);
-      max-width:500px;
-      font-size:15px;
-    }
-
-    .contact-details{
-      display:grid;
-      gap:12px;
-      margin-top:30px;
-    }
-
-    .contact-box{
-      display:flex;
-      align-items:center;
-      gap:13px;
-
-      padding:15px;
-
-      background:rgba(255,255,255,.02);
-      border:1px solid var(--border);
-      border-radius:12px;
-    }
-
-    .contact-icon{
-      width:42px;
-      height:42px;
-
-      display:grid;
-      place-items:center;
-
-      color:var(--gold);
-      background:rgba(230,162,60,.07);
-
-      border-radius:9px;
-      flex-shrink:0;
-    }
-
-    .contact-box small{
-      display:block;
-      color:var(--muted);
-      font-size:10px;
-    }
-
-    .contact-box strong{
-      display:block;
-      color:var(--text);
-      font-size:13px;
-      margin-top:2px;
-    }
-
-    .map{
-      min-height:520px;
-
-      border:1px solid var(--border);
-      border-radius:18px;
-      overflow:hidden;
-
-      background:#101820;
-      box-shadow:var(--shadow);
-    }
-
-    .map iframe{
-      width:100%;
-      height:100%;
-      min-height:520px;
-      border:0;
-      display:block;
-    }
-
-    /* =========================================================
-       BOOKING FORM
-    ========================================================= */
-
-    .booking{
-      padding-top:30px;
-    }
-
-    .booking-card{
-      display:grid;
-      grid-template-columns:.8fr 1.2fr;
-      gap:40px;
-
-      padding:40px;
-
-      background:
-        radial-gradient(
-          circle at 0 0,
-          rgba(230,162,60,.08),
-          transparent 35%
-        ),
-        var(--surface);
-
-      border:1px solid var(--border);
-      border-radius:20px;
-    }
-
-    .booking-copy h2{
-      font-family:'Amiri',serif;
-      font-size:40px;
-      line-height:1.35;
-      margin-bottom:10px;
-    }
-
-    .booking-copy p{
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    .booking-note{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-
-      margin-top:22px;
-      padding:14px;
-
-      border:1px solid rgba(54,184,167,.16);
-      background:rgba(54,184,167,.04);
-
-      color:#a7c9c4;
-      font-size:12px;
-      border-radius:10px;
-    }
-
-    .form{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:15px;
-    }
-
-    .field{
-      display:flex;
-      flex-direction:column;
-      gap:7px;
+    .form-grid{
+        grid-template-columns:1fr;
     }
 
     .field.full{
-      grid-column:1/-1;
+        grid-column:auto;
     }
 
-    .field label{
-      color:var(--muted);
-      font-size:12px;
+    .booking-box{
+        padding:22px 17px;
     }
 
-    .field input,
-    .field select,
-    .field textarea{
-      width:100%;
-
-      background:#0c131b;
-      color:var(--text);
-
-      border:1px solid var(--border);
-      border-radius:10px;
-
-      padding:13px 14px;
-
-      outline:none;
-
-      transition:.2s ease;
+    .section-title h2{
+        font-size:32px;
     }
 
-    .field textarea{
-      min-height:120px;
-      resize:vertical;
+    .map{
+        height:300px;
     }
 
-    .field input::placeholder,
-    .field textarea::placeholder{
-      color:#56616d;
-    }
-
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus{
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(230,162,60,.06);
-    }
-
-    .form-submit{
-      grid-column:1/-1;
-    }
-
-    .form-submit .btn{
-      width:100%;
-    }
-
-    /* =========================================================
-       SUCCESS MODAL
-    ========================================================= */
-
-    .success-modal{
-      position:fixed;
-      inset:0;
-      z-index:5000;
-
-      display:grid;
-      place-items:center;
-
-      padding:20px;
-
-      background:rgba(2,5,8,.75);
-      backdrop-filter:blur(12px);
-
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-
-      transition:.3s ease;
-    }
-
-    .success-modal.show{
-      opacity:1;
-      visibility:visible;
-      pointer-events:auto;
-    }
-
-    .success-box{
-      width:min(440px,100%);
-
-      padding:35px 28px;
-
-      background:#101821;
-      border:1px solid rgba(54,184,167,.3);
-      border-radius:18px;
-
-      text-align:center;
-
-      box-shadow:0 30px 100px rgba(0,0,0,.55);
-
-      transform:translateY(20px) scale(.97);
-      transition:.3s ease;
-    }
-
-    .success-modal.show .success-box{
-      transform:none;
-    }
-
-    .success-icon{
-      width:65px;
-      height:65px;
-
-      display:grid;
-      place-items:center;
-
-      margin:0 auto 18px;
-
-      border-radius:50%;
-
-      color:var(--teal-light);
-      background:rgba(54,184,167,.08);
-      border:1px solid rgba(54,184,167,.3);
-    }
-
-    .success-box h3{
-      font-size:23px;
-      margin-bottom:8px;
-    }
-
-    .success-box p{
-      color:var(--muted);
-      font-size:13px;
-      margin-bottom:22px;
-    }
-
-    /* =========================================================
-       CTA
-    ========================================================= */
-
-    .cta{
-      position:relative;
-      padding:100px 0;
-
-      overflow:hidden;
-
-      background:
-        radial-gradient(
-          ellipse at center,
-          rgba(230,162,60,.13),
-          transparent 60%
-        );
-    }
-
-    .cta-content{
-      position:relative;
-      z-index:2;
-
-      max-width:720px;
-      margin:auto;
-
-      text-align:center;
-    }
-
-    .cta h2{
-      font-family:'Amiri',serif;
-      font-size:clamp(34px,5vw,54px);
-      line-height:1.35;
-      margin-bottom:13px;
-    }
-
-    .cta p{
-      color:var(--muted);
-      margin-bottom:28px;
-    }
-
-    .cta-buttons{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-
-    footer{
-      border-top:1px solid var(--border);
-      background:#070b10;
-      padding:45px 0 25px;
-    }
-
-    .footer-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:25px;
-      flex-wrap:wrap;
-    }
-
-    .footer-links{
-      display:flex;
-      gap:20px;
-      flex-wrap:wrap;
-    }
-
-    .footer-links a{
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .footer-links a:hover{
-      color:var(--gold-light);
-    }
-
-    .copyright{
-      margin-top:30px;
-      padding-top:20px;
-
-      border-top:1px solid var(--border);
-
-      color:var(--muted-2);
-      font-size:11px;
-      text-align:center;
-    }
-
-    /* =========================================================
-       FLOATING WHATSAPP
-    ========================================================= */
-
-    .whatsapp{
-      position:fixed;
-
-      left:20px;
-      bottom:20px;
-
-      z-index:900;
-
-      width:58px;
-      height:58px;
-
-      display:grid;
-      place-items:center;
-
-      border-radius:50%;
-
-      color:#061510;
-      background:#28c76f;
-
-      box-shadow:
-        0 10px 30px rgba(0,0,0,.35),
-        0 0 0 5px rgba(40,199,111,.08);
-
-      transition:.25s ease;
-    }
-
-    .whatsapp:hover{
-      transform:scale(1.08);
-    }
-
-    /* =========================================================
-       SCROLL REVEAL
-    ========================================================= */
-
-    .reveal{
-      opacity:0;
-      transform:translateY(25px);
-      transition:
-        opacity .7s ease,
-        transform .7s ease;
-    }
-
-    .reveal.visible{
-      opacity:1;
-      transform:none;
-    }
-
-    /* =========================================================
-       RESPONSIVE
-    ========================================================= */
-
-    @media(max-width:1100px){
-
-      .hero-grid{
-        gap:35px;
-      }
-
-      .services-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-
-      .hero-device{
-        min-height:470px;
-      }
-
-      .hardware{
-        transform:scale(.9);
-      }
-    }
-
-    @media(max-width:900px){
-
-      .nav-links,
-      .phone-btn{
+    .phone{
         display:none;
-      }
-
-      .menu-toggle{
-        display:grid;
-        place-items:center;
-      }
-
-      .hero{
-        min-height:auto;
-        padding:70px 0 80px;
-      }
-
-      .hero-grid{
-        grid-template-columns:1fr;
-        text-align:center;
-      }
-
-      .hero-content{
-        order:1;
-      }
-
-      .hero-device{
-        order:0;
-        min-height:420px;
-        max-width:650px;
-        width:100%;
-        margin:auto;
-      }
-
-      .hero-description{
-        margin-inline:auto;
-      }
-
-      .hero-buttons,
-      .hero-stats{
-        justify-content:center;
-      }
-
-      .trust-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .trust-item:nth-child(3){
-        border-inline-start:0;
-        border-top:1px solid var(--border);
-      }
-
-      .trust-item:nth-child(4){
-        border-top:1px solid var(--border);
-      }
-
-      .process-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .process-card:nth-child(3){
-        border-inline-start:0;
-        border-top:1px solid var(--border);
-      }
-
-      .process-card:nth-child(4){
-        border-top:1px solid var(--border);
-      }
-
-      .pricing-grid{
-        grid-template-columns:1fr;
-        max-width:650px;
-        margin:auto;
-      }
-
-      .contact-grid,
-      .booking-card{
-        grid-template-columns:1fr;
-      }
-
-      .map{
-        min-height:400px;
-      }
-
-      .map iframe{
-        min-height:400px;
-      }
-
-      .booking-card{
-        padding:30px;
-      }
-
-      .gallery-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
-      .gallery-item:first-child{
-        grid-column:1/-1;
-        grid-row:auto;
-      }
     }
+}
 
-    @media(max-width:620px){
-
-      .container{
-        width:min(var(--container), calc(100% - 28px));
-      }
-
-      .section{
-        padding:75px 0;
-      }
-
-      .nav{
-        min-height:70px;
-      }
-
-      .mobile-menu{
-        top:70px;
-      }
-
-      .logo-mark{
-        width:40px;
-        height:40px;
-      }
-
-      .logo-name strong{
-        font-size:17px;
-      }
-
-      .logo-name small{
-        font-size:9px;
-      }
-
-      .hero{
-        padding:45px 0 60px;
-      }
-
-      .hero h1{
-        font-size:42px;
-      }
-
-      .hero-description{
-        font-size:15px;
-        line-height:1.9;
-      }
-
-      .hero-buttons{
-        flex-direction:column;
-      }
-
-      .hero-buttons .btn{
-        width:100%;
-      }
-
-      .hero-stats{
-        gap:15px;
-      }
-
-      .hero-stat{
-        flex:1 1 100px;
-      }
-
-      .hero-stat strong{
-        font-size:19px;
-      }
-
-      .hero-device{
-        min-height:310px;
-      }
-
-      .laptop{
-        width:100%;
-      }
-
-      .hardware{
-        padding:8px;
-        transform:scale(.72);
-      }
-
-      .hardware-ram{
-        right:-5px;
-        top:20px;
-      }
-
-      .hardware-ssd{
-        left:-15px;
-        bottom:70px;
-      }
-
-      .hardware-cpu{
-        right:5px;
-        bottom:5px;
-      }
-
-      .screen-content{
-        padding:20px;
-      }
-
-      .screen-logo{
-        font-size:20px;
-      }
-
-      .trust-grid{
-        grid-template-columns:1fr;
-      }
-
-      .trust-item,
-      .trust-item:nth-child(3),
-      .trust-item:nth-child(4){
-        border-inline-start:0;
-        border-top:1px solid var(--border);
-      }
-
-      .trust-item:first-child{
-        border-top:0;
-      }
-
-      .services-grid{
-        grid-template-columns:1fr;
-      }
-
-      .service-image{
-        height:190px;
-      }
-
-      .gallery-grid{
-        grid-template-columns:1fr;
-        grid-auto-rows:230px;
-      }
-
-      .gallery-item:first-child{
-        grid-column:auto;
-      }
-
-      .process-grid{
-        grid-template-columns:1fr;
-      }
-
-      .process-card,
-      .process-card:nth-child(3),
-      .process-card:nth-child(4){
-        border-inline-start:0;
-        border-top:1px solid var(--border);
-      }
-
-      .process-card:first-child{
-        border-top:0;
-      }
-
-      .contact-info h2{
-        font-size:39px;
-      }
-
-      .form{
-        grid-template-columns:1fr;
-      }
-
-      .field.full,
-      .form-submit{
-        grid-column:auto;
-      }
-
-      .booking-card{
-        padding:22px;
-      }
-
-      .booking-copy h2{
-        font-size:34px;
-      }
-
-      .map,
-      .map iframe{
-        min-height:330px;
-      }
-
-      .footer-top{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .whatsapp{
-        width:54px;
-        height:54px;
-        left:15px;
-        bottom:15px;
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce){
-
-      *,
-      *::before,
-      *::after{
-        scroll-behavior:auto !important;
-        animation:none !important;
-        transition:none !important;
-      }
-
-      .reveal{
-        opacity:1;
-        transform:none;
-      }
-    }
-
-  </style>
+</style>
 </head>
+
 
 <body>
 
-<!-- =========================================================
-     LOADING
-========================================================= -->
-
-<div class="loader" id="loader">
-  <div class="loader-inner">
-
-    <div class="loader-logo">
-
-      <svg viewBox="0 0 24 24" fill="none"
-           stroke="currentColor"
-           stroke-width="1.5"
-           stroke-linecap="round">
-
-        <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
-        <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
-        <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
-        <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
-        <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
-
-      </svg>
-
-    </div>
-
-    <div class="loader-title">بصمة</div>
-
-    <div class="loader-line"></div>
-
-  </div>
-</div>
-
-
-<!-- =========================================================
+<!-- =========================
      HEADER
-========================================================= -->
+========================= -->
 
 <header>
 
-  <div class="container nav">
+<div class="container nav">
 
-    <a href="#" class="logo" aria-label="بصمة للكمبيوتر والهواتف">
+<a href="#" class="logo">
 
-      <span class="logo-mark">
+<div class="logo-icon">
+    ✦
+</div>
 
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="url(#logoGradient)"
-             stroke-width="1.4"
-             stroke-linecap="round">
+<div>
+    <strong>بصمة</strong>
+    <small>للكمبيوتر والهواتف</small>
+</div>
 
-          <defs>
-            <linearGradient id="logoGradient"
-                            x1="0" y1="0"
-                            x2="1" y2="1">
+</a>
 
-              <stop offset="0%" stop-color="#F6D28E"/>
-              <stop offset="100%" stop-color="#B87524"/>
+<nav class="nav-links">
+    <a href="#services">الخدمات</a>
+    <a href="#location">موقعنا</a>
+    <a href="#booking">الحجز</a>
+</nav>
 
-            </linearGradient>
-          </defs>
+<a class="phone" href="tel:07815685661">
+    07815685661
+</a>
 
-          <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
-          <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
-          <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
-          <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
-          <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
-
-        </svg>
-
-      </span>
-
-      <span class="logo-name">
-        <strong>بصمة</strong>
-        <small>للكمبيوتر والهواتف</small>
-      </span>
-
-    </a>
-
-
-    <nav class="nav-links">
-
-      <a href="#services">الخدمات</a>
-      <a href="#gallery">أعمالنا</a>
-      <a href="#process">آلية العمل</a>
-      <a href="#pricing">الأسعار</a>
-      <a href="#contact">موقعنا</a>
-      <a href="#booking">احجز الآن</a>
-
-    </nav>
-
-
-    <div class="nav-actions">
-
-      <a class="phone-btn" href="tel:07815685661">
-        ☎ 07815685661
-      </a>
-
-      <button class="menu-toggle"
-              id="menuToggle"
-              aria-label="فتح القائمة">
-
-        ☰
-
-      </button>
-
-    </div>
-
-  </div>
+</div>
 
 </header>
 
 
-<!-- MOBILE MENU -->
+<!-- =========================
+     HERO
+========================= -->
 
-<div class="mobile-menu" id="mobileMenu">
+<section class="hero" id="home">
 
-  <a href="#services">الخدمات</a>
-  <a href="#gallery">أعمالنا</a>
-  <a href="#process">آلية العمل</a>
-  <a href="#pricing">الأسعار</a>
-  <a href="#contact">موقعنا</a>
-  <a href="#booking">احجز الآن</a>
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+    ● خدمة صيانة احترافية في النجف الأشرف
+</div>
+
+<h1>
+    بصمة للكمبيوتر<br>
+    <span>والهواتف</span>
+</h1>
+
+<p>
+    صيانة احترافية للكمبيوتر واللابتوب والهواتف،
+    تبديل الشاشات والبطاريات، تركيب SSD والرام،
+    تنظيف وتسريع الأجهزة واسترجاع الملفات.
+</p>
+
+<div class="buttons">
+
+<a href="#booking" class="btn btn-primary">
+    احجز خدمة الآن
+</a>
+
+<a href="https://wa.me/9647815685661"
+   target="_blank"
+   class="btn btn-outline">
+    تواصل واتساب
+</a>
+
+</div>
 
 </div>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- GAMING DEVICES -->
 
-<section class="hero">
+<div class="gaming-devices">
 
-  <div class="hero-glow"></div>
+<div class="device-glow"></div>
+<div class="rgb-ring"></div>
 
-  <div class="container hero-grid">
+<div class="devices-wrap">
 
-    <div class="hero-content reveal">
+<div class="device-label">
+    🎮 أجهزة Gaming حقيقية<br>
+    Laptop + PC RGB احترافي
+</div>
 
-      <div class="eyebrow">
-        فني صيانة متاح في النجف
-      </div>
 
-      <h1>
-        جهازك خربان؟
-        <span>نوصلك ونصلحه.</span>
-      </h1>
+<div class="real-laptop">
 
-      <p class="hero-description">
-        صيانة الكمبيوتر واللابتوب والهواتف في موقعك.
-        تشخيص واضح، أسعار معلومة قبل الإصلاح،
-        واهتمام حقيقي بجهازك من أول دقيقة إلى آخر خطوة.
-      </p>
+<img
+src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=1100&q=88"
+alt="Gaming Laptop احترافي"
+>
 
+<div class="laptop-title">
+    GAMING LAPTOP • PRO
+</div>
 
-      <div class="hero-buttons">
+</div>
 
-        <a href="#booking" class="btn btn-primary">
-          احجز فني الآن
-          <span>←</span>
-        </a>
 
-        <a href="tel:07815685661" class="btn btn-outline">
-          اتصل مباشرة
-        </a>
+<div class="real-case">
 
-      </div>
+<img
+src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=700&q=88"
+alt="Gaming PC RGB"
+>
 
+<div class="case-title">
+    RGB GAMING PC
+</div>
 
-      <div class="hero-stats">
+</div>
 
-        <div class="hero-stat">
-          <strong>420+</strong>
-          <span>جهاز تمت صيانته</span>
-        </div>
+</div>
 
-        <div class="hero-stat">
-          <strong>4+</strong>
-          <span>سنوات خبرة</span>
-        </div>
+</div>
 
-        <div class="hero-stat">
-          <strong>45 د</strong>
-          <span>متوسط الوصول</span>
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- REALISTIC LAPTOP -->
-
-    <div class="hero-device reveal">
-
-      <div class="device-glow"></div>
-
-      <div class="laptop">
-
-        <div class="laptop-screen">
-
-          <span class="laptop-camera"></span>
-
-          <div class="screen-display">
-
-            <div class="screen-grid"></div>
-
-            <div class="screen-content">
-
-              <div class="screen-logo">
-                بصمة
-              </div>
-
-              <div class="screen-line"></div>
-              <div class="screen-line medium"></div>
-              <div class="screen-line short"></div>
-
-              <div class="screen-status">
-                <span class="status-dot"></span>
-                SYSTEM DIAGNOSTIC OK
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="laptop-base"></div>
-
-
-        <!-- RAM -->
-
-        <div class="hardware hardware-ram">
-
-          <div class="hardware-icon">
-
-            <svg width="22" height="22"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.5">
-
-              <rect x="3" y="7" width="18" height="10" rx="1"/>
-              <path d="M7 7V4M11 7V4M15 7V4M19 7V4"/>
-              <path d="M7 17v3M11 17v3M15 17v3M19 17v3"/>
-
-            </svg>
-
-          </div>
-
-          <strong>RAM</strong>
-          <span>ترقية الذاكرة</span>
-
-        </div>
-
-
-        <!-- SSD -->
-
-        <div class="hardware hardware-ssd">
-
-          <div class="hardware-icon">
-
-            <svg width="22" height="22"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.5">
-
-              <rect x="4" y="3" width="16" height="18" rx="2"/>
-              <circle cx="12" cy="9" r="2"/>
-              <path d="M8 15h8M8 18h5"/>
-
-            </svg>
-
-          </div>
-
-          <strong>SSD</strong>
-          <span>سرعة وأداء</span>
-
-        </div>
-
-
-        <!-- CPU -->
-
-        <div class="hardware hardware-cpu">
-
-          <div class="hardware-icon">
-
-            <svg width="22" height="22"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.5">
-
-              <rect x="7" y="7" width="10" height="10"/>
-              <rect x="10" y="10" width="4" height="4"/>
-              <path d="M9 2v5M15 2v5M9 17v5M15 17v5"/>
-              <path d="M2 9h5M17 9h5M2 15h5M17 15h5"/>
-
-            </svg>
-
-          </div>
-
-          <strong>CPU</strong>
-          <span>فحص المعالج</span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     TRUST
-========================================================= -->
+<!-- =========================
+     STATS
+========================= -->
 
-<section class="trust">
+<section class="stats">
 
-  <div class="container trust-grid">
+<div class="container stats-grid">
 
-    <div class="trust-item">
+<div class="stat">
+    <strong>24/7</strong>
+    <span>تواصل وحجز</span>
+</div>
 
-      <div class="trust-icon">✓</div>
+<div class="stat">
+    <strong>PRO</strong>
+    <span>صيانة احترافية</span>
+</div>
 
-      <div>
-        <strong>فحص قبل الإصلاح</strong>
-        <span>تعرف المشكلة قبل دفع السعر</span>
-      </div>
+<div class="stat">
+    <strong>SSD</strong>
+    <span>ترقية وتسريع</span>
+</div>
 
-    </div>
+<div class="stat">
+    <strong>RGB</strong>
+    <span>Gaming PC</span>
+</div>
 
-    <div class="trust-item">
-
-      <div class="trust-icon">◆</div>
-
-      <div>
-        <strong>قطع موثوقة</strong>
-        <span>اختيار القطعة المناسبة لجهازك</span>
-      </div>
-
-    </div>
-
-    <div class="trust-item">
-
-      <div class="trust-icon">⚡</div>
-
-      <div>
-        <strong>خدمة سريعة</strong>
-        <span>إمكانية الخدمة في نفس اليوم</span>
-      </div>
-
-    </div>
-
-    <div class="trust-item">
-
-      <div class="trust-icon">⌂</div>
-
-      <div>
-        <strong>في موقعك</strong>
-        <span>نجف وضواحيها</span>
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      SERVICES
-========================================================= -->
+========================= -->
 
-<section class="section services" id="services">
+<section class="section" id="services">
 
-  <div class="container">
+<div class="container">
 
-    <div class="section-head reveal">
+<div class="section-title">
 
-      <div class="section-label">
-        خدماتنا
-      </div>
+<small>OUR SERVICES</small>
 
-      <h2>
-        كل ما يحتاجه جهازك في مكان واحد
-      </h2>
+<h2>خدماتنا</h2>
 
-      <p>
-        من مشاكل النظام والبطء إلى صيانة القطع والشاشات والبطاريات،
-        نقدم حلولًا عملية للكمبيوتر واللابتوب والهواتف.
-      </p>
+<p>
+    حلول متكاملة للكمبيوتر واللابتوب والهواتف
+</p>
 
-    </div>
+</div>
 
 
-    <div class="services-grid">
+<div class="services-grid">
 
 
-      <!-- 01 -->
+<div class="service">
 
-      <article class="service-card reveal">
+<div class="service-icon">💻</div>
 
-        <span class="service-number">01</span>
+<h3>صيانة اللابتوب</h3>
 
-        <div class="service-image">
-          <img
-            data-photo="laptop-cleaning"
-            alt="تنظيف وصيانة لابتوب"
-            loading="lazy">
-        </div>
+<p>
+    فحص وصيانة اللابتوبات وحل مشاكل الحرارة
+    والبطء والأعطال المختلفة.
+</p>
 
-        <h3>تنظيف وتسريع الجهاز</h3>
+</div>
 
-        <p>
-          تنظيف الجهاز من الغبار والبرامج غير الضرورية،
-          إزالة المشاكل البرمجية وتحسين الأداء والحرارة.
-        </p>
 
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>45 دقيقة</strong>
-        </div>
+<div class="service">
 
-      </article>
+<div class="service-icon">🖥️</div>
 
+<h3>صيانة الكمبيوتر</h3>
 
-      <!-- 02 -->
+<p>
+    صيانة وتجميع وترقية أجهزة الكمبيوتر
+    والأجهزة المخصصة للألعاب.
+</p>
 
-      <article class="service-card reveal">
+</div>
 
-        <span class="service-number">02</span>
 
-        <div class="service-image">
-          <img
-            data-photo="laptop-repair"
-            alt="صيانة لابتوب"
-            loading="lazy">
-        </div>
+<div class="service">
 
-        <h3>تنصيب ويندوز وبرامج</h3>
+<div class="service-icon">📱</div>
 
-        <p>
-          تهيئة النظام، التعريفات، البرامج الأساسية،
-          وترتيب الجهاز بطريقة مناسبة لاستخدامك.
-        </p>
+<h3>صيانة الهواتف</h3>
 
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>60 دقيقة</strong>
-        </div>
+<p>
+    تبديل الشاشات والبطاريات وحل مشاكل
+    الهواتف والأجهزة الذكية.
+</p>
 
-      </article>
+</div>
 
 
-      <!-- 03 -->
+<div class="service">
 
-      <article class="service-card reveal">
+<div class="service-icon">⚡</div>
 
-        <span class="service-number">03</span>
+<h3>SSD و RAM</h3>
 
-        <div class="service-image">
-          <img
-            data-photo="data-recovery"
-            alt="استرجاع ملفات من هارد"
-            loading="lazy">
-        </div>
+<p>
+    ترقية الرام وتركيب SSD لتحسين سرعة
+    وأداء الجهاز بشكل كبير.
+</p>
 
-        <h3>استرجاع الملفات</h3>
+</div>
 
-        <p>
-          محاولة استعادة الملفات المهمة من الأقراص
-          التي تعرضت للحذف أو التهيئة أو الأعطال.
-        </p>
 
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>بعد الفحص</strong>
-        </div>
+</div>
 
-      </article>
-
-
-      <!-- 04 -->
-
-      <article class="service-card reveal">
-
-        <span class="service-number">04</span>
-
-        <div class="service-image">
-          <img
-            data-photo="computer-components"
-            alt="قطع كمبيوتر وترقية جهاز"
-            loading="lazy">
-        </div>
-
-        <h3>ترقية القطع</h3>
-
-        <p>
-          تركيب SSD ورام وترقية القطع المناسبة حسب
-          إمكانيات جهازك وطريقة استخدامك.
-        </p>
-
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>30 دقيقة</strong>
-        </div>
-
-      </article>
-
-
-      <!-- 05 -->
-
-      <article class="service-card reveal">
-
-        <span class="service-number">05</span>
-
-        <div class="service-image">
-          <img
-            data-photo="motherboard"
-            alt="صيانة اللوحة الأم"
-            loading="lazy">
-        </div>
-
-        <h3>أعطال كهربائية وهاردوير</h3>
-
-        <p>
-          فحص مشاكل الطاقة والمنافذ واللوحة الأم
-          ومكونات اللابتوب المختلفة.
-        </p>
-
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>بعد الفحص</strong>
-        </div>
-
-      </article>
-
-
-      <!-- 06 -->
-
-      <article class="service-card reveal">
-
-        <span class="service-number">06</span>
-
-        <div class="service-image">
-          <img
-            data-photo="technician"
-            alt="فني كمبيوتر"
-            loading="lazy">
-        </div>
-
-        <h3>دعم فني عن بُعد</h3>
-
-        <p>
-          حل المشاكل البرمجية البسيطة دون الحاجة
-          إلى زيارة ميدانية عندما يكون ذلك ممكنًا.
-        </p>
-
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>20 دقيقة</strong>
-        </div>
-
-      </article>
-
-
-      <!-- 07 -->
-
-      <article class="service-card reveal">
-
-        <span class="service-number">07</span>
-
-        <div class="service-image">
-          <img
-            data-photo="phone-repair"
-            alt="صيانة شاشة هاتف"
-            loading="lazy">
-        </div>
-
-        <h3>تبديل شاشات الهواتف</h3>
-
-        <p>
-          تبديل الشاشة المكسورة أو إصلاح مشاكل
-          اللمس والعرض حسب نوع الهاتف.
-        </p>
-
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>40 دقيقة</strong>
-        </div>
-
-      </article>
-
-
-      <!-- 08 -->
-
-      <article class="service-card reveal">
-
-        <span class="service-number">08</span>
-
-        <div class="service-image">
-          <img
-            data-photo="phone-battery"
-            alt="تبديل بطارية هاتف"
-            loading="lazy">
-        </div>
-
-        <h3>تبديل بطاريات الهواتف</h3>
-
-        <p>
-          معالجة مشاكل البطارية والتفريغ السريع
-          والانطفاء المفاجئ باستبدال البطارية المناسبة.
-        </p>
-
-        <div class="service-meta">
-          <span>المدة</span>
-          <strong>30 دقيقة</strong>
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     GALLERY
-========================================================= -->
-
-<section class="section gallery" id="gallery">
-
-  <div class="container">
-
-    <div class="section-head reveal">
-
-      <div class="section-label">
-        معرض الأعمال
-      </div>
-
-      <h2>
-        شغلنا يبدأ من التفاصيل
-      </h2>
-
-      <p>
-        صور توضيحية لأعمال الصيانة والأجهزة والقطع التي نتعامل معها.
-      </p>
-
-    </div>
-
-
-    <div class="gallery-grid">
-
-      <div class="gallery-item reveal">
-
-        <img
-          data-gallery="1"
-          alt="صيانة كمبيوتر ولابتوب"
-          loading="lazy">
-
-        <div class="gallery-overlay">
-          <strong>صيانة أجهزة الكمبيوتر</strong>
-          <span>فحص وتنظيف وترقية</span>
-        </div>
-
-      </div>
-
-
-      <div class="gallery-item reveal">
-
-        <img
-          data-gallery="2"
-          alt="قطع كمبيوتر"
-          loading="lazy">
-
-        <div class="gallery-overlay">
-          <strong>قطع الكمبيوتر</strong>
-          <span>RAM / SSD / CPU</span>
-        </div>
-
-      </div>
-
-
-      <div class="gallery-item reveal">
-
-        <img
-          data-gallery="3"
-          alt="صيانة لابتوب"
-          loading="lazy">
-
-        <div class="gallery-overlay">
-          <strong>صيانة اللابتوب</strong>
-          <span>تشخيص الهاردوير</span>
-        </div>
-
-      </div>
-
-
-      <div class="gallery-item reveal">
-
-        <img
-          data-gallery="4"
-          alt="صيانة هاتف"
-          loading="lazy">
-
-        <div class="gallery-overlay">
-          <strong>صيانة الهواتف</strong>
-          <span>شاشات وبطاريات</span>
-        </div>
-
-      </div>
-
-
-      <div class="gallery-item reveal">
-
-        <img
-          data-gallery="5"
-          alt="لوحة أم"
-          loading="lazy">
-
-        <div class="gallery-overlay">
-          <strong>فحص اللوحة الأم</strong>
-          <span>تشخيص الأعطال</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROCESS
-========================================================= -->
-
-<section class="section" id="process">
-
-  <div class="container">
-
-    <div class="section-head reveal">
-
-      <div class="section-label">
-        آلية العمل
-      </div>
-
-      <h2>
-        بسيطة من أول اتصال إلى تسليم الجهاز
-      </h2>
-
-    </div>
-
-
-    <div class="process-grid">
-
-      <div class="process-card reveal">
-
-        <div class="process-number">01</div>
-
-        <h3>تتصل بنا</h3>
-
-        <p>
-          ترسل بياناتك ووصف المشكلة ونحدد معك الوقت المناسب.
-        </p>
-
-      </div>
-
-
-      <div class="process-card reveal">
-
-        <div class="process-number">02</div>
-
-        <h3>الفحص والتشخيص</h3>
-
-        <p>
-          نفحص الجهاز ونوضح لك سبب المشكلة والحل المقترح.
-        </p>
-
-      </div>
-
-
-      <div class="process-card reveal">
-
-        <div class="process-number">03</div>
-
-        <h3>تنفيذ الإصلاح</h3>
-
-        <p>
-          بعد موافقتك يتم تنفيذ الخدمة أو تركيب القطعة المناسبة.
-        </p>
-
-      </div>
-
-
-      <div class="process-card reveal">
-
-        <div class="process-number">04</div>
-
-        <h3>التجربة والتسليم</h3>
-
-        <p>
-          نختبر الجهاز معك ونتأكد من عمله قبل إنهاء الخدمة.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
-     PRICING
-========================================================= -->
-
-<section class="section pricing" id="pricing">
-
-  <div class="container">
-
-    <div class="section-head reveal">
-
-      <div class="section-label">
-        الأسعار
-      </div>
-
-      <h2>
-        أسعار واضحة بدون مفاجآت
-      </h2>
-
-      <p>
-        الأسعار الأساسية كما تم تحديدها، أما القطع والأعطال
-        التي تحتاج تشخيصًا فيتم تحديدها بعد الفحص.
-      </p>
-
-    </div>
-
-
-    <div class="pricing-grid">
-
-
-      <article class="price-card reveal">
-
-        <span class="price-tag">
-          للاستخدام الخفيف
-        </span>
-
-        <h3>
-          فحص وتنظيف
-        </h3>
-
-        <div class="price">
-          25,000
-          <small>د.ع</small>
-        </div>
-
-        <ul class="price-list">
-
-          <li>فحص شامل للجهاز</li>
-          <li>إزالة الفيروسات والبرامج الدخيلة</li>
-          <li>تنظيف داخلي وتحسين الأداء</li>
-          <li>ضمان 15 يوم</li>
-
-        </ul>
-
-        <a href="#booking"
-           class="btn btn-outline">
-          اطلب هذه الخدمة
-        </a>
-
-      </article>
-
-
-      <article class="price-card featured reveal">
-
-        <span class="popular">
-          الأكثر طلبًا
-        </span>
-
-        <span class="price-tag">
-          صيانة متكاملة
-        </span>
-
-        <h3>
-          صيانة شاملة
-        </h3>
-
-        <div class="price">
-          40,000
-          <small>د.ع</small>
-        </div>
-
-        <ul class="price-list">
-
-          <li>كل ما في باقة الفحص والتنظيف</li>
-          <li>تحديث النظام والتعريفات</li>
-          <li>فحص القطع الداخلية والمروحة</li>
-          <li>نسخة احتياطية للملفات المهمة</li>
-          <li>ضمان 30 يوم</li>
-
-        </ul>
-
-        <a href="#booking"
-           class="btn btn-primary">
-          اطلب هذه الخدمة
-        </a>
-
-      </article>
-
-
-      <article class="price-card reveal">
-
-        <span class="price-tag">
-          للمكاتب والشركات
-        </span>
-
-        <h3>
-          عقد سنوي
-        </h3>
-
-        <div class="price">
-          يُحدد
-          <small>حسب عدد الأجهزة</small>
-        </div>
-
-        <ul class="price-list">
-
-          <li>زيارات دورية شهرية</li>
-          <li>أولوية في مواعيد الطوارئ</li>
-          <li>صيانة وقائية لكل الأجهزة</li>
-          <li>تقرير حالة بعد كل زيارة</li>
-
-        </ul>
-
-        <a href="#booking"
-           class="btn btn-outline">
-          اطلب عرض سعر
-        </a>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =========================
      LOCATION
-========================================================= -->
+========================= -->
 
-<section class="section contact" id="contact">
+<section class="section" id="location">
 
-  <div class="container contact-grid">
+<div class="container">
 
+<div class="section-title">
 
-    <div class="contact-info reveal">
+<small>LOCATION</small>
 
-      <div class="section-label">
-        موقعنا
-      </div>
+<h2>موقعنا الجغرافي</h2>
 
-      <h2>
-        نخدمك في النجف وضواحيها
-      </h2>
+<p>
+    النجف الأشرف - العراق
+</p>
 
-      <p>
-        إذا كنت داخل النجف وتحتاج فني كمبيوتر أو هواتف،
-        تواصل معنا وحدد موقعك وسنرتب معك أقرب موعد متاح.
-      </p>
+</div>
 
 
-      <div class="contact-details">
-
-        <a href="tel:07815685661" class="contact-box">
-
-          <div class="contact-icon">☎</div>
-
-          <div>
-            <small>الهاتف</small>
-            <strong>07815685661</strong>
-          </div>
-
-        </a>
+<div class="location-box">
 
 
-        <a
-          id="whatsappContact"
-          class="contact-box"
-          href="#">
+<div class="location-info">
 
-          <div class="contact-icon">✆</div>
+<h2>بصمة للكمبيوتر والهواتف</h2>
 
-          <div>
-            <small>واتساب</small>
-            <strong>راسلنا مباشرة</strong>
-          </div>
+<p>
+    يمكنك الوصول إلينا من خلال موقعنا على
+    خرائط Google، كما يمكنك اختيار منطقتك
+    عند إرسال طلب الحجز.
+</p>
 
-        </a>
+<a
+href="https://maps.app.goo.gl/5n6AjrJT71k3CReN8"
+target="_blank"
+rel="noopener noreferrer"
+class="location-link">
 
+📍 فتح موقعنا على خرائط Google
+<span>↗</span>
 
-        <div class="contact-box">
+</a>
 
-          <div class="contact-icon">⌂</div>
-
-          <div>
-            <small>نطاق الخدمة</small>
-            <strong>النجف وضواحيها</strong>
-          </div>
-
-        </div>
+</div>
 
 
-        <div class="contact-box">
+<div>
 
-          <div class="contact-icon">◷</div>
+<iframe
+class="map"
+src="https://www.openstreetmap.org/export/embed.html?bbox=44.28%2C31.95%2C44.45%2C32.08&layer=mapnik&marker=32.00%2C44.33"
+loading="lazy">
+</iframe>
 
-          <div>
-            <small>ساعات العمل</small>
-            <strong>يوميًا 9:00 ص — 11:00 م</strong>
-          </div>
+<a
+href="https://maps.app.goo.gl/5n6AjrJT71k3CReN8"
+target="_blank"
+class="location-link">
 
-        </div>
+📍 الموقع الدقيق على Google Maps
 
-      </div>
+</a>
 
-    </div>
+</div>
 
 
-    <div class="map reveal">
+</div>
 
-      <iframe
-        id="najafMap"
-        title="خريطة موقع النجف"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      BOOKING
-========================================================= -->
+========================= -->
 
 <section class="section booking" id="booking">
 
-  <div class="container">
+<div class="container">
 
-    <div class="booking-card reveal">
+<div class="section-title">
 
+<small>BOOKING</small>
 
-      <div class="booking-copy">
+<h2>احجز خدمتك</h2>
 
-        <div class="section-label">
-          احجز الآن
-        </div>
+<p>
+    املأ المعلومات وسيتم إرسال طلبك مباشرة عبر واتساب
+</p>
 
-        <h2>
-          أرسل طلبك مباشرة إلى واتساب
-        </h2>
-
-        <p>
-          اكتب بياناتك ووصف المشكلة، وبعد الضغط على إرسال
-          سيتم فتح واتساب تلقائيًا برسالة تحتوي على اسمك
-          ورقم هاتفك والخدمة ووصف العطل.
-        </p>
+</div>
 
 
-        <div class="booking-note">
+<div class="booking-box">
 
-          <span>✓</span>
-
-          <span>
-            لن يتم تخزين بيانات النموذج داخل الموقع.
-            الطلب ينتقل مباشرة إلى واتساب.
-          </span>
-
-        </div>
-
-      </div>
+<form id="bookingForm">
 
 
-      <form class="form" id="bookingForm">
+<div class="form-grid">
 
 
-        <div class="field">
+<!-- NAME -->
 
-          <label for="name">
-            الاسم الكامل
-          </label>
+<div class="field">
 
-          <input
-            id="name"
-            type="text"
-            placeholder="اكتب اسمك"
-            autocomplete="name"
-            required>
+<label for="name">
+    الاسم الكامل
+</label>
 
-        </div>
+<input
+type="text"
+id="name"
+placeholder="اكتب اسمك"
+required
+>
 
-
-        <div class="field">
-
-          <label for="phone">
-            رقم الهاتف
-          </label>
-
-          <input
-            id="phone"
-            type="tel"
-            inputmode="tel"
-            placeholder="07xxxxxxxxx"
-            autocomplete="tel"
-            required>
-
-        </div>
+</div>
 
 
-        <div class="field full">
+<!-- PHONE -->
 
-          <label for="service">
-            نوع الخدمة
-          </label>
+<div class="field">
 
-          <select id="service" required>
+<label for="phone">
+    رقم الهاتف
+</label>
 
-            <option value="">
-              اختر الخدمة
-            </option>
+<input
+type="tel"
+id="phone"
+placeholder="07xxxxxxxxx"
+required
+>
 
-            <option>
-              فحص وتنظيف
-            </option>
-
-            <option>
-              صيانة شاملة
-            </option>
-
-            <option>
-              استرجاع ملفات
-            </option>
-
-            <option>
-              إصلاح عطل كهربائي
-            </option>
-
-            <option>
-              ترقية RAM / SSD
-            </option>
-
-            <option>
-              تبديل شاشة هاتف
-            </option>
-
-            <option>
-              تبديل بطارية هاتف
-            </option>
-
-            <option>
-              عقد صيانة للمكاتب
-            </option>
-
-            <option>
-              غير ذلك
-            </option>
-
-          </select>
-
-        </div>
+</div>
 
 
-        <div class="field full">
+<!-- SERVICE -->
 
-          <label for="notes">
-            وصف العطل
-          </label>
+<div class="field">
 
-          <textarea
-            id="notes"
-            placeholder="اكتب وصفًا بسيطًا للمشكلة..."></textarea>
+<label for="service">
+    نوع الخدمة
+</label>
 
-        </div>
+<select id="service" required>
+
+<option value="">
+    اختر الخدمة
+</option>
+
+<option>
+    صيانة لابتوب
+</option>
+
+<option>
+    صيانة كمبيوتر
+</option>
+
+<option>
+    صيانة هاتف
+</option>
+
+<option>
+    تبديل شاشة
+</option>
+
+<option>
+    تبديل بطارية
+</option>
+
+<option>
+    تركيب SSD
+</option>
+
+<option>
+    تركيب RAM
+</option>
+
+<option>
+    تنظيف وتسريع الجهاز
+</option>
+
+<option>
+    استرجاع ملفات
+</option>
+
+<option>
+    تجميع Gaming PC
+</option>
+
+<option>
+    أخرى
+</option>
+
+</select>
+
+</div>
 
 
-        <div class="form-submit">
+<!-- LOCATION -->
 
-          <button
-            type="submit"
-            class="btn btn-primary">
+<div class="field">
 
-            إرسال الطلب إلى واتساب
-            <span>↗</span>
+<label for="locationSelect">
+    المنطقة
+</label>
 
-          </button>
+<select id="locationSelect" required>
 
-        </div>
+<option value="">
+    اختر منطقتك
+</option>
 
-      </form>
 
-    </div>
+<optgroup label="مناطق النجف الأشرف">
 
-  </div>
+<option>الكوفة</option>
+<option>حي المعلمين</option>
+<option>الانصار</option>
+<option>حي ميسان</option>
+<option>حي الحسين</option>
+<option>حي ابو طالب</option>
+<option>القدس</option>
+<option>حي المهندسين</option>
+<option>النصر</option>
+<option>حي الزهراء</option>
+<option>الشعراء</option>
+<option>الميلاد</option>
+<option>حي الأمير</option>
+<option>حي الوفاء</option>
+<option>القادسية</option>
+<option>النداء</option>
+<option>الشهداء</option>
+<option>حي الرحمة</option>
+<option>الجديدة</option>
+<option>العسكري</option>
+<option>الجزيرة</option>
+<option>حي السواق</option>
+<option>المكرمة</option>
+<option>الجامعة</option>
+<option>الكرامة</option>
+<option>الجمعية</option>
+<option>السلام</option>
+
+</optgroup>
+
+
+<optgroup label="الأقضية والنواحي">
+
+<option>ناحية الحيدرية</option>
+<option>ناحية الرضوية</option>
+<option>ناحية العباسية</option>
+<option>ناحية الحرية</option>
+<option>ناحية الحيرة</option>
+<option>ناحية المشخاب</option>
+<option>ناحية القادسية</option>
+
+</optgroup>
+
+</select>
+
+</div>
+
+
+<!-- NOTES -->
+
+<div class="field full">
+
+<label for="notes">
+    ملاحظات إضافية
+</label>
+
+<textarea
+id="notes"
+placeholder="اكتب تفاصيل المشكلة أو الخدمة المطلوبة...">
+</textarea>
+
+</div>
+
+
+</div>
+
+
+<button
+type="submit"
+class="submit">
+
+📲 إرسال طلب الحجز عبر واتساب
+
+</button>
+
+
+</form>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta">
-
-  <div class="container cta-content reveal">
-
-    <div class="section-label">
-      جاهزون لخدمتك
-    </div>
-
-    <h2>
-      لا تخلي عطل صغير يعطّل يومك
-    </h2>
-
-    <p>
-      احجز فني الآن وخلي التشخيص والخطوة القادمة علينا.
-    </p>
-
-    <div class="cta-buttons">
-
-      <a href="#booking"
-         class="btn btn-primary">
-        احجز فني الآن
-      </a>
-
-      <a href="tel:07815685661"
-         class="btn btn-outline">
-        07815685661
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =========================
      FOOTER
-========================================================= -->
+========================= -->
 
 <footer>
 
-  <div class="container">
+<div class="container">
 
-    <div class="footer-top">
+<p>
+    © 2026
+    <strong>بصمة للكمبيوتر والهواتف</strong>
+    — النجف الأشرف
+</p>
 
-      <a href="#" class="logo">
-
-        <span class="logo-mark">
-
-          <svg viewBox="0 0 24 24"
-               fill="none"
-               stroke="url(#footerGradient)"
-               stroke-width="1.4"
-               stroke-linecap="round">
-
-            <defs>
-              <linearGradient id="footerGradient"
-                              x1="0" y1="0"
-                              x2="1" y2="1">
-
-                <stop offset="0%" stop-color="#F6D28E"/>
-                <stop offset="100%" stop-color="#B87524"/>
-
-              </linearGradient>
-            </defs>
-
-            <path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/>
-            <path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/>
-            <path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/>
-            <path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/>
-            <path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/>
-
-          </svg>
-
-        </span>
-
-        <span class="logo-name">
-          <strong>بصمة</strong>
-          <small>للكمبيوتر والهواتف</small>
-        </span>
-
-      </a>
-
-
-      <nav class="footer-links">
-
-        <a href="#services">الخدمات</a>
-        <a href="#gallery">أعمالنا</a>
-        <a href="#pricing">الأسعار</a>
-        <a href="#contact">الموقع</a>
-        <a href="#booking">الحجز</a>
-
-      </nav>
-
-    </div>
-
-
-    <div class="copyright">
-      © 2026 بصمة للكمبيوتر والهواتف — تم تطوير الموقع من قبل التقني عقيل محمد.
-    </div>
-
-  </div>
+</div>
 
 </footer>
 
 
-<!-- =========================================================
-     FLOATING WHATSAPP
-========================================================= -->
-
-<a
-  id="floatingWhatsapp"
-  class="whatsapp"
-  href="#"
-  aria-label="راسلنا على واتساب"
-  title="واتساب">
-
-  <svg width="27"
-       height="27"
-       viewBox="0 0 24 24"
-       fill="currentColor">
-
-    <path d="M12 2C6.48 2 2 6.48 2 12c0 1.9.53 3.68 1.44 5.2L2 22l4.94-1.42A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.65 0-3.2-.46-4.52-1.26l-.32-.19-3.02.87.88-2.94-.21-.33A7.93 7.93 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.29-5.7c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.4-.14 0-.3-.02-.46-.02s-.42.06-.64.3c-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z"/>
-
-  </svg>
-
-</a>
-
-
-<!-- =========================================================
-     SUCCESS MODAL
-========================================================= -->
-
-<div class="success-modal" id="successModal">
-
-  <div class="success-box">
-
-    <div class="success-icon">
-
-      <svg width="30"
-           height="30"
-           viewBox="0 0 24 24"
-           fill="none"
-           stroke="currentColor"
-           stroke-width="2">
-
-        <path d="M5 12l4 4L19 6"/>
-
-      </svg>
-
-    </div>
-
-    <h3>
-      تم تجهيز طلبك بنجاح
-    </h3>
-
-    <p>
-      سيتم فتح واتساب الآن برسالة الحجز الخاصة بك.
-      أرسل الرسالة لإكمال الطلب.
-    </p>
-
-    <button
-      class="btn btn-primary"
-      id="closeSuccess"
-      style="width:100%">
-
-      حسنًا
-
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- =========================================================
+<!-- =========================
      JAVASCRIPT
-========================================================= -->
+========================= -->
 
 <script>
 
-  /* =========================================================
-     BASIC SETTINGS
-  ========================================================= */
+const whatsappNumber = "9647815685661";
 
-  const CONFIG = {
 
-    /*
-      رقم واتساب بصيغة دولية بدون +
-      العراق = 964
-      الرقم الحالي = 7815685661
-    */
-    whatsappNumber: "9647815685661",
+/* =========================
+   BOOKING
+========================= */
 
-    phoneNumber: "07815685661",
+document
+.getElementById("bookingForm")
+.addEventListener("submit",function(e){
 
-    /*
-      صور Unsplash.
-      يتم تركيب الرابط برمجيًا حتى تستطيع تغيير الصور
-      من مكان واحد فقط.
-    */
+    e.preventDefault();
 
-    photos: {
 
-      "laptop-cleaning":
-        "photo-1593642702821-c8da6771f0c6",
+    const name =
+        document.getElementById("name").value.trim();
 
-      "laptop-repair":
-        "photo-1588872657578-7efd1f1555ed",
+    const phone =
+        document.getElementById("phone").value.trim();
 
-      "data-recovery":
-        "photo-1558494949-ef010cbdcc31",
+    const service =
+        document.getElementById("service").value;
 
-      "computer-components":
-        "photo-1591799264318-7e6ef8ddb7ea",
+    const location =
+        document.getElementById("locationSelect").value;
 
-      "motherboard":
-        "photo-1518770660439-4636190af475",
+    const notes =
+        document.getElementById("notes").value.trim();
 
-      "technician":
-        "photo-1517336714731-489689fd1ca8",
 
-      "phone-repair":
-        "photo-1511707171634-5f897ff02aa9",
-
-      "phone-battery":
-        "photo-1592286927505-1def25115558"
-
-    },
-
-    gallery: {
-
-      1:"photo-1593642632559-0c6d3fc62b89",
-      2:"photo-1591488320449-011701bb6704",
-      3:"photo-1496181133206-80ce9b88a853",
-      4:"photo-1511707171634-5f897ff02aa9",
-      5:"photo-1518770660439-4636190af475"
-
-    }
-
-  };
-
-
-  /* =========================================================
-     CREATE IMAGE URLS
-  ========================================================= */
-
-  function imageUrl(id){
-
-    const base = [
-      "https://",
-      "images.unsplash.com/",
-      id
-    ].join("");
-
-    return base +
-      "?auto=format&fit=crop&w=900&q=78";
-  }
-
-
-  /* =========================================================
-     LOAD SERVICE IMAGES
-  ========================================================= */
-
-  document
-    .querySelectorAll("[data-photo]")
-    .forEach(img => {
-
-      const key = img.dataset.photo;
-
-      if(CONFIG.photos[key]){
-
-        img.src = imageUrl(CONFIG.photos[key]);
-
-      }
-
-    });
-
-
-  /* =========================================================
-     LOAD GALLERY IMAGES
-  ========================================================= */
-
-  document
-    .querySelectorAll("[data-gallery]")
-    .forEach(img => {
-
-      const key = img.dataset.gallery;
-
-      if(CONFIG.gallery[key]){
-
-        img.src = imageUrl(CONFIG.gallery[key]);
-
-      }
-
-    });
-
-
-  /* =========================================================
-     WHATSAPP LINKS
-  ========================================================= */
-
-  const whatsappBase = [
-    "https://",
-    "wa.me/"
-  ].join("");
-
-  const whatsappUrl =
-    whatsappBase + CONFIG.whatsappNumber;
-
-
-  document
-    .getElementById("floatingWhatsapp")
-    .href = whatsappUrl;
-
-
-  document
-    .getElementById("whatsappContact")
-    .href = whatsappUrl;
-
-
-  /* =========================================================
-     MOBILE MENU
-  ========================================================= */
-
-  const menuToggle =
-    document.getElementById("menuToggle");
-
-  const mobileMenu =
-    document.getElementById("mobileMenu");
-
-
-  menuToggle.addEventListener("click", () => {
-
-    mobileMenu.classList.toggle("open");
-    document.body.classList.toggle(
-      "menu-open"
-    );
-
-  });
-
-
-  document
-    .querySelectorAll(".mobile-menu a")
-    .forEach(link => {
-
-      link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("open");
-        document.body.classList.remove("menu-open");
-
-      });
-
-    });
-
-
-  /* =========================================================
-     BOOKING FORM
-  ========================================================= */
-
-  const bookingForm =
-    document.getElementById("bookingForm");
-
-  const successModal =
-    document.getElementById("successModal");
-
-  const closeSuccess =
-    document.getElementById("closeSuccess");
-
-
-  bookingForm.addEventListener(
-    "submit",
-    function(event){
-
-      event.preventDefault();
-
-
-      const name =
-        document.getElementById("name")
-        .value
-        .trim();
-
-      const phone =
-        document.getElementById("phone")
-        .value
-        .trim();
-
-      const service =
-        document.getElementById("service")
-        .value
-        .trim();
-
-      const notes =
-        document.getElementById("notes")
-        .value
-        .trim();
-
-
-      if(!name || !phone || !service){
+    if(!name || !phone || !service || !location){
 
         alert(
-          "يرجى تعبئة الاسم ورقم الهاتف ونوع الخدمة."
+            "يرجى تعبئة الاسم ورقم الهاتف والخدمة والمنطقة."
         );
 
         return;
+    }
 
-      }
 
+    const message =
 
-      const message =
-
-`السلام عليكم، أريد حجز خدمة من موقع بصمة.
+`السلام عليكم، أريد حجز خدمة من بصمة للكمبيوتر والهواتف.
 
 👤 الاسم: ${name}
 
-📞 الهاتف: ${phone}
+📞 رقم الهاتف: ${phone}
 
-🔧 الخدمة: ${service}
+🔧 الخدمة المطلوبة: ${service}
 
-📝 وصف العطل:
-${notes || "لم يتم ذكر وصف للعطل"}
+📍 المنطقة: ${location}
 
-📍 المنطقة: النجف
+📝 الملاحظات:
+${notes || "لا توجد ملاحظات"}
 
-أرجو التواصل معي لتحديد الموعد المناسب.`;
+📌 الموقع:
+https://maps.app.goo.gl/5n6AjrJT71k3CReN8`;
 
 
-
-      const encodedMessage =
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
         encodeURIComponent(message);
 
 
-      const finalWhatsappUrl =
-        whatsappBase +
-        CONFIG.whatsappNumber +
-        "?text=" +
-        encodedMessage;
-
-
-      /*
-        نعرض رسالة نجاح أولًا
-      */
-
-      successModal.classList.add("show");
-
-
-      /*
-        ثم نفتح واتساب
-      */
-
-      setTimeout(() => {
-
-        window.open(
-          finalWhatsappUrl,
-          "_blank",
-          "noopener,noreferrer"
-        );
-
-      }, 500);
-
-
-      bookingForm.reset();
-
-    }
-  );
-
-
-  /* =========================================================
-     CLOSE SUCCESS
-  ========================================================= */
-
-  closeSuccess.addEventListener(
-    "click",
-    () => {
-
-      successModal.classList.remove("show");
-
-    }
-  );
-
-
-  successModal.addEventListener(
-    "click",
-    event => {
-
-      if(event.target === successModal){
-
-        successModal.classList.remove("show");
-
-      }
-
-    }
-  );
-
-
-  /* =========================================================
-     NAJAF MAP
-  ========================================================= */
-
-  const map = document.getElementById("najafMap");
-
-
-  /*
-    خريطة OpenStreetMap للنجف.
-    يتم تركيب الرابط برمجيًا.
-  */
-
-  const mapBase = [
-    "https://",
-    "www.openstreetmap.org/export/embed.html?"
-  ].join("");
-
-
-  map.src =
-    mapBase +
-    "bbox=44.25%2C31.88%2C44.45%2C32.10" +
-    "&layer=mapnik" +
-    "&marker=32.0000%2C44.3300";
-
-
-  /* =========================================================
-     SCROLL REVEAL
-  ========================================================= */
-
-  const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-  const observer =
-    new IntersectionObserver(
-
-      entries => {
-
-        entries.forEach(entry => {
-
-          if(entry.isIntersecting){
-
-            entry.target.classList.add(
-              "visible"
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-
-      {
-        threshold:.12
-      }
-
+    window.open(
+        whatsappURL,
+        "_blank"
     );
 
-
-  revealElements.forEach(
-    element =>
-      observer.observe(element)
-  );
+});
 
 
-  /* =========================================================
-     LOADER
-  ========================================================= */
+/* =========================
+   ALWAYS START FROM TOP
+========================= */
 
-  window.addEventListener(
-    "load",
-    () => {
+if("scrollRestoration" in history){
 
-      setTimeout(() => {
+    history.scrollRestoration = "manual";
 
-        document
-          .getElementById("loader")
-          .classList.add("hidden");
+}
 
-      }, 500);
+window.addEventListener("load",function(){
 
-    }
-  );
+    window.scrollTo(0,0);
 
-
-  /* =========================================================
-     PHONE NUMBER NORMALIZATION
-  ========================================================= */
-
-  document
-    .getElementById("phone")
-    .addEventListener(
-      "input",
-      function(){
-
-        /*
-          السماح بالأرقام العربية والإنجليزية
-        */
-
-        this.value =
-          this.value
-            .replace(/[^\d٠-٩+]/g,"");
-
-      }
-    );
-
-
-  /* =========================================================
-     PREVENT EMPTY ANCHOR JUMP
-  ========================================================= */
-
-  document
-    .querySelectorAll('a[href="#"]')
-    .forEach(link => {
-
-      link.addEventListener(
-        "click",
-        event => event.preventDefault()
-      );
-
-    });
+});
 
 </script>
 
 
-<!-- =========================================================
-     SEO STRUCTURED DATA
-========================================================= -->
+<!-- =========================
+     STRUCTURED DATA
+========================= -->
 
 <script type="application/ld+json">
 
 {
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-
-  "name":"بصمة للكمبيوتر والهواتف",
-
-  "description":
-    "خدمات صيانة الكمبيوتر واللابتوب والهواتف في النجف.",
-
-  "telephone":"+9647815685661",
-
-  "areaServed":{
-    "@type":"City",
-    "name":"Najaf"
-  },
-
-  "address":{
-    "@type":"PostalAddress",
-    "addressLocality":"Najaf",
-    "addressCountry":"IQ"
-  },
-
-  "openingHoursSpecification":{
-    "@type":"OpeningHoursSpecification",
-    "dayOfWeek":[
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens":"09:00",
-    "closes":"23:00"
-  },
-
-  "priceRange":"25,000 - 40,000 IQD"
-
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"بصمة للكمبيوتر والهواتف",
+    "description":"صيانة الكمبيوتر واللابتوب والهواتف في النجف الأشرف",
+    "telephone":"+9647815685661",
+    "address":{
+        "@type":"PostalAddress",
+        "addressLocality":"Najaf",
+        "addressCountry":"IQ"
+    },
+    "hasMap":"https://maps.app.goo.gl/5n6AjrJT71k3CReN8"
 }
 
 </script>
 
 </body>
 </html>
-```
