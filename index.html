@@ -739,6 +739,34 @@
     }
 
     /* =========================================================
+       PREMIUM HERO DEVICES
+    ========================================================= */
+    .premium-devices{min-height:570px;position:relative;isolation:isolate;}
+    .premium-device{position:relative;display:block;}
+    .laptop-premium{width:min(560px,92%);z-index:2;transform:translateY(-12px);}
+    .premium-laptop-svg{width:100%;height:auto;filter:drop-shadow(0 35px 40px rgba(0,0,0,.55));animation:premiumFloat 5s ease-in-out infinite;}
+    .pc-premium{position:absolute;left:-4px;bottom:18px;width:190px;z-index:5;transform:rotate(-2deg);filter:drop-shadow(0 25px 28px rgba(0,0,0,.6));}
+    .premium-pc-shell{height:300px;border:1px solid #526370;border-radius:16px;background:linear-gradient(135deg,#303d49,#0a1016);padding:13px;display:flex;gap:10px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.025),0 0 45px rgba(54,184,167,.1);}
+    .pc-glass{flex:1;border:1px solid #3e5661;border-radius:10px;background:linear-gradient(135deg,rgba(37,67,78,.7),rgba(7,14,19,.94));padding:15px 9px;position:relative;overflow:hidden;}
+    .pc-front{width:27px;border-radius:7px;background:#101820;border:1px solid #354652;display:flex;flex-direction:column;align-items:center;padding-top:18px;gap:13px;}
+    .pc-front b{width:8px;height:8px;border-radius:50%;background:#65d5c5;box-shadow:0 0 14px #65d5c5;} .pc-front span{width:9px;height:75px;border-radius:4px;background:linear-gradient(#e6a23c,#65d5c5);opacity:.85;} .pc-front em{width:12px;height:3px;border-radius:2px;background:#33434e;}
+    .pc-rgb-line{position:absolute;left:7px;top:12px;bottom:12px;width:3px;border-radius:4px;background:linear-gradient(#f6d28e,#65d5c5,#e6a23c);box-shadow:0 0 14px rgba(101,213,197,.4);}
+    .pc-fan{width:62px;height:62px;border-radius:50%;border:2px solid #38505b;background:#081015;margin:2px auto 11px;position:relative;display:grid;place-items:center;}
+    .pc-fan::before{content:"";position:absolute;inset:9px;border-radius:50%;border:2px solid #65d5c5;opacity:.7;} .pc-fan i{width:8px;height:8px;border-radius:50%;background:#e6a23c;box-shadow:0 0 12px #e6a23c;}
+    .fan-b i{background:#65d5c5;box-shadow:0 0 12px #65d5c5}.fan-c i{background:#f6d28e;box-shadow:0 0 12px #f6d28e}
+    .pc-gpu{height:28px;margin:4px 8px;border:1px solid #425966;border-radius:6px;background:#17252d;display:grid;place-items:center;color:#f6d28e;font:700 9px 'IBM Plex Mono',monospace;}
+    .premium-device-badge{position:absolute;right:12px;top:18px;padding:7px 11px;border:1px solid rgba(230,162,60,.35);background:rgba(8,13,18,.85);backdrop-filter:blur(8px);border-radius:9px;color:#f6d28e;font:700 10px 'IBM Plex Mono',monospace;letter-spacing:.4px;}
+    .premium-device-badge span{color:#65d5c5;margin-right:4px;}
+    .device-orbit{position:absolute;border:1px solid rgba(101,213,197,.18);border-radius:50%;pointer-events:none;}.orbit-one{width:430px;height:170px;right:5%;top:18%;transform:rotate(-18deg);}.orbit-two{width:360px;height:140px;right:12%;top:25%;transform:rotate(22deg);border-color:rgba(230,162,60,.13);}
+    @keyframes premiumFloat{0%,100%{transform:translateY(0) rotateX(2deg) rotateY(-4deg)}50%{transform:translateY(-11px) rotateX(2deg) rotateY(-4deg)}}
+
+    /* Engineer service visual */
+    .service-engineer-card{min-height:520px;position:relative;display:grid;grid-template-columns:1.35fr .65fr;gap:28px;padding:18px;background:linear-gradient(145deg,#101a23,#0b1117);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
+    .engineer-art{min-height:480px;display:grid;place-items:center;position:relative;}.engineer-art svg{width:100%;height:auto;max-height:480px;filter:drop-shadow(0 25px 35px rgba(0,0,0,.45));}
+    .engineer-glow{position:absolute;width:320px;height:260px;background:rgba(54,184,167,.1);filter:blur(75px);border-radius:50%;}
+    .engineer-info{align-self:center;padding:20px 12px 20px 24px;}.engineer-pill{display:inline-flex;padding:8px 12px;border-radius:100px;border:1px solid rgba(101,213,197,.22);background:rgba(101,213,197,.06);color:#8fd9cd;font-size:12px;margin-bottom:18px;}.engineer-info h3{font-size:clamp(24px,2.4vw,34px);line-height:1.45;margin-bottom:14px;}.engineer-info p{color:var(--muted);font-size:15px;line-height:2;margin-bottom:12px;}
+
+    /* =========================================================
        REALISTIC LAPTOP
     ========================================================= */
 
@@ -1561,80 +1589,23 @@
       margin-top:2px;
     }
 
-    .engineer-card{
-      position:relative;
+    .map{
       min-height:520px;
+
       border:1px solid var(--border);
       border-radius:18px;
       overflow:hidden;
-      background:
-        radial-gradient(circle at 70% 25%, rgba(54,184,167,.13), transparent 28%),
-        radial-gradient(circle at 25% 75%, rgba(230,162,60,.12), transparent 30%),
-        linear-gradient(145deg,#111923,#0a1016);
+
+      background:#101820;
       box-shadow:var(--shadow);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:34px;
     }
 
-    .engineer-card::before{
-      content:"";
-      position:absolute;
-      inset:18px;
-      border:1px solid rgba(255,255,255,.055);
-      border-radius:14px;
-      pointer-events:none;
-    }
-
-    .engineer-visual{
-      position:relative;
-      z-index:2;
-      width:min(100%,520px);
-      text-align:center;
-    }
-
-    .engineer-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 13px;
-      border:1px solid rgba(230,162,60,.28);
-      border-radius:999px;
-      background:rgba(230,162,60,.06);
-      color:var(--gold-light);
-      font-size:12px;
-      margin-bottom:14px;
-    }
-
-    .engineer-badge::before{
-      content:"";
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:var(--teal);
-      box-shadow:0 0 12px rgba(54,184,167,.65);
-    }
-
-    .engineer-svg{
+    .map iframe{
       width:100%;
-      max-width:470px;
-      height:auto;
-      margin:0 auto;
-      filter:drop-shadow(0 28px 35px rgba(0,0,0,.38));
-    }
-
-    .engineer-title{
-      margin-top:4px;
-      font-size:20px;
-      font-weight:800;
-      color:var(--text);
-    }
-
-    .engineer-subtitle{
-      margin-top:5px;
-      color:var(--muted);
-      font-size:13px;
+      height:100%;
+      min-height:520px;
+      border:0;
+      display:block;
     }
 
     /* =========================================================
@@ -2079,9 +2050,12 @@
         grid-template-columns:1fr;
       }
 
-      .engineer-card{
+      .map{
         min-height:400px;
-        padding:25px;
+      }
+
+      .map iframe{
+        min-height:400px;
       }
 
       .booking-card{
@@ -2337,6 +2311,30 @@
       }
     }
 
+
+    @media(max-width:900px){
+      .premium-devices{min-height:470px;}
+      .laptop-premium{width:94%;}
+      .pc-premium{width:145px;bottom:0;}
+      .premium-pc-shell{height:235px;padding:10px;}
+      .pc-fan{width:48px;height:48px;margin-bottom:8px;}
+      .service-engineer-card{grid-template-columns:1fr;gap:8px;padding:10px;}
+      .engineer-art{min-height:auto;}
+      .engineer-info{padding:5px 14px 20px;}
+    }
+    @media(max-width:600px){
+      .premium-devices{min-height:350px;}
+      .pc-premium{width:108px;left:0;}
+      .premium-pc-shell{height:185px;padding:7px;gap:6px;}
+      .pc-glass{padding:8px 5px;}
+      .pc-fan{width:38px;height:38px;margin-bottom:5px;}
+      .pc-fan::before{inset:6px;}
+      .premium-device-badge{font-size:8px;padding:5px 7px;top:8px;right:7px;}
+      .device-orbit{display:none;}
+      .engineer-art svg{max-height:330px;}
+      .engineer-info h3{font-size:22px;}
+      .engineer-info p{font-size:13.5px;}
+    }
   </style>
 </head>
 
@@ -2535,177 +2533,53 @@
 
     <div class="hero-device reveal">
 
-      <div class="real-gaming-devices">
+      <div class="real-gaming-devices premium-devices">
 
         <div class="real-device-glow"></div>
 
-        <svg class="real-laptop-img" viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="لابتوب Gaming فاخر">
-          <defs>
-            <linearGradient id="lapShell" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#3a4552"/>
-              <stop offset="45%" stop-color="#232c36"/>
-              <stop offset="100%" stop-color="#0e1319"/>
-            </linearGradient>
-            <linearGradient id="lapDeck" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2a333d"/>
-              <stop offset="100%" stop-color="#111820"/>
-            </linearGradient>
-            <linearGradient id="lapScreen" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#132029"/>
-              <stop offset="55%" stop-color="#0c1620"/>
-              <stop offset="100%" stop-color="#070c11"/>
-            </linearGradient>
-            <linearGradient id="rgbEdge" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#f6d28e">
-                <animate attributeName="stop-color" values="#f6d28e;#65d5c5;#e6a23c;#f6d28e" dur="6s" repeatCount="indefinite"/>
-              </stop>
-              <stop offset="50%" stop-color="#65d5c5">
-                <animate attributeName="stop-color" values="#65d5c5;#e6a23c;#f6d28e;#65d5c5" dur="6s" repeatCount="indefinite"/>
-              </stop>
-              <stop offset="100%" stop-color="#e6a23c">
-                <animate attributeName="stop-color" values="#e6a23c;#f6d28e;#65d5c5;#e6a23c" dur="6s" repeatCount="indefinite"/>
-              </stop>
-            </linearGradient>
-            <radialGradient id="screenGlow" cx="60%" cy="30%" r="75%">
-              <stop offset="0%" stop-color="#36b8a7" stop-opacity=".45"/>
-              <stop offset="100%" stop-color="#36b8a7" stop-opacity="0"/>
-            </radialGradient>
-            <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="6"/>
-            </filter>
-          </defs>
-
-          <!-- base / keyboard deck -->
-          <path d="M60 300 L580 300 L618 372 Q620 386 604 386 L36 386 Q20 386 22 372 Z" fill="url(#lapDeck)" stroke="#3a4652" stroke-width="1.5"/>
-          <rect x="255" y="300" width="130" height="7" rx="3" fill="#0a0f14"/>
-          <!-- hinge -->
-          <rect x="70" y="292" width="500" height="10" rx="5" fill="#1a222b"/>
-
-          <!-- keyboard -->
-          <g opacity=".9">
-            <rect x="95" y="315" width="450" height="46" rx="6" fill="#0c1218"/>
-            <g fill="#1c2732">
-              <rect x="103" y="321" width="22" height="14" rx="3"/><rect x="129" y="321" width="22" height="14" rx="3"/><rect x="155" y="321" width="22" height="14" rx="3"/><rect x="181" y="321" width="22" height="14" rx="3"/><rect x="207" y="321" width="22" height="14" rx="3"/><rect x="233" y="321" width="22" height="14" rx="3"/><rect x="259" y="321" width="22" height="14" rx="3"/><rect x="285" y="321" width="22" height="14" rx="3"/><rect x="311" y="321" width="22" height="14" rx="3"/><rect x="337" y="321" width="22" height="14" rx="3"/><rect x="363" y="321" width="22" height="14" rx="3"/><rect x="389" y="321" width="22" height="14" rx="3"/><rect x="415" y="321" width="22" height="14" rx="3"/>
-              <rect x="103" y="339" width="22" height="14" rx="3"/><rect x="129" y="339" width="22" height="14" rx="3"/><rect x="155" y="339" width="22" height="14" rx="3"/><rect x="181" y="339" width="22" height="14" rx="3"/><rect x="207" y="339" width="22" height="14" rx="3"/><rect x="233" y="339" width="22" height="14" rx="3"/><rect x="259" y="339" width="22" height="14" rx="3"/><rect x="285" y="339" width="22" height="14" rx="3"/><rect x="311" y="339" width="22" height="14" rx="3"/><rect x="337" y="339" width="90" height="14" rx="3"/>
+        <div class="premium-device laptop-premium">
+          <div class="device-orbit orbit-one"></div>
+          <div class="device-orbit orbit-two"></div>
+          <svg class="premium-laptop-svg" viewBox="0 0 620 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="لابتوب احترافي فاخر">
+            <defs>
+              <linearGradient id="pLapBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5b6877"/><stop offset=".45" stop-color="#202b36"/><stop offset="1" stop-color="#090e14"/></linearGradient>
+              <linearGradient id="pLapScreen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#132f38"/><stop offset=".5" stop-color="#091820"/><stop offset="1" stop-color="#05090e"/></linearGradient>
+              <linearGradient id="pRGB" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#f6d28e"/><stop offset=".5" stop-color="#65d5c5"/><stop offset="1" stop-color="#e6a23c"/></linearGradient>
+              <filter id="pGlow"><feGaussianBlur stdDeviation="8"/></filter>
+            </defs>
+            <ellipse cx="310" cy="385" rx="255" ry="20" fill="#000" opacity=".45"/>
+            <path d="M91 308 L529 308 L580 365 Q587 378 567 382 L53 382 Q33 378 40 365 Z" fill="url(#pLapBody)" stroke="#697887" stroke-width="2"/>
+            <rect x="104" y="315" width="412" height="45" rx="8" fill="#080e14" stroke="#394754"/>
+            <g fill="#26333f" opacity=".9">
+              <rect x="120" y="322" width="30" height="12" rx="3"/><rect x="155" y="322" width="30" height="12" rx="3"/><rect x="190" y="322" width="30" height="12" rx="3"/><rect x="225" y="322" width="30" height="12" rx="3"/><rect x="260" y="322" width="30" height="12" rx="3"/><rect x="295" y="322" width="30" height="12" rx="3"/><rect x="330" y="322" width="30" height="12" rx="3"/><rect x="365" y="322" width="30" height="12" rx="3"/><rect x="400" y="322" width="30" height="12" rx="3"/><rect x="435" y="322" width="30" height="12" rx="3"/>
+              <rect x="145" y="340" width="55" height="10" rx="3"/><rect x="205" y="340" width="55" height="10" rx="3"/><rect x="265" y="340" width="55" height="10" rx="3"/><rect x="325" y="340" width="55" height="10" rx="3"/><rect x="385" y="340" width="55" height="10" rx="3"/>
             </g>
-            <rect x="270" y="317" width="70" height="7" rx="3" fill="url(#rgbEdge)" opacity=".8"/>
-          </g>
-          <rect x="480" y="330" width="55" height="22" rx="4" fill="#0c1218" stroke="#26323e"/>
+            <path d="M62 300 L558 300 L532 44 Q529 25 511 25 L109 25 Q91 25 88 44 Z" fill="url(#pLapBody)" stroke="#697887" stroke-width="2"/>
+            <path d="M109 49 L511 49 L532 278 L88 278 Z" fill="url(#pLapScreen)" stroke="#344652"/>
+            <path d="M109 49 L511 49 L532 278 L88 278 Z" fill="none" stroke="url(#pRGB)" stroke-width="3" opacity=".75"/>
+            <circle cx="310" cy="39" r="3" fill="#b8c5cf"/>
+            <text x="310" y="140" text-anchor="middle" font-family="Noto Kufi Arabic, sans-serif" font-size="31" font-weight="800" fill="#f6d28e">بصمة</text>
+            <text x="310" y="170" text-anchor="middle" font-family="Noto Kufi Arabic, sans-serif" font-size="12" fill="#8fd9cd">مركز الصيانة الاحترافي</text>
+            <rect x="195" y="195" width="230" height="5" rx="3" fill="#263b45"/><rect x="225" y="211" width="170" height="5" rx="3" fill="#1b3039"/>
+            <circle cx="310" cy="244" r="25" fill="#0b161c" stroke="#65d5c5" opacity=".9"/><path d="M298 244 l8 8 17-20" fill="none" stroke="#65d5c5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M78 382 L542 382" stroke="url(#pRGB)" stroke-width="5" stroke-linecap="round" filter="url(#pGlow)"/>
+          </svg>
+          <div class="premium-device-badge">LAPTOP PRO <span>✦</span></div>
+        </div>
 
-          <!-- RGB glow strip along the deck front edge -->
-          <path d="M36 386 L604 386" stroke="url(#rgbEdge)" stroke-width="4" stroke-linecap="round" filter="url(#softBlur)"/>
-
-          <!-- screen -->
-          <g>
-            <path d="M95 40 L545 40 L580 300 L60 300 Z" fill="url(#lapShell)" stroke="#3a4652" stroke-width="1.5"/>
-            <path d="M115 58 L525 58 L554 282 L86 282 Z" fill="#05080b"/>
-            <path d="M122 65 L518 65 L544 275 L96 275 Z" fill="url(#lapScreen)"/>
-            <path d="M122 65 L518 65 L544 275 L96 275 Z" fill="url(#screenGlow)"/>
-
-            <!-- screen HUD content -->
-            <text x="320" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#e6a23c">بصمة</text>
-            <rect x="180" y="160" width="280" height="6" rx="3" fill="#243642"/>
-            <rect x="210" y="176" width="220" height="6" rx="3" fill="#1c2b35"/>
-            <g>
-              <circle cx="185" cy="230" r="4" fill="#65d5c5">
-                <animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/>
-              </circle>
-              <text x="198" y="234" font-family="monospace" font-size="11" fill="#8fd9cd">READY • GAMING MODE</text>
-            </g>
-            <!-- subtle scanline shimmer -->
-            <rect x="96" y="65" width="448" height="6" fill="#ffffff" opacity=".06">
-              <animate attributeName="y" values="65;270;65" dur="4.5s" repeatCount="indefinite"/>
-            </rect>
-          </g>
-
-          <!-- corner gem accents -->
-          <circle cx="320" cy="40" r="3" fill="#f6d28e"/>
-        </svg>
-
-        <svg class="real-pc-img" viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="كيس Gaming RGB فاخر">
-          <defs>
-            <linearGradient id="caseFrame" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#2b333d"/>
-              <stop offset="50%" stop-color="#181f27"/>
-              <stop offset="100%" stop-color="#0c1218"/>
-            </linearGradient>
-            <linearGradient id="glassPanel" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1c2e38" stop-opacity=".9"/>
-              <stop offset="100%" stop-color="#0a1216" stop-opacity=".95"/>
-            </linearGradient>
-            <linearGradient id="rgbVert" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#e6a23c">
-                <animate attributeName="stop-color" values="#e6a23c;#65d5c5;#f6d28e;#e6a23c" dur="5s" repeatCount="indefinite"/>
-              </stop>
-              <stop offset="100%" stop-color="#65d5c5">
-                <animate attributeName="stop-color" values="#65d5c5;#f6d28e;#e6a23c;#65d5c5" dur="5s" repeatCount="indefinite"/>
-              </stop>
-            </linearGradient>
-          </defs>
-
-          <!-- case frame -->
-          <rect x="6" y="6" width="248" height="368" rx="14" fill="url(#caseFrame)" stroke="#3a4652" stroke-width="1.5"/>
-
-          <!-- tempered glass side panel -->
-          <rect x="22" y="26" width="150" height="328" rx="8" fill="url(#glassPanel)" stroke="#4a5b66" stroke-width="1"/>
-
-          <!-- vertical RGB strip -->
-          <rect x="188" y="24" width="9" height="332" rx="4" fill="url(#rgbVert)"/>
-          <rect x="205" y="24" width="9" height="332" rx="4" fill="url(#rgbVert)" opacity=".55"/>
-
-          <!-- fans -->
-          <g>
-            <circle cx="97" cy="90" r="40" fill="#0b1116" stroke="#33424c" stroke-width="2"/>
-            <circle cx="97" cy="90" r="30" fill="none" stroke="#233038" stroke-width="1"/>
-            <g stroke="#e6a23c" stroke-width="2" stroke-linecap="round" opacity=".85">
-              <g>
-                <line x1="97" y1="90" x2="97" y2="58"/>
-                <line x1="97" y1="90" x2="124" y2="106"/>
-                <line x1="97" y1="90" x2="70" y2="106"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 97 90" to="360 97 90" dur="3s" repeatCount="indefinite"/>
-              </g>
-            </g>
-            <circle cx="97" cy="90" r="6" fill="#1c2731"/>
-          </g>
-
-          <g>
-            <circle cx="97" cy="200" r="40" fill="#0b1116" stroke="#33424c" stroke-width="2"/>
-            <circle cx="97" cy="200" r="30" fill="none" stroke="#233038" stroke-width="1"/>
-            <g stroke="#65d5c5" stroke-width="2" stroke-linecap="round" opacity=".85">
-              <g>
-                <line x1="97" y1="200" x2="97" y2="168"/>
-                <line x1="97" y1="200" x2="124" y2="216"/>
-                <line x1="97" y1="200" x2="70" y2="216"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 97 200" to="360 97 200" dur="3.4s" repeatCount="indefinite"/>
-              </g>
-            </g>
-            <circle cx="97" cy="200" r="6" fill="#1c2731"/>
-          </g>
-
-          <g>
-            <circle cx="97" cy="310" r="40" fill="#0b1116" stroke="#33424c" stroke-width="2"/>
-            <circle cx="97" cy="310" r="30" fill="none" stroke="#233038" stroke-width="1"/>
-            <g stroke="#f6d28e" stroke-width="2" stroke-linecap="round" opacity=".85">
-              <g>
-                <line x1="97" y1="310" x2="97" y2="278"/>
-                <line x1="97" y1="310" x2="124" y2="326"/>
-                <line x1="97" y1="310" x2="70" y2="326"/>
-                <animateTransform attributeName="transform" type="rotate" from="0 97 310" to="360 97 310" dur="2.7s" repeatCount="indefinite"/>
-              </g>
-            </g>
-            <circle cx="97" cy="310" r="6" fill="#1c2731"/>
-          </g>
-
-          <!-- front panel -->
-          <rect x="222" y="26" width="20" height="328" rx="6" fill="#10161c"/>
-          <circle cx="232" cy="46" r="4" fill="#65d5c5">
-            <animate attributeName="opacity" values="1;.35;1" dur="1.4s" repeatCount="indefinite"/>
-          </circle>
-          <rect x="226" y="70" width="12" height="60" rx="3" fill="#1c2731"/>
-
-          <!-- logo -->
-          <text x="97" y="360" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#f6d28e" opacity=".8">GAMING PC</text>
-        </svg>
+        <div class="premium-device pc-premium">
+          <div class="premium-pc-shell">
+            <div class="pc-glass">
+              <div class="pc-fan fan-a"><i></i></div>
+              <div class="pc-fan fan-b"><i></i></div>
+              <div class="pc-fan fan-c"><i></i></div>
+              <div class="pc-gpu"><span>RTX</span></div>
+            </div>
+            <div class="pc-front"><b></b><span></span><em></em></div>
+            <div class="pc-rgb-line"></div>
+          </div>
+          <div class="premium-device-badge">WORKSTATION <span>✦</span></div>
+        </div>
 
       </div>
 
@@ -3439,123 +3313,52 @@
     </div>
 
 
-    <div class="engineer-card reveal">
-
-      <div class="engineer-visual">
-
-        <div class="engineer-badge">مهندس حاسبات • دعم وصيانة احترافية</div>
-
-        <svg class="engineer-svg" viewBox="0 0 640 520" role="img" aria-label="مهندس حاسبات محترف يعمل على جهاز كمبيوتر محمول">
+    <div class="map reveal service-engineer-card">
+      <div class="engineer-art" aria-label="مهندس حاسبات يعمل صيانة لجهاز كمبيوتر">
+        <div class="engineer-glow"></div>
+        <svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="مهندس حاسبات يعمل صيانة إلى كيس كمبيوتر">
           <defs>
-            <linearGradient id="engGold" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#f6d28e"/>
-              <stop offset="1" stop-color="#b87524"/>
-            </linearGradient>
-            <linearGradient id="engTeal" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#65d5c5"/>
-              <stop offset="1" stop-color="#238f83"/>
-            </linearGradient>
-            <linearGradient id="engSuit" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#243342"/>
-              <stop offset="1" stop-color="#0d151e"/>
-            </linearGradient>
-            <filter id="engShadow" x="-30%" y="-30%" width="160%" height="160%">
-              <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".42"/>
-            </filter>
+            <linearGradient id="engBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17242e"/><stop offset="1" stop-color="#090f15"/></linearGradient>
+            <linearGradient id="engShirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3c4d5b"/><stop offset="1" stop-color="#111a23"/></linearGradient>
+            <linearGradient id="engSkin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9a47c"/><stop offset="1" stop-color="#9a6045"/></linearGradient>
+            <linearGradient id="engCase" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#293845"/><stop offset="1" stop-color="#0b1117"/></linearGradient>
+            <linearGradient id="engRGB" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6a23c"/><stop offset=".5" stop-color="#65d5c5"/><stop offset="1" stop-color="#f6d28e"/></linearGradient>
+            <filter id="engShadow"><feGaussianBlur stdDeviation="12"/></filter>
           </defs>
-
-          <!-- ambient tech circles -->
-          <circle cx="320" cy="245" r="185" fill="rgba(54,184,167,.035)"/>
-          <circle cx="320" cy="245" r="145" fill="none" stroke="rgba(54,184,167,.10)" stroke-width="2"/>
-          <circle cx="320" cy="245" r="108" fill="none" stroke="rgba(230,162,60,.10)" stroke-width="2" stroke-dasharray="8 12"/>
-
-          <!-- floating code panels -->
-          <g opacity=".72">
-            <rect x="42" y="115" width="142" height="82" rx="14" fill="#101923" stroke="rgba(255,255,255,.10)"/>
-            <circle cx="62" cy="137" r="5" fill="#36b8a7"/>
-            <rect x="76" y="133" width="76" height="7" rx="3.5" fill="#3b4a58"/>
-            <rect x="62" y="153" width="94" height="6" rx="3" fill="#263541"/>
-            <rect x="62" y="168" width="64" height="6" rx="3" fill="#263541"/>
-          </g>
-
-          <g opacity=".72">
-            <rect x="455" y="92" width="140" height="92" rx="14" fill="#101923" stroke="rgba(255,255,255,.10)"/>
-            <path d="M478 145l18-16 15 13 23-28 25 30" fill="none" stroke="url(#engTeal)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="478" y="158" width="78" height="6" rx="3" fill="#263541"/>
-          </g>
-
-          <!-- head -->
-          <g filter="url(#engShadow)">
-            <ellipse cx="326" cy="151" rx="62" ry="69" fill="#b86f4f"/>
-            <path d="M267 144c-3-57 34-82 77-77 40 5 62 35 55 77-17-10-26-30-29-50-21 18-57 29-94 24z" fill="#171d25"/>
-            <path d="M283 157c10 30 28 45 47 45 24 0 44-18 54-46-13 9-30 14-50 14-20 0-37-4-51-13z" fill="#a85e42"/>
-            <path d="M296 157h15M344 157h15" stroke="#1a2027" stroke-width="5" stroke-linecap="round"/>
-            <path d="M319 180c8 5 16 5 24 0" fill="none" stroke="#6d3b30" stroke-width="4" stroke-linecap="round"/>
-            <path d="M263 137c8-12 17-18 29-20M360 117c13 2 23 9 32 21" fill="none" stroke="#171d25" stroke-width="8" stroke-linecap="round"/>
-            <rect x="287" y="151" width="30" height="18" rx="8" fill="none" stroke="#26323d" stroke-width="4"/>
-            <rect x="337" y="151" width="30" height="18" rx="8" fill="none" stroke="#26323d" stroke-width="4"/>
-            <path d="M317 159h20" stroke="#26323d" stroke-width="4"/>
-          </g>
-
-          <!-- body -->
-          <g filter="url(#engShadow)">
-            <path d="M233 263c9-45 43-66 93-66 52 0 88 22 98 66l19 137H214z" fill="url(#engSuit)"/>
-            <path d="M302 202l24 31 24-31 19 8-43 67-44-67z" fill="#f0e5d8"/>
-            <path d="M326 231l17 44-17 42-17-42z" fill="url(#engGold)"/>
-            <path d="M252 270c25 13 48 18 74 18 28 0 55-6 78-19" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="3"/>
-            <rect x="350" y="292" width="47" height="58" rx="8" fill="#111b24" stroke="rgba(255,255,255,.10)"/>
-            <path d="M359 307h29M359 317h22M359 327h28" stroke="#36b8a7" stroke-width="3" stroke-linecap="round"/>
-          </g>
-
-          <!-- arms and laptop -->
-          <path d="M251 286c-25 13-39 30-50 55" fill="none" stroke="#243342" stroke-width="34" stroke-linecap="round"/>
-          <path d="M400 288c28 12 42 30 53 55" fill="none" stroke="#243342" stroke-width="34" stroke-linecap="round"/>
-          <circle cx="202" cy="342" r="15" fill="#b86f4f"/>
-          <circle cx="454" cy="342" r="15" fill="#b86f4f"/>
-
-          <g filter="url(#engShadow)">
-            <path d="M175 338h301l-24 111H198z" fill="#111923" stroke="#4a5966" stroke-width="3"/>
-            <rect x="200" y="350" width="252" height="79" rx="7" fill="#071016"/>
-            <rect x="214" y="363" width="224" height="8" rx="4" fill="#1d2d39"/>
-            <rect x="214" y="379" width="126" height="7" rx="3.5" fill="#2c4653"/>
-            <rect x="214" y="394" width="178" height="7" rx="3.5" fill="#203742"/>
-            <circle cx="420" cy="385" r="12" fill="rgba(54,184,167,.18)" stroke="#36b8a7"/>
-            <path d="M184 449h282" stroke="#697681" stroke-width="5" stroke-linecap="round"/>
-            <path d="M252 449h146l-15 12H267z" fill="#263541"/>
-          </g>
-
-          <!-- tools -->
-          <g transform="translate(73 332)">
-            <rect width="92" height="52" rx="13" fill="#101923" stroke="rgba(255,255,255,.10)"/>
-            <path d="M23 27l13-13 10 10 19-19" fill="none" stroke="url(#engGold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="71" cy="36" r="6" fill="#36b8a7"/>
-          </g>
-
-          <g transform="translate(474 342)">
-            <rect width="94" height="52" rx="13" fill="#101923" stroke="rgba(255,255,255,.10)"/>
-            <circle cx="26" cy="26" r="12" fill="none" stroke="#36b8a7" stroke-width="5"/>
-            <path d="M26 17v10l7 5" stroke="#36b8a7" stroke-width="4" stroke-linecap="round"/>
-            <rect x="50" y="20" width="25" height="6" rx="3" fill="#3b4a58"/>
-          </g>
-
-          <!-- desk glow -->
-          <ellipse cx="326" cy="465" rx="218" ry="22" fill="rgba(54,184,167,.10)"/>
+          <rect x="12" y="12" width="736" height="496" rx="28" fill="url(#engBg)" stroke="#354652"/>
+          <path d="M40 430 Q190 330 350 420 T720 390" fill="none" stroke="#243742" stroke-width="2" opacity=".7"/>
+          <ellipse cx="485" cy="444" rx="205" ry="25" fill="#000" opacity=".45" filter="url(#engShadow)"/>
+          <!-- computer case -->
+          <rect x="430" y="145" width="210" height="285" rx="18" fill="url(#engCase)" stroke="#657784" stroke-width="2"/>
+          <rect x="448" y="164" width="145" height="245" rx="11" fill="#0b151b" stroke="#40535f"/>
+          <path d="M458 174 H583 V399 H458 Z" fill="#10242c" opacity=".95"/>
+          <rect x="605" y="164" width="18" height="245" rx="8" fill="url(#engRGB)"/>
+          <circle cx="520" cy="235" r="42" fill="#0a1015" stroke="#425764" stroke-width="2"/><circle cx="520" cy="235" r="29" fill="none" stroke="#65d5c5" stroke-width="3"/><path d="M520 205v30l23 13" fill="none" stroke="#65d5c5" stroke-width="3"/>
+          <circle cx="520" cy="335" r="42" fill="#0a1015" stroke="#425764" stroke-width="2"/><circle cx="520" cy="335" r="29" fill="none" stroke="#e6a23c" stroke-width="3"/>
+          <rect x="465" y="180" width="82" height="20" rx="5" fill="#1b3540"/><text x="506" y="195" text-anchor="middle" font-family="Noto Kufi Arabic, sans-serif" font-size="9" fill="#8fd9cd">DIAGNOSTIC</text>
+          <!-- engineer body -->
+          <path d="M170 450 Q175 325 255 285 Q330 250 394 310 Q425 350 432 450 Z" fill="url(#engShirt)" stroke="#71818c" stroke-width="2"/>
+          <path d="M250 315 Q285 350 328 350 L345 450 L210 450 Z" fill="#1a2833" opacity=".8"/>
+          <circle cx="287" cy="190" r="66" fill="url(#engSkin)" stroke="#7d5341" stroke-width="2"/>
+          <path d="M224 187 Q225 117 292 117 Q355 118 357 186 Q335 156 300 153 Q258 151 224 187Z" fill="#10161d"/>
+          <path d="M240 212 Q286 244 335 209" fill="none" stroke="#774a39" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+          <path d="M227 178 Q250 164 270 174 M306 174 Q330 164 350 179" fill="none" stroke="#4d332b" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="262" cy="187" r="4" fill="#1b252d"/><circle cx="321" cy="187" r="4" fill="#1b252d"/>
+          <path d="M232 285 Q267 270 306 293 L378 360 L345 392 L270 330 L230 365 Z" fill="url(#engSkin)" stroke="#8e6049" stroke-width="2"/>
+          <path d="M366 356 L428 302 L454 329 L391 392 Z" fill="url(#engSkin)" stroke="#8e6049" stroke-width="2"/>
+          <!-- screwdriver -->
+          <path d="M424 300 L492 235" stroke="#d7dee3" stroke-width="7" stroke-linecap="round"/><path d="M411 313 L430 294" stroke="#e6a23c" stroke-width="14" stroke-linecap="round"/>
+          <circle cx="455" cy="337" r="17" fill="#0c151b" stroke="#65d5c5"/><path d="M448 337 l6 6 10-12" fill="none" stroke="#65d5c5" stroke-width="3"/>
+          <text x="95" y="95" font-family="Noto Kufi Arabic, sans-serif" font-size="27" font-weight="800" fill="#f6d28e">صيانة احترافية</text>
+          <text x="95" y="132" font-family="Noto Kufi Arabic, sans-serif" font-size="15" fill="#8d98a5">مهندس حاسبات يفحص ويصلّح جهازك بعناية</text>
         </svg>
-
-        <div class="engineer-title">مهندس حاسبات محترف</div>
-        <div class="engineer-subtitle">صيانة الكمبيوتر واللابتوب والهواتف — بخبرة واهتمام بالتفاصيل</div>
-
-        <a
-          class="location-link"
-          href="https://maps.app.goo.gl/UEM4VL8FKvFKSveD6"
-          target="_blank"
-          rel="noopener noreferrer">
-          📍 فتح موقعنا الجغرافي على خرائط Google
-          <span>↗</span>
-        </a>
-
       </div>
-
+      <div class="engineer-info">
+        <span class="engineer-pill">🛠️ فحص وصيانة دقيقة</span>
+        <h3>مهندس حاسبات لصيانة الكيس والكمبيوتر</h3>
+        <p>تنظيف، تشخيص الأعطال، تبديل القطع، ترتيب التوصيلات وفحص الحرارة والأداء.</p>
+        <a class="location-link" href="https://maps.app.goo.gl/UEM4VL8FKvFKSveD6" target="_blank" rel="noopener noreferrer">📍 موقعنا على خرائط Google <span>↗</span></a>
+      </div>
     </div>
 
   </div>
@@ -4462,7 +4265,7 @@ ${notes || "لم يتم ذكر وصف للعطل"}
 
   "priceRange":"25,000 - 40,000 IQD",
 
-  "hasMap":"https://maps.app.goo.gl/5n6AjrJT71k3CReN8"
+  "hasMap":"https://maps.app.goo.gl/UEM4VL8FKvFKSveD6"
 
 }
 
