@@ -739,26 +739,19 @@
     }
 
     /* =========================================================
-       PREMIUM HERO DEVICES
+       PREMIUM HERO VISUAL — MODERN SERVICE WORKSTATION
     ========================================================= */
-    .premium-devices{min-height:570px;position:relative;isolation:isolate;}
-    .premium-device{position:relative;display:block;}
-    .laptop-premium{width:min(560px,92%);z-index:2;transform:translateY(-12px);}
-    .premium-laptop-svg{width:100%;height:auto;filter:drop-shadow(0 35px 40px rgba(0,0,0,.55));animation:premiumFloat 5s ease-in-out infinite;}
-    .pc-premium{position:absolute;left:-4px;bottom:18px;width:190px;z-index:5;transform:rotate(-2deg);filter:drop-shadow(0 25px 28px rgba(0,0,0,.6));}
-    .premium-pc-shell{height:300px;border:1px solid #526370;border-radius:16px;background:linear-gradient(135deg,#303d49,#0a1016);padding:13px;display:flex;gap:10px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.025),0 0 45px rgba(54,184,167,.1);}
-    .pc-glass{flex:1;border:1px solid #3e5661;border-radius:10px;background:linear-gradient(135deg,rgba(37,67,78,.7),rgba(7,14,19,.94));padding:15px 9px;position:relative;overflow:hidden;}
-    .pc-front{width:27px;border-radius:7px;background:#101820;border:1px solid #354652;display:flex;flex-direction:column;align-items:center;padding-top:18px;gap:13px;}
-    .pc-front b{width:8px;height:8px;border-radius:50%;background:#65d5c5;box-shadow:0 0 14px #65d5c5;} .pc-front span{width:9px;height:75px;border-radius:4px;background:linear-gradient(#e6a23c,#65d5c5);opacity:.85;} .pc-front em{width:12px;height:3px;border-radius:2px;background:#33434e;}
-    .pc-rgb-line{position:absolute;left:7px;top:12px;bottom:12px;width:3px;border-radius:4px;background:linear-gradient(#f6d28e,#65d5c5,#e6a23c);box-shadow:0 0 14px rgba(101,213,197,.4);}
-    .pc-fan{width:62px;height:62px;border-radius:50%;border:2px solid #38505b;background:#081015;margin:2px auto 11px;position:relative;display:grid;place-items:center;}
-    .pc-fan::before{content:"";position:absolute;inset:9px;border-radius:50%;border:2px solid #65d5c5;opacity:.7;} .pc-fan i{width:8px;height:8px;border-radius:50%;background:#e6a23c;box-shadow:0 0 12px #e6a23c;}
-    .fan-b i{background:#65d5c5;box-shadow:0 0 12px #65d5c5}.fan-c i{background:#f6d28e;box-shadow:0 0 12px #f6d28e}
-    .pc-gpu{height:28px;margin:4px 8px;border:1px solid #425966;border-radius:6px;background:#17252d;display:grid;place-items:center;color:#f6d28e;font:700 9px 'IBM Plex Mono',monospace;}
-    .premium-device-badge{position:absolute;right:12px;top:18px;padding:7px 11px;border:1px solid rgba(230,162,60,.35);background:rgba(8,13,18,.85);backdrop-filter:blur(8px);border-radius:9px;color:#f6d28e;font:700 10px 'IBM Plex Mono',monospace;letter-spacing:.4px;}
+    .premium-devices{min-height:570px;position:relative;isolation:isolate;display:grid;place-items:center;}
+    .premium-stage{position:relative;width:min(650px,100%);height:540px;display:grid;place-items:center;}
+    .premium-stage::before{content:"";position:absolute;width:430px;height:260px;border-radius:50%;background:rgba(54,184,167,.11);filter:blur(90px);right:8%;top:22%;pointer-events:none;}
+    .premium-stage::after{content:"";position:absolute;inset:8% 4%;border:1px solid rgba(101,213,197,.10);border-radius:42% 58% 48% 52%;transform:rotate(-8deg);pointer-events:none;}
+    .premium-workstation-svg{position:relative;z-index:2;width:100%;height:auto;filter:drop-shadow(0 35px 45px rgba(0,0,0,.58));animation:premiumFloat 5.5s ease-in-out infinite;}
+    .premium-chip{position:absolute;z-index:5;display:flex;align-items:center;gap:9px;padding:10px 13px;border:1px solid rgba(230,162,60,.28);background:rgba(8,13,18,.86);backdrop-filter:blur(12px);border-radius:12px;box-shadow:0 16px 35px rgba(0,0,0,.28);font-size:11px;color:#d9e0e5;}
+    .premium-chip strong{color:#f6d28e;font-size:12px;}
+    .premium-chip i{width:8px;height:8px;border-radius:50%;background:#65d5c5;box-shadow:0 0 12px #65d5c5;}
+    .chip-top{right:4%;top:9%;}.chip-bottom{left:1%;bottom:12%;}.premium-device-badge{position:absolute;right:12px;top:18px;padding:7px 11px;border:1px solid rgba(230,162,60,.35);background:rgba(8,13,18,.85);backdrop-filter:blur(8px);border-radius:9px;color:#f6d28e;font:700 10px 'IBM Plex Mono',monospace;letter-spacing:.4px;}
     .premium-device-badge span{color:#65d5c5;margin-right:4px;}
-    .device-orbit{position:absolute;border:1px solid rgba(101,213,197,.18);border-radius:50%;pointer-events:none;}.orbit-one{width:430px;height:170px;right:5%;top:18%;transform:rotate(-18deg);}.orbit-two{width:360px;height:140px;right:12%;top:25%;transform:rotate(22deg);border-color:rgba(230,162,60,.13);}
-    @keyframes premiumFloat{0%,100%{transform:translateY(0) rotateX(2deg) rotateY(-4deg)}50%{transform:translateY(-11px) rotateX(2deg) rotateY(-4deg)}}
+    @keyframes premiumFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(0deg)}}
 
     /* Engineer service visual */
     .service-engineer-card{min-height:520px;position:relative;display:grid;grid-template-columns:1.35fr .65fr;gap:28px;padding:18px;background:linear-gradient(145deg,#101a23,#0b1117);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);}
@@ -2314,26 +2307,31 @@
 
     @media(max-width:900px){
       .premium-devices{min-height:470px;}
-      .laptop-premium{width:94%;}
-      .pc-premium{width:145px;bottom:0;}
-      .premium-pc-shell{height:235px;padding:10px;}
-      .pc-fan{width:48px;height:48px;margin-bottom:8px;}
+      .premium-stage{height:450px;}
+      .premium-chip{font-size:10px;padding:8px 10px;}
+      .chip-top{right:2%;top:7%;}.chip-bottom{left:0;bottom:8%;}
       .service-engineer-card{grid-template-columns:1fr;gap:8px;padding:10px;}
       .engineer-art{min-height:auto;}
       .engineer-info{padding:5px 14px 20px;}
     }
     @media(max-width:600px){
-      .premium-devices{min-height:350px;}
-      .pc-premium{width:108px;left:0;}
-      .premium-pc-shell{height:185px;padding:7px;gap:6px;}
-      .pc-glass{padding:8px 5px;}
-      .pc-fan{width:38px;height:38px;margin-bottom:5px;}
-      .pc-fan::before{inset:6px;}
-      .premium-device-badge{font-size:8px;padding:5px 7px;top:8px;right:7px;}
-      .device-orbit{display:none;}
+      .premium-devices{min-height:360px;}
+      .premium-stage{height:350px;}
+      .premium-chip{font-size:8.5px;padding:7px 8px;gap:6px;}
+      .premium-chip strong{font-size:9px;}
+      .chip-top{right:0;top:5%;}.chip-bottom{left:0;bottom:5%;}
       .engineer-art svg{max-height:330px;}
       .engineer-info h3{font-size:22px;}
       .engineer-info p{font-size:13.5px;}
+    }
+
+    @media(max-width:600px){
+      .hero-device{min-height:370px;}
+      .premium-stage{width:100%;height:350px;}
+      .premium-workstation-svg{width:112%;max-width:none;margin-inline-start:-6%;}
+      .service-engineer-card{border-radius:15px;}
+      .engineer-art{overflow:hidden;}
+      .engineer-art svg{width:108%;max-width:none;margin-inline-start:-4%;}
     }
   </style>
 </head>
@@ -2529,61 +2527,84 @@
     </div>
 
 
-    <!-- REAL GAMING LAPTOP + RGB PC -->
+    <!-- PREMIUM SERVICE WORKSTATION -->
 
     <div class="hero-device reveal">
+      <div class="premium-devices">
+        <div class="premium-stage">
+          <div class="premium-chip chip-top"><i></i><span><strong>تشخيص ذكي</strong> · فحص القطع والأداء</span></div>
+          <div class="premium-chip chip-bottom"><i></i><span><strong>خدمة احترافية</strong> · عناية من أول خطوة</span></div>
 
-      <div class="real-gaming-devices premium-devices">
-
-        <div class="real-device-glow"></div>
-
-        <div class="premium-device laptop-premium">
-          <div class="device-orbit orbit-one"></div>
-          <div class="device-orbit orbit-two"></div>
-          <svg class="premium-laptop-svg" viewBox="0 0 620 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="لابتوب احترافي فاخر">
+          <svg class="premium-workstation-svg" viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="محطة صيانة كمبيوتر احترافية تحتوي على كيس ولابتوب وأدوات صيانة">
             <defs>
-              <linearGradient id="pLapBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5b6877"/><stop offset=".45" stop-color="#202b36"/><stop offset="1" stop-color="#090e14"/></linearGradient>
-              <linearGradient id="pLapScreen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#132f38"/><stop offset=".5" stop-color="#091820"/><stop offset="1" stop-color="#05090e"/></linearGradient>
-              <linearGradient id="pRGB" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#f6d28e"/><stop offset=".5" stop-color="#65d5c5"/><stop offset="1" stop-color="#e6a23c"/></linearGradient>
-              <filter id="pGlow"><feGaussianBlur stdDeviation="8"/></filter>
+              <linearGradient id="heroBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16242e"/><stop offset=".55" stop-color="#0b151d"/><stop offset="1" stop-color="#070c11"/></linearGradient>
+              <linearGradient id="heroMetal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#536575"/><stop offset=".45" stop-color="#202d39"/><stop offset="1" stop-color="#090f15"/></linearGradient>
+              <linearGradient id="heroGlass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#25444d" stop-opacity=".9"/><stop offset="1" stop-color="#081118" stop-opacity=".96"/></linearGradient>
+              <linearGradient id="heroRGB" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#f6d28e"/><stop offset=".5" stop-color="#65d5c5"/><stop offset="1" stop-color="#e6a23c"/></linearGradient>
+              <filter id="heroGlow"><feGaussianBlur stdDeviation="10"/></filter>
             </defs>
-            <ellipse cx="310" cy="385" rx="255" ry="20" fill="#000" opacity=".45"/>
-            <path d="M91 308 L529 308 L580 365 Q587 378 567 382 L53 382 Q33 378 40 365 Z" fill="url(#pLapBody)" stroke="#697887" stroke-width="2"/>
-            <rect x="104" y="315" width="412" height="45" rx="8" fill="#080e14" stroke="#394754"/>
-            <g fill="#26333f" opacity=".9">
-              <rect x="120" y="322" width="30" height="12" rx="3"/><rect x="155" y="322" width="30" height="12" rx="3"/><rect x="190" y="322" width="30" height="12" rx="3"/><rect x="225" y="322" width="30" height="12" rx="3"/><rect x="260" y="322" width="30" height="12" rx="3"/><rect x="295" y="322" width="30" height="12" rx="3"/><rect x="330" y="322" width="30" height="12" rx="3"/><rect x="365" y="322" width="30" height="12" rx="3"/><rect x="400" y="322" width="30" height="12" rx="3"/><rect x="435" y="322" width="30" height="12" rx="3"/>
-              <rect x="145" y="340" width="55" height="10" rx="3"/><rect x="205" y="340" width="55" height="10" rx="3"/><rect x="265" y="340" width="55" height="10" rx="3"/><rect x="325" y="340" width="55" height="10" rx="3"/><rect x="385" y="340" width="55" height="10" rx="3"/>
+            <ellipse cx="385" cy="500" rx="290" ry="28" fill="#000" opacity=".55"/>
+            <rect x="52" y="52" width="656" height="414" rx="32" fill="url(#heroBg)" stroke="#314450"/>
+            <path d="M85 415 Q210 335 340 418 T676 386" fill="none" stroke="#20343f" stroke-width="2"/>
+            <circle cx="600" cy="126" r="76" fill="none" stroke="#65d5c5" stroke-opacity=".10"/>
+            <circle cx="600" cy="126" r="56" fill="none" stroke="#e6a23c" stroke-opacity=".09"/>
+
+            <!-- premium PC tower -->
+            <g transform="translate(458 118)">
+              <rect x="0" y="0" width="178" height="300" rx="22" fill="url(#heroMetal)" stroke="#6a7b88" stroke-width="2"/>
+              <rect x="15" y="17" width="133" height="266" rx="15" fill="url(#heroGlass)" stroke="#3e5662"/>
+              <rect x="154" y="18" width="10" height="264" rx="5" fill="url(#heroRGB)"/>
+              <path d="M28 36 H136" stroke="#8aa0ac" stroke-opacity=".25"/>
+              <g transform="translate(82 100)">
+                <circle r="49" fill="#071016" stroke="#3d5661" stroke-width="2"/>
+                <circle r="37" fill="none" stroke="#65d5c5" stroke-width="3"/>
+                <path d="M0-30 C18-21 28-8 29 8 C15 7 4 0 0-12 C-10-3-20 2-30 0 C-26-15-16-25 0-30Z" fill="#65d5c5" fill-opacity=".20"/>
+                <circle r="7" fill="#e6a23c"/>
+              </g>
+              <g transform="translate(82 208)">
+                <circle r="49" fill="#071016" stroke="#3d5661" stroke-width="2"/>
+                <circle r="37" fill="none" stroke="#e6a23c" stroke-width="3"/>
+                <path d="M0-30 C18-21 28-8 29 8 C15 7 4 0 0-12 C-10-3-20 2-30 0 C-26-15-16-25 0-30Z" fill="#e6a23c" fill-opacity=".18"/>
+                <circle r="7" fill="#65d5c5"/>
+              </g>
+              <rect x="24" y="260" width="116" height="7" rx="3" fill="#263943"/>
+              <circle cx="27" cy="35" r="4" fill="#65d5c5"/><circle cx="40" cy="35" r="4" fill="#e6a23c"/>
             </g>
-            <path d="M62 300 L558 300 L532 44 Q529 25 511 25 L109 25 Q91 25 88 44 Z" fill="url(#pLapBody)" stroke="#697887" stroke-width="2"/>
-            <path d="M109 49 L511 49 L532 278 L88 278 Z" fill="url(#pLapScreen)" stroke="#344652"/>
-            <path d="M109 49 L511 49 L532 278 L88 278 Z" fill="none" stroke="url(#pRGB)" stroke-width="3" opacity=".75"/>
-            <circle cx="310" cy="39" r="3" fill="#b8c5cf"/>
-            <text x="310" y="140" text-anchor="middle" font-family="Noto Kufi Arabic, sans-serif" font-size="31" font-weight="800" fill="#f6d28e">بصمة</text>
-            <text x="310" y="170" text-anchor="middle" font-family="Noto Kufi Arabic, sans-serif" font-size="12" fill="#8fd9cd">مركز الصيانة الاحترافي</text>
-            <rect x="195" y="195" width="230" height="5" rx="3" fill="#263b45"/><rect x="225" y="211" width="170" height="5" rx="3" fill="#1b3039"/>
-            <circle cx="310" cy="244" r="25" fill="#0b161c" stroke="#65d5c5" opacity=".9"/><path d="M298 244 l8 8 17-20" fill="none" stroke="#65d5c5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M78 382 L542 382" stroke="url(#pRGB)" stroke-width="5" stroke-linecap="round" filter="url(#pGlow)"/>
+
+            <!-- premium laptop -->
+            <g transform="translate(115 158)">
+              <path d="M0 220 L330 220 L374 268 Q382 279 361 283 L-28 283 Q-45 279-36 266Z" fill="url(#heroMetal)" stroke="#687985" stroke-width="2"/>
+              <path d="M35 222 H296 L312 250 H18Z" fill="#080e14" stroke="#3c4d58"/>
+              <path d="M10 215 L333 215 L312 31 Q310 16 296 16 H47 Q31 16 29 31Z" fill="url(#heroMetal)" stroke="#687985" stroke-width="2"/>
+              <path d="M48 40 H294 L312 197 H29Z" fill="#08151c" stroke="#3b5963"/>
+              <path d="M48 40 H294 L312 197 H29Z" fill="none" stroke="url(#heroRGB)" stroke-width="3" opacity=".85"/>
+              <circle cx="170" cy="28" r="3" fill="#b8c5cf"/>
+              <path d="M118 98 H224" stroke="#65d5c5" stroke-opacity=".5" stroke-width="3"/>
+              <path d="M92 112 H248" stroke="#334b55" stroke-width="7" stroke-linecap="round"/>
+              <path d="M118 132 H222" stroke="#253a44" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="170" cy="168" r="21" fill="#0a1217" stroke="#e6a23c" stroke-width="2"/>
+              <path d="M161 168 l7 7 13-16" fill="none" stroke="#65d5c5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M34 265 H329" stroke="url(#heroRGB)" stroke-width="4" stroke-linecap="round"/>
+            </g>
+
+            <!-- repair tools / diagnostic HUD -->
+            <g transform="translate(102 88)">
+              <circle cx="0" cy="0" r="38" fill="#0b151c" stroke="#3d5661"/>
+              <path d="M-12-9 L12 15" stroke="#d9e0e5" stroke-width="8" stroke-linecap="round"/>
+              <path d="M-21-18 L-8-5" stroke="#e6a23c" stroke-width="12" stroke-linecap="round"/>
+              <circle cx="0" cy="0" r="48" fill="none" stroke="#65d5c5" stroke-opacity=".15"/>
+            </g>
+            <g transform="translate(350 96)">
+              <rect x="0" y="0" width="80" height="54" rx="12" fill="#0c171e" stroke="#38515c"/>
+              <circle cx="18" cy="27" r="6" fill="#65d5c5"/><path d="M32 18 H64 M32 27 H56 M32 36 H60" stroke="#6f828d" stroke-width="3" stroke-linecap="round"/>
+            </g>
+            <path d="M365 380 Q410 352 448 370" fill="none" stroke="#65d5c5" stroke-width="2" stroke-dasharray="5 8" opacity=".45"/>
+            <circle cx="448" cy="370" r="5" fill="#65d5c5" filter="url(#heroGlow)"/>
           </svg>
-          <div class="premium-device-badge">LAPTOP PRO <span>✦</span></div>
         </div>
-
-        <div class="premium-device pc-premium">
-          <div class="premium-pc-shell">
-            <div class="pc-glass">
-              <div class="pc-fan fan-a"><i></i></div>
-              <div class="pc-fan fan-b"><i></i></div>
-              <div class="pc-fan fan-c"><i></i></div>
-              <div class="pc-gpu"><span>RTX</span></div>
-            </div>
-            <div class="pc-front"><b></b><span></span><em></em></div>
-            <div class="pc-rgb-line"></div>
-          </div>
-          <div class="premium-device-badge">WORKSTATION <span>✦</span></div>
-        </div>
-
       </div>
-
     </div>
+
 
   </div>
 
@@ -3313,44 +3334,62 @@
     </div>
 
 
-    <div class="map reveal service-engineer-card">
-      <div class="engineer-art" aria-label="مهندس حاسبات يعمل صيانة لجهاز كمبيوتر">
+    <div class="service-engineer-card reveal">
+      <div class="engineer-art" aria-label="مهندس حاسبات يعمل صيانة لجهاز كمبيوتر مكتبي">
         <div class="engineer-glow"></div>
-        <svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="مهندس حاسبات يعمل صيانة إلى كيس كمبيوتر">
+        <svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="مهندس حاسبات محترف يقوم بصيانة كيس كمبيوتر">
           <defs>
-            <linearGradient id="engBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17242e"/><stop offset="1" stop-color="#090f15"/></linearGradient>
-            <linearGradient id="engShirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3c4d5b"/><stop offset="1" stop-color="#111a23"/></linearGradient>
-            <linearGradient id="engSkin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9a47c"/><stop offset="1" stop-color="#9a6045"/></linearGradient>
-            <linearGradient id="engCase" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#293845"/><stop offset="1" stop-color="#0b1117"/></linearGradient>
-            <linearGradient id="engRGB" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6a23c"/><stop offset=".5" stop-color="#65d5c5"/><stop offset="1" stop-color="#f6d28e"/></linearGradient>
-            <filter id="engShadow"><feGaussianBlur stdDeviation="12"/></filter>
+            <linearGradient id="eng2Bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#15242e"/><stop offset="1" stop-color="#080e14"/></linearGradient>
+            <linearGradient id="eng2Case" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3b4c59"/><stop offset=".5" stop-color="#17232d"/><stop offset="1" stop-color="#080e13"/></linearGradient>
+            <linearGradient id="eng2Shirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#344a58"/><stop offset="1" stop-color="#101a23"/></linearGradient>
+            <linearGradient id="eng2Skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e1ad83"/><stop offset="1" stop-color="#9b6247"/></linearGradient>
+            <linearGradient id="eng2RGB" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f6d28e"/><stop offset=".5" stop-color="#65d5c5"/><stop offset="1" stop-color="#e6a23c"/></linearGradient>
+            <filter id="eng2Shadow"><feGaussianBlur stdDeviation="12"/></filter>
           </defs>
-          <rect x="12" y="12" width="736" height="496" rx="28" fill="url(#engBg)" stroke="#354652"/>
-          <path d="M40 430 Q190 330 350 420 T720 390" fill="none" stroke="#243742" stroke-width="2" opacity=".7"/>
-          <ellipse cx="485" cy="444" rx="205" ry="25" fill="#000" opacity=".45" filter="url(#engShadow)"/>
-          <!-- computer case -->
-          <rect x="430" y="145" width="210" height="285" rx="18" fill="url(#engCase)" stroke="#657784" stroke-width="2"/>
-          <rect x="448" y="164" width="145" height="245" rx="11" fill="#0b151b" stroke="#40535f"/>
-          <path d="M458 174 H583 V399 H458 Z" fill="#10242c" opacity=".95"/>
-          <rect x="605" y="164" width="18" height="245" rx="8" fill="url(#engRGB)"/>
-          <circle cx="520" cy="235" r="42" fill="#0a1015" stroke="#425764" stroke-width="2"/><circle cx="520" cy="235" r="29" fill="none" stroke="#65d5c5" stroke-width="3"/><path d="M520 205v30l23 13" fill="none" stroke="#65d5c5" stroke-width="3"/>
-          <circle cx="520" cy="335" r="42" fill="#0a1015" stroke="#425764" stroke-width="2"/><circle cx="520" cy="335" r="29" fill="none" stroke="#e6a23c" stroke-width="3"/>
-          <rect x="465" y="180" width="82" height="20" rx="5" fill="#1b3540"/><text x="506" y="195" text-anchor="middle" font-family="Noto Kufi Arabic, sans-serif" font-size="9" fill="#8fd9cd">DIAGNOSTIC</text>
-          <!-- engineer body -->
-          <path d="M170 450 Q175 325 255 285 Q330 250 394 310 Q425 350 432 450 Z" fill="url(#engShirt)" stroke="#71818c" stroke-width="2"/>
-          <path d="M250 315 Q285 350 328 350 L345 450 L210 450 Z" fill="#1a2833" opacity=".8"/>
-          <circle cx="287" cy="190" r="66" fill="url(#engSkin)" stroke="#7d5341" stroke-width="2"/>
-          <path d="M224 187 Q225 117 292 117 Q355 118 357 186 Q335 156 300 153 Q258 151 224 187Z" fill="#10161d"/>
-          <path d="M240 212 Q286 244 335 209" fill="none" stroke="#774a39" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-          <path d="M227 178 Q250 164 270 174 M306 174 Q330 164 350 179" fill="none" stroke="#4d332b" stroke-width="5" stroke-linecap="round"/>
-          <circle cx="262" cy="187" r="4" fill="#1b252d"/><circle cx="321" cy="187" r="4" fill="#1b252d"/>
-          <path d="M232 285 Q267 270 306 293 L378 360 L345 392 L270 330 L230 365 Z" fill="url(#engSkin)" stroke="#8e6049" stroke-width="2"/>
-          <path d="M366 356 L428 302 L454 329 L391 392 Z" fill="url(#engSkin)" stroke="#8e6049" stroke-width="2"/>
+          <rect x="10" y="10" width="740" height="500" rx="28" fill="url(#eng2Bg)" stroke="#344955"/>
+          <path d="M42 438 Q190 346 330 426 T716 402" fill="none" stroke="#203640" stroke-width="2"/>
+          <ellipse cx="472" cy="450" rx="214" ry="24" fill="#000" opacity=".48" filter="url(#eng2Shadow)"/>
+
+          <!-- PC case -->
+          <g transform="translate(435 118)">
+            <rect width="220" height="306" rx="20" fill="url(#eng2Case)" stroke="#6c7e89" stroke-width="2"/>
+            <rect x="17" y="18" width="160" height="270" rx="14" fill="#091117" stroke="#425864"/>
+            <path d="M28 30 H166 V278 H28Z" fill="#10252d"/>
+            <rect x="187" y="20" width="15" height="268" rx="7" fill="url(#eng2RGB)"/>
+            <circle cx="98" cy="105" r="48" fill="#071016" stroke="#3e5662" stroke-width="2"/>
+            <circle cx="98" cy="105" r="36" fill="none" stroke="#65d5c5" stroke-width="3"/>
+            <path d="M98 75 C119 86 128 102 126 119 C111 118 101 111 98 98 C86 110 74 113 62 109 C68 92 80 81 98 75Z" fill="#65d5c5" fill-opacity=".18"/>
+            <circle cx="98" cy="105" r="7" fill="#e6a23c"/>
+            <circle cx="98" cy="210" r="48" fill="#071016" stroke="#3e5662" stroke-width="2"/>
+            <circle cx="98" cy="210" r="36" fill="none" stroke="#e6a23c" stroke-width="3"/>
+            <path d="M98 180 C119 191 128 207 126 224 C111 223 101 216 98 203 C86 215 74 218 62 214 C68 197 80 186 98 180Z" fill="#e6a23c" fill-opacity=".16"/>
+            <circle cx="98" cy="210" r="7" fill="#65d5c5"/>
+            <rect x="30" y="247" width="135" height="8" rx="4" fill="#263b45"/>
+            <circle cx="29" cy="39" r="4" fill="#65d5c5"/><circle cx="42" cy="39" r="4" fill="#e6a23c"/>
+          </g>
+
+          <!-- technician -->
+          <path d="M122 452 Q130 333 208 295 Q284 258 352 312 Q385 350 394 452Z" fill="url(#eng2Shirt)" stroke="#71838e" stroke-width="2"/>
+          <path d="M205 307 Q252 286 302 317 L332 452 H174Z" fill="#182732" opacity=".85"/>
+          <circle cx="255" cy="185" r="67" fill="url(#eng2Skin)" stroke="#7e5541" stroke-width="2"/>
+          <path d="M190 181 Q191 112 257 112 Q321 113 323 181 Q298 153 260 151 Q222 150 190 181Z" fill="#10161d"/>
+          <path d="M206 177 Q228 162 248 174 M274 174 Q296 163 316 178" fill="none" stroke="#4b322a" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="234" cy="187" r="4" fill="#1b252d"/><circle cx="291" cy="187" r="4" fill="#1b252d"/>
+          <path d="M207 217 Q254 247 304 214" fill="none" stroke="#774b39" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+          <!-- arms -->
+          <path d="M205 299 Q244 279 283 300 L360 354 L327 391 L252 333 L205 364Z" fill="url(#eng2Skin)" stroke="#8f614a" stroke-width="2"/>
+          <path d="M349 350 L419 292 L447 323 L378 392Z" fill="url(#eng2Skin)" stroke="#8f614a" stroke-width="2"/>
           <!-- screwdriver -->
-          <path d="M424 300 L492 235" stroke="#d7dee3" stroke-width="7" stroke-linecap="round"/><path d="M411 313 L430 294" stroke="#e6a23c" stroke-width="14" stroke-linecap="round"/>
-          <circle cx="455" cy="337" r="17" fill="#0c151b" stroke="#65d5c5"/><path d="M448 337 l6 6 10-12" fill="none" stroke="#65d5c5" stroke-width="3"/>
-          <text x="95" y="95" font-family="Noto Kufi Arabic, sans-serif" font-size="27" font-weight="800" fill="#f6d28e">صيانة احترافية</text>
-          <text x="95" y="132" font-family="Noto Kufi Arabic, sans-serif" font-size="15" fill="#8d98a5">مهندس حاسبات يفحص ويصلّح جهازك بعناية</text>
+          <path d="M413 300 L492 222" stroke="#d9e0e5" stroke-width="8" stroke-linecap="round"/>
+          <path d="M401 313 L420 294" stroke="#e6a23c" stroke-width="15" stroke-linecap="round"/>
+          <circle cx="435" cy="337" r="18" fill="#0b151b" stroke="#65d5c5" stroke-width="2"/>
+          <path d="M427 337 l6 7 12-14" fill="none" stroke="#65d5c5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- badge -->
+          <g transform="translate(78 72)">
+            <rect width="190" height="48" rx="14" fill="#0c171e" stroke="#3a5661"/>
+            <circle cx="24" cy="24" r="7" fill="#65d5c5"/>
+            <text x="42" y="30" font-family="Noto Kufi Arabic, sans-serif" font-size="14" font-weight="700" fill="#f6d28e">فحص وصيانة احترافية</text>
+          </g>
         </svg>
       </div>
       <div class="engineer-info">
