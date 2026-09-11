@@ -2661,7 +2661,106 @@
       }
     }
 
-  </style>
+  
+.catalog-categories{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 0 24px}
+.catalog-category{min-height:92px;padding:14px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--text);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;transition:.2s}
+.catalog-category span{font-size:25px}.catalog-category b{font-size:13px}.catalog-category small{font-size:11px;color:var(--muted)}
+.catalog-category:hover,.catalog-category.active{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,.18)}
+.product-image.image-missing{display:flex;align-items:center;justify-content:center;min-height:220px;background:linear-gradient(135deg,var(--surface),var(--surface-2))}
+.product-image.image-missing:after{content:"صورة المنتج غير متاحة";color:var(--muted);font-size:12px}
+@media(max-width:900px){.catalog-categories{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.catalog-categories{grid-template-columns:repeat(2,1fr);gap:8px}.catalog-category{min-height:82px}.catalog-category b{font-size:12px}}
+
+
+    .laptop-section-badge{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-weight:800}
+
+
+/* ===== واجهة المشتريات الاحترافية ===== */
+#purchaseDock{
+  position:fixed;left:18px;bottom:18px;z-index:9999;
+  width:min(390px,calc(100vw - 36px));
+  background:rgba(12,14,20,.96);color:#fff;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;padding:14px;
+  box-shadow:0 18px 60px rgba(0,0,0,.38);
+  backdrop-filter:blur(14px);
+  transform:translateY(calc(100% + 30px));transition:.28s ease;
+}
+#purchaseDock.open{transform:translateY(0)}
+#purchaseDock .dock-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+#purchaseDock .dock-title{font-weight:900;font-size:1.05rem}
+#purchaseDock .dock-close{border:0;background:rgba(255,255,255,.1);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px}
+#purchaseDock .dock-items{max-height:190px;overflow:auto;display:grid;gap:7px;margin-bottom:10px}
+#purchaseDock .dock-item{display:flex;justify-content:space-between;gap:10px;padding:9px 10px;border-radius:12px;background:rgba(255,255,255,.06);font-size:.88rem}
+#purchaseDock .dock-total{display:flex;justify-content:space-between;font-weight:900;padding:10px 2px;border-top:1px solid rgba(255,255,255,.1)}
+#purchaseDock .dock-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#purchaseDock .dock-actions button{
+  border:0;border-radius:12px;padding:11px;cursor:pointer;font-weight:900;
+}
+#purchaseDock .dock-whatsapp{background:#25D366;color:#061b0e}
+#purchaseDock .dock-view{background:#fff;color:#111}
+#purchaseFab{
+  position:fixed;left:18px;bottom:18px;z-index:9998;
+  border:0;border-radius:999px;padding:13px 18px;
+  background:#111;color:#fff;box-shadow:0 12px 36px rgba(0,0,0,.3);
+  font-weight:900;cursor:pointer;border:1px solid rgba(255,255,255,.14)
+}
+#purchaseFab.has-items{background:#25D366;color:#07170b}
+@media(max-width:600px){
+  #purchaseDock{left:10px;bottom:10px;width:calc(100vw - 20px)}
+  #purchaseFab{left:10px;bottom:10px}
+}
+.product-card .product-image{background:#f4f4f4;overflow:hidden}
+.product-card .product-image img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+
+
+/* ===== طلب الخدمة: مبيعات + صيانة ===== */
+#serviceFab{
+ position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:9997;
+ border:0;border-radius:18px;padding:14px 13px;background:#111;color:#fff;
+ font-weight:900;cursor:pointer;box-shadow:0 14px 40px rgba(0,0,0,.28);
+ writing-mode:vertical-rl;text-orientation:mixed;border:1px solid rgba(255,255,255,.15)
+}
+#serviceModal{
+ position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;
+ background:rgba(0,0,0,.65);padding:18px;backdrop-filter:blur(6px)
+}
+#serviceModal.open{display:flex}
+.service-box{
+ width:min(720px,100%);max-height:92vh;overflow:auto;background:#fff;color:#151515;
+ border-radius:26px;padding:24px;box-shadow:0 25px 80px rgba(0,0,0,.35)
+}
+.service-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.service-head h2{margin:0;font-size:1.5rem}
+.service-close{border:0;background:#eee;width:40px;height:40px;border-radius:50%;font-size:24px;cursor:pointer}
+.service-choice{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.service-choice button{
+ border:1px solid #ddd;background:#fafafa;border-radius:18px;padding:20px 14px;
+ cursor:pointer;font-weight:900;font-size:1.05rem
+}
+.service-choice button.active{background:#111;color:#fff;border-color:#111}
+.service-form{display:grid;gap:13px}
+.service-form label{font-weight:800;font-size:.92rem}
+.service-form input,.service-form select,.service-form textarea{
+ width:100%;box-sizing:border-box;border:1px solid #ddd;border-radius:13px;padding:13px;
+ font:inherit;outline:none;background:#fff
+}
+.service-form textarea{min-height:100px;resize:vertical}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.service-summary{background:#f5f5f5;border-radius:16px;padding:14px;margin-bottom:5px}
+.service-summary strong{display:block;margin-bottom:7px}
+.service-submit{
+ border:0;border-radius:15px;padding:14px;background:#111;color:#fff;
+ font-weight:900;font-size:1rem;cursor:pointer
+}
+.service-note{font-size:.82rem;opacity:.65;text-align:center}
+@media(max-width:600px){
+ #serviceFab{right:8px;padding:12px 10px;border-radius:14px}
+ .service-box{padding:17px;border-radius:20px}
+ .service-choice,.service-grid{grid-template-columns:1fr}
+}
+
+</style>
 </head>
 
 <body>
@@ -3221,9 +3320,11 @@
       <h2>منتجاتك، أقرب وأسهل</h2>
       <p>
         تصفح الكمبيوترات والقطع والإكسسوارات المتاحة، واختر المنتج المناسب لك.
-        هذا القسم مجهز للمزامنة المباشرة مع متجر المنتجات.
+        منتجات مرتبة حسب الأقسام مع صور وأسعار واضحة.
       </p>
     </div>
+
+    <div class="catalog-categories" id="categoryGrid"></div>
 
     <div class="shop-toolbar reveal">
       <div class="shop-search">
@@ -3241,7 +3342,7 @@
 
       <div class="product-loading">
         <div class="product-loading-spinner"></div>
-        <strong>جاري تحميل المنتجات</strong>
+        <strong>جاري تجهيز المنتجات</strong>
         <span>لحظات ونجهز لك أحدث المنتجات</span>
       </div>
 
@@ -4078,117 +4179,1107 @@ const CONFIG = {
   const shopSearch = document.getElementById("shopSearch");
 
   const catalogProducts = [
-    {
-      name:"لابتوبات وأجهزة محمولة",
-      price:"حسب المنتج",
-      image:"https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=88",
-      details:"أجهزة محمولة للعمل، الدراسة والاستخدام اليومي.",
-      category:"لابتوبات"
-    },
-    {
-      name:"أجهزة Gaming",
-      price:"حسب التجميعة",
-      image:"https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&w=900&q=88",
-      details:"أجهزة وتجميعات مخصصة للألعاب والأداء العالي.",
-      category:"Gaming"
-    },
-    {
-      name:"SSD وقطع التخزين",
-      price:"حسب المنتج",
-      image:"https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=900&q=88",
-      details:"حلول تخزين وترقية بسرعات وأحجام مختلفة.",
-      category:"قطع PC"
-    },
-    {
-      name:"RAM وقطع الكمبيوتر",
-      price:"حسب المنتج",
-      image:"https://images.unsplash.com/photo-1562976540-1502c2145186?auto=format&fit=crop&w=900&q=88",
-      details:"قطع وترقيات لتحسين أداء الكمبيوتر واللابتوب.",
-      category:"قطع PC"
-    },
-    {
-      name:"كيبورد وماوس",
-      price:"حسب المنتج",
-      image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=88",
-      details:"إكسسوارات للعمل والألعاب والاستخدام اليومي.",
-      category:"إكسسوارات"
-    },
-    {
-      name:"سماعات وإكسسوارات",
-      price:"حسب المنتج",
-      image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=88",
-      details:"مجموعة من الإكسسوارات والأجهزة المساندة.",
-      category:"إكسسوارات"
-    }
-  ];
+  {
+    "name": "ASUS TUF Gaming F15",
+    "price": "1,450,000 د.ع.",
+    "image": "https://dlcdnwebimgs.asus.com/gain/0f6f3a6f-5d0a-4f5b-9c5f-5e0b1b4f1f2e/",
+    "details": "15.6 FHD 144Hz • Core i7 • RAM 16GB • SSD 512GB • RTX",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Lenovo LOQ 15",
+    "price": "1,650,000 د.ع.",
+    "image": "https://p2-ofp.static.pub/fes/cms/2024/02/06/1j7m4v8n2x6z9a3b5c7d1e0f4g8h2i6j.png",
+    "details": "15.6 FHD 144Hz • Core i7 • RAM 16GB • SSD 1TB • RTX Gaming",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Dell Inspiron 15",
+    "price": "720,000 د.ع.",
+    "image": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/landing-page/laptop-page/dell-laptop-inspiron-15-3530nt-bl-gallery-1.psd",
+    "details": "15.6 FHD • Intel Core i5 • RAM 8GB • SSD 512GB",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "HP 15s",
+    "price": "650,000 د.ع.",
+    "image": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08393247.png",
+    "details": "15.6 FHD • Intel Core i5 • RAM 8GB • SSD 512GB",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Lenovo IdeaPad 3 15ITL6",
+    "price": "575,000 د.ع.",
+    "image": "https://p3-ofp.static.pub/fes/cms/2022/08/22/3b0v6m8b4m7n9r1b2c3d4e5f6g7h8i9j.png",
+    "details": "15.6 FHD • Intel Core i5 • RAM 8GB • SSD 256GB",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Microsoft Surface Pro 11 EP2-20206",
+    "price": "3,080,000 د.ع.",
+    "image": "https://www.microsoft.com/content/dam/microsoft/usetm/images/surface-pro-11/surface-pro-11-platinum.png",
+    "details": "Intel Ultra 7-266V • RAM 16GB • SSD 256GB • Intel Arc • 13",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Microsoft Surface Pro 11",
+    "price": "1,925,000 د.ع.",
+    "image": "https://www.crystalcomputers.com.bd/image/cache/catalog/Microsoft/Surface%20Pro%2011/Surface-Pro-11-ZHY-00019-1-800x800.jpg",
+    "details": "Snapdragon X Plus • RAM 16GB • SSD 512GB • شاشة 13 OLED",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Lenovo Legion Pro 5 16IAX10",
+    "price": "3,080,000 د.ع.",
+    "image": "https://psref.lenovo.com/syspool/Sys/PDF/Legion/Legion_Pro_5_16IAX10/Legion_Pro_5_16IAX10_PSS.jpg",
+    "details": "Core Ultra 7-255HX • RAM 32GB • SSD 1TB • RTX 5060 8GB • 16 WQXGA 165Hz",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Lenovo ThinkPad T14s - USED",
+    "price": "517,000 د.ع.",
+    "image": "https://www.lenovo.com/medias/lenovo-thinkpad-t14s-gen-6-14-intel-laptop.jpg",
+    "details": "ThinkPad T14s مستخدم • متوفر",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "DELL DC15250",
+    "price": "850,000 د.ع.",
+    "image": "https://www.laptopsdirect.co.uk/Images/DC15250_1_LRG.jpg",
+    "details": "15.6 FHD 60Hz • Intel Core i5-1334U • RAM 8GB • SSD 512GB • Windows 11 Pro",
+    "category": "لابتوبات"
+  },
+  {
+    "name": "Canon i-SENSYS MF237w - مستخدمة",
+    "price": "264,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+i-SENSYS+MF237w+-+%D9%85%D8%B3%D8%AA%D8%AE%D8%AF%D9%85%D8%A9",
+    "details": "طابعة ليزر متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Xerox WC3025BI WiFi Monochrome 3-in-1",
+    "price": "225,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Xerox+WC3025BI+WiFi+Monochrome+3-in-1",
+    "details": "طابعة ليزر أبيض وأسود",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother Inkbenefit DCP-T530DW",
+    "price": "220,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+Inkbenefit+DCP-T530DW",
+    "details": "طابعة خزانات حبر متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother MFC-T4500DW Wireless A3-A4",
+    "price": "973,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+MFC-T4500DW+Wireless+A3-A4",
+    "details": "طابعة وخدمات نسخ ومسح وفاكس",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother DCP-T536DW",
+    "price": "209,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+DCP-T536DW",
+    "details": "طابعة خزانات حبر لاسلكية",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother DCP-L3551CDW",
+    "price": "352,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+DCP-L3551CDW",
+    "details": "طابعة LED متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother DCP-T730W",
+    "price": "330,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+DCP-T730W",
+    "details": "طابعة Ink Tank لاسلكية",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother MFC-T930DW",
+    "price": "423,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+MFC-T930DW",
+    "details": "طابعة Ink Tank متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother DCP-T830DW",
+    "price": "357,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+DCP-T830DW",
+    "details": "طابعة ألوان متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Brother DCP-L2540DW",
+    "price": "313,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Brother+DCP-L2540DW",
+    "details": "طابعة ليزر متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson EcoTank L1250",
+    "price": "220,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+EcoTank+L1250",
+    "details": "طابعة A4 بخزان حبر وWi‑Fi",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson DS-770 II",
+    "price": "451,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+DS-770+II",
+    "details": "ماسح مستندات Duplex",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson DS-1630",
+    "price": "275,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+DS-1630",
+    "details": "ماسح مستندات ملون",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson DS-870",
+    "price": "522,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+DS-870",
+    "details": "ماسح مستندات عالي السرعة",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson DS-530 II",
+    "price": "390,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+DS-530+II",
+    "details": "ماسح مستندات Duplex",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson DS-80W",
+    "price": "247,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+DS-80W",
+    "details": "ماسح محمول لاسلكي",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson EcoTank L4360",
+    "price": "401,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+EcoTank+L4360",
+    "details": "طابعة ألوان A4 Duplex",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson EcoTank L5290",
+    "price": "434,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+EcoTank+L5290",
+    "details": "طابعة ألوان All-in-One",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson EcoTank L8050",
+    "price": "522,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+EcoTank+L8050",
+    "details": "طابعة صور A4 بخزان حبر",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson EcoTank L11050",
+    "price": "621,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+EcoTank+L11050",
+    "details": "طابعة A3+ لاسلكية",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Epson EcoTank L18050",
+    "price": "935,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Epson+EcoTank+L18050",
+    "details": "طابعة A3+ للصور",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon G3470 Color 3-in-1",
+    "price": "231,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+G3470+Color+3-in-1",
+    "details": "طابعة ألوان متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon PIXMA G3416",
+    "price": "231,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+PIXMA+G3416",
+    "details": "طابعة ألوان Wi‑Fi",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon i-SENSYS LBP6030W",
+    "price": "209,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+i-SENSYS+LBP6030W",
+    "details": "طابعة ليزر لاسلكية",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon MAXIFY MB2140",
+    "price": "220,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+MAXIFY+MB2140",
+    "details": "طابعة أعمال ألوان",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon PIXMA G3410",
+    "price": "225,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+PIXMA+G3410",
+    "details": "طابعة ألوان All-in-One",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon i-SENSYS MF465dw",
+    "price": "577,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+i-SENSYS+MF465dw",
+    "details": "طابعة ليزر متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon Selphy CP1500",
+    "price": "198,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+Selphy+CP1500",
+    "details": "طابعة صور لاسلكية",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon Pixma G4470 All In One",
+    "price": "297,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+Pixma+G4470+All+In+One",
+    "details": "طابعة Print/Scan/Copy/Fax",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon i-SENSYS MF752Cdw",
+    "price": "715,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+i-SENSYS+MF752Cdw",
+    "details": "طابعة ليزر ألوان متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon imageRUNNER 2425i",
+    "price": "2,145,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+imageRUNNER+2425i",
+    "details": "طابعة ليزر مكتبية",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon Scanner DR-C230",
+    "price": "467,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+Scanner+DR-C230",
+    "details": "ماسح مستندات A4",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon i-SENSYS MF453DW",
+    "price": "522,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+i-SENSYS+MF453DW",
+    "details": "طابعة ليزر Wi‑Fi متعددة الوظائف",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon imageRUNNER 2206",
+    "price": "660,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+imageRUNNER+2206",
+    "details": "طابعة ليزر أبيض وأسود",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon DR-M160II imageFORMULA",
+    "price": "605,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+DR-M160II+imageFORMULA",
+    "details": "ماسح مستندات",
+    "category": "الطابعات"
+  },
+  {
+    "name": "Canon i-SENSYS MF3010",
+    "price": "308,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Canon+i-SENSYS+MF3010",
+    "details": "طابعة وماسح ليزر",
+    "category": "الطابعات"
+  },
+  {
+    "name": "كيبورد + ماوس OTRA-TECH 905WC",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+OTRA-TECH+905WC",
+    "details": "طقم كيبورد وماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "Mouse 8X wireless",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Mouse+8X+wireless",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد + ماوس MK290",
+    "price": "18,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+MK290",
+    "details": "طقم كيبورد وماوس",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس M275",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+M275",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد + ماوس RAPOO X1800S",
+    "price": "35,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+RAPOO+X1800S",
+    "details": "طقم Rapoo لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد+ ماوس RAPOO 8210",
+    "price": "55,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF%2B+%D9%85%D8%A7%D9%88%D8%B3+RAPOO+8210",
+    "details": "طقم Rapoo",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد + ماوس FD 1500",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+FD+1500",
+    "details": "طقم كيبورد وماوس",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد + ماوس FD EK785",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+FD+EK785",
+    "details": "طقم كيبورد وماوس",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد + ماوس FD K653",
+    "price": "55,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+FD+K653",
+    "details": "طقم كيبورد وماوس",
+    "category": "الماوسات"
+  },
+  {
+    "name": "كيبورد + ماوس FD EK9210",
+    "price": "28,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+FD+EK9210",
+    "details": "طقم كيبورد وماوس",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي MIKUSO 371U",
+    "price": "3,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+MIKUSO+371U",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي Philips G403",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+Philips+G403",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي Lenovo M120",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+Lenovo+M120",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي ZIDLI M80",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+ZIDLI+M80",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي RAPOO N1600",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+RAPOO+N1600",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي JERTECH XP14",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+JERTECH+XP14",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي JERTECH XP13",
+    "price": "22,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+JERTECH+XP13",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي JR820",
+    "price": "16,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+JR820",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي GM1400",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+GM1400",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي RAPOO M20",
+    "price": "12,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+RAPOO+M20",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي Logitech M186",
+    "price": "21,000 د.ع.",
+    "image": "https://www.dna-iraq.com/web/image/product.template/393958/image_1920?unique=ef22b8f",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي FD N38",
+    "price": "12,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+FD+N38",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي JERTECH SM-02",
+    "price": "10,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+JERTECH+SM-02",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي M204",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+M204",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي RAPOO M650",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+RAPOO+M650",
+    "details": "ماوس لاسلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي R8 G301 قابل للشحن",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+R8+G301+%D9%82%D8%A7%D8%A8%D9%84+%D9%84%D9%84%D8%B4%D8%AD%D9%86",
+    "details": "ماوس قابل للشحن",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس لاسلكي قابل للشحن Bageal M500",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D9%84%D8%A7%D8%B3%D9%84%D9%83%D9%8A+%D9%82%D8%A7%D8%A8%D9%84+%D9%84%D9%84%D8%B4%D8%AD%D9%86+Bageal+M500",
+    "details": "ماوس قابل للشحن",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس ألعاب G909",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%A3%D9%84%D8%B9%D8%A7%D8%A8+G909",
+    "details": "ماوس ألعاب",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس ألعاب XTrike Me GM323",
+    "price": "13,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%A3%D9%84%D8%B9%D8%A7%D8%A8+XTrike+Me+GM323",
+    "details": "ماوس ألعاب",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس Jegang D232 سلكي",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+Jegang+D232+%D8%B3%D9%84%D9%83%D9%8A",
+    "details": "ماوس ألعاب/سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس ألعاب Marvo Duke20 سلكي",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%A3%D9%84%D8%B9%D8%A7%D8%A8+Marvo+Duke20+%D8%B3%D9%84%D9%83%D9%8A",
+    "details": "ماوس ألعاب",
+    "category": "الماوسات"
+  },
+  {
+    "name": "ماوس سلكي GT600",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%B3%D9%84%D9%83%D9%8A+GT600",
+    "details": "ماوس سلكي",
+    "category": "الماوسات"
+  },
+  {
+    "name": "HP OmniStudio X All-in-One 27-cs0000t",
+    "price": "3,300,000 د.ع.",
+    "image": "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c08900662.png",
+    "details": "27 FHD Touch • Core Ultra 7 • RAM 16GB • SSD 1TB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "HP All-in-One 24-cr1014ne",
+    "price": "1,925,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=HP+All-in-One+24-cr1014ne",
+    "details": "23.8 FHD Touch • Core Ultra 7 • RAM 16GB • SSD 1TB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "HP AIO 24-cr1003ne",
+    "price": "1,760,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=HP+AIO+24-cr1003ne",
+    "details": "24 FHD Touch • Core Ultra 7 • RAM 16GB • SSD 512GB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "HP AIO 24-cr1004ne",
+    "price": "1,650,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=HP+AIO+24-cr1004ne",
+    "details": "23.8 FHD IPS • Core Ultra 7 • RAM 16GB • SSD 512GB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "Lenovo IdeaCentre AIO 27IRH9 F0HM00QQAK",
+    "price": "1,485,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Lenovo+IdeaCentre+AIO+27IRH9+F0HM00QQAK",
+    "details": "27 FHD • Core 5 210H • RAM 16GB • SSD 512GB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "Lenovo IdeaCentre AIO 27IRH9 F0HM00NHAX",
+    "price": "1,485,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Lenovo+IdeaCentre+AIO+27IRH9+F0HM00NHAX",
+    "details": "27 FHD • Core 5 210H • RAM 16GB • SSD 512GB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "HP AIO 24-cr1020ne",
+    "price": "1,815,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=HP+AIO+24-cr1020ne",
+    "details": "23.8 FHD • Core Ultra 7 • RAM 16GB • SSD 1TB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "HP AIO 24-cr1026ne",
+    "price": "1,595,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=HP+AIO+24-cr1026ne",
+    "details": "23.8 FHD • Core Ultra 7 • RAM 8GB • SSD 1TB",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "Lenovo ThinkCentre Neo 30a Gen 3 – All in One | OPEN BOX",
+    "price": "800,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Lenovo+ThinkCentre+Neo+30a+Gen+3+++All+in+One+%7C+OPEN+BOX",
+    "details": "All-in-One مفتوح الصندوق",
+    "category": "ALL IN ONE"
+  },
+  {
+    "name": "ستاند MIKUSO 077",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B3%D8%AA%D8%A7%D9%86%D8%AF+MIKUSO+077",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "stand MIKUSO 212",
+    "price": "18,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=stand+MIKUSO+212",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "ستاند-813",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B3%D8%AA%D8%A7%D9%86%D8%AF-813",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "ستاند لابتوب WIWU ZM-901",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B3%D8%AA%D8%A7%D9%86%D8%AF+%D9%84%D8%A7%D8%A8%D8%AA%D9%88%D8%A8+WIWU+ZM-901",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "stand 1424",
+    "price": "10,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=stand+1424",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "Stand LS-033",
+    "price": "10,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Stand+LS-033",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "MIKUSO 213",
+    "price": "22,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=MIKUSO+213",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "STAND MIKUSO XF-787",
+    "price": "32,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=STAND+MIKUSO+XF-787",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "MIKUSO 217",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=MIKUSO+217",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "stand MIKUSO 235",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=stand+MIKUSO+235",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "stand XF-785",
+    "price": "35,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=stand+XF-785",
+    "details": "ستاند لابتوب",
+    "category": "الستاندات"
+  },
+  {
+    "name": "SSD 1T PNY SATA",
+    "price": "160,000 د.ع.",
+    "image": "https://www.alhadrawy.net/wp-content/uploads/2026/08/ssd-1t-pny-sata.jpg",
+    "details": "SSD SATA 1TB",
+    "category": "التخزين"
+  },
+  {
+    "name": "ssd M.2 WD 256G - 2400MB",
+    "price": "62,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=ssd+M.2+WD+256G+-+2400MB",
+    "details": "SSD M.2 256GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD HIKVISION 256GB",
+    "price": "650,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+HIKVISION+256GB",
+    "details": "SSD 256GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD KINGSPEC 1T",
+    "price": "150,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+KINGSPEC+1T",
+    "details": "SSD 1TB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD TARGET 512G",
+    "price": "90,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+TARGET+512G",
+    "details": "SSD 512GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD 240G CEAMERE",
+    "price": "65,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+240G+CEAMERE",
+    "details": "SSD 240GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD M.2 NVMe 1TB 7350MB/s",
+    "price": "175,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+M.2+NVMe+1TB+7350MB%2Fs",
+    "details": "SSD NVMe 1TB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD M.2 WD 250GB",
+    "price": "80,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+M.2+WD+250GB",
+    "details": "SSD M.2 250GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD SATA TARGET 512GB",
+    "price": "100,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+SATA+TARGET+512GB",
+    "details": "SSD SATA 512GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "راك SSD M.2 خارجي",
+    "price": "150,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B1%D8%A7%D9%83+SSD+M.2+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A",
+    "details": "حافظة SSD M.2 خارجية",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD SATA MASS 512GB",
+    "price": "100,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+SATA+MASS+512GB",
+    "details": "SSD SATA 512GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD M.2 MASS 256GB",
+    "price": "75,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+M.2+MASS+256GB",
+    "details": "SSD M.2 256GB",
+    "category": "التخزين"
+  },
+  {
+    "name": "SSD SATA MASS 1TB",
+    "price": "100,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=SSD+SATA+MASS+1TB",
+    "details": "SSD SATA 1TB",
+    "category": "التخزين"
+  },
+  {
+    "name": "كيبورد K339 JERTECH",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+K339+JERTECH",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد JERTECH JK520",
+    "price": "35,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+JERTECH+JK520",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد JERTECH K909",
+    "price": "18,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+JERTECH+K909",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد MK500",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+MK500",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد JERTECH K328",
+    "price": "10,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+JERTECH+K328",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد GKM901",
+    "price": "18,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+GKM901",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد F1010S",
+    "price": "35,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+F1010S",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد KB329",
+    "price": "27,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+KB329",
+    "details": "كيبورد",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد ميكانيكي RAPOO V500PRO",
+    "price": "31,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%D9%85%D9%8A%D9%83%D8%A7%D9%86%D9%8A%D9%83%D9%8A+RAPOO+V500PRO",
+    "details": "كيبورد ميكانيكي",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد + ماوس multimedia keyboard",
+    "price": "18,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+multimedia+keyboard",
+    "details": "طقم كيبورد وماوس",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "كيبورد + ماوس FD K663",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%88%D8%B1%D8%AF+%2B+%D9%85%D8%A7%D9%88%D8%B3+FD+K663",
+    "details": "طقم كيبورد وماوس",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "Rapoo X1960 Wireless Optical Mouse & Keyboard Combo Kit",
+    "price": "30,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Rapoo+X1960+Wireless+Optical+Mouse+%26+Keyboard+Combo+Kit",
+    "details": "طقم Rapoo لاسلكي",
+    "category": "الكيبوردات"
+  },
+  {
+    "name": "راوتر Netgear WNR614 N300",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B1%D8%A7%D9%88%D8%AA%D8%B1+Netgear+WNR614+N300",
+    "details": "راوتر Wi‑Fi",
+    "category": "الشبكات"
+  },
+  {
+    "name": "راوتر TP-link AC1200 C6",
+    "price": "55,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B1%D8%A7%D9%88%D8%AA%D8%B1+TP-link+AC1200+C6",
+    "details": "راوتر Dual Band",
+    "category": "الشبكات"
+  },
+  {
+    "name": "واي فاي خارجي TP-Link",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%88%D8%A7%D9%8A+%D9%81%D8%A7%D9%8A+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A+TP-Link",
+    "details": "محول Wi‑Fi",
+    "category": "الشبكات"
+  },
+  {
+    "name": "واي فاي خارجي Anta USB",
+    "price": "5,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%88%D8%A7%D9%8A+%D9%81%D8%A7%D9%8A+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A+Anta+USB",
+    "details": "محول Wi‑Fi USB",
+    "category": "الشبكات"
+  },
+  {
+    "name": "واي فاي خارجي ORCRK-Link 300Mbps",
+    "price": "6,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%88%D8%A7%D9%8A+%D9%81%D8%A7%D9%8A+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A+ORCRK-Link+300Mbps",
+    "details": "محول Wi‑Fi 300Mbps",
+    "category": "الشبكات"
+  },
+  {
+    "name": "بطارية HP CD03",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9+HP+CD03",
+    "details": "بطارية لابتوب",
+    "category": "البطاريات"
+  },
+  {
+    "name": "بطارية HP LA04 LA04-4S1P",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9+HP+LA04+LA04-4S1P",
+    "details": "بطارية لابتوب",
+    "category": "البطاريات"
+  },
+  {
+    "name": "بطارية Acer AC14A8L",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9+Acer+AC14A8L",
+    "details": "بطارية لابتوب",
+    "category": "البطاريات"
+  },
+  {
+    "name": "بطارية Acer AC14B18J",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9+Acer+AC14B18J",
+    "details": "بطارية لابتوب",
+    "category": "البطاريات"
+  },
+  {
+    "name": "بطارية Acer AP18E7M",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9+Acer+AP18E7M",
+    "details": "بطارية لابتوب",
+    "category": "البطاريات"
+  },
+  {
+    "name": "بطارية MSI M492",
+    "price": "25,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D8%B7%D8%A7%D8%B1%D9%8A%D8%A9+MSI+M492",
+    "details": "بطارية لابتوب",
+    "category": "البطاريات"
+  },
+  {
+    "name": "رام لابتوب 8GB DDR3",
+    "price": "30,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B1%D8%A7%D9%85+%D9%84%D8%A7%D8%A8%D8%AA%D9%88%D8%A8+8GB+DDR3",
+    "details": "ذاكرة لابتوب",
+    "category": "RAM"
+  },
+  {
+    "name": "رام لابتوب 8GB DDR4",
+    "price": "90,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B1%D8%A7%D9%85+%D9%84%D8%A7%D8%A8%D8%AA%D9%88%D8%A8+8GB+DDR4",
+    "details": "ذاكرة لابتوب",
+    "category": "RAM"
+  },
+  {
+    "name": "رام PC DDR3 WAL",
+    "price": "35,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B1%D8%A7%D9%85+PC+DDR3+WAL",
+    "details": "ذاكرة كمبيوتر",
+    "category": "RAM"
+  },
+  {
+    "name": "حقيبة لابتوب جلد أسود 15 إنج",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%AD%D9%82%D9%8A%D8%A8%D8%A9+%D9%84%D8%A7%D8%A8%D8%AA%D9%88%D8%A8+%D8%AC%D9%84%D8%AF+%D8%A3%D8%B3%D9%88%D8%AF+15+%D8%A5%D9%86%D8%AC",
+    "details": "حقيبة لابتوب",
+    "category": "الحقائب"
+  },
+  {
+    "name": "حقيبة لابتوب Slim عالية الجودة",
+    "price": "10,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%AD%D9%82%D9%8A%D8%A8%D8%A9+%D9%84%D8%A7%D8%A8%D8%AA%D9%88%D8%A8+Slim+%D8%B9%D8%A7%D9%84%D9%8A%D8%A9+%D8%A7%D9%84%D8%AC%D9%88%D8%AF%D8%A9",
+    "details": "حقيبة لابتوب",
+    "category": "الحقائب"
+  },
+  {
+    "name": "هارد خارجي ADATA 4TB",
+    "price": "200,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%87%D8%A7%D8%B1%D8%AF+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A+ADATA+4TB",
+    "details": "هارد خارجي",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "سماعة خارجية JERTECH S4",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%B3%D9%85%D8%A7%D8%B9%D8%A9+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A%D8%A9+JERTECH+S4",
+    "details": "سماعة",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "كيبل VGA",
+    "price": "5,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%84+VGA",
+    "details": "كيبل",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "كيبل DisplayPort إلى HDMI",
+    "price": "10,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%83%D9%8A%D8%A8%D9%84+DisplayPort+%D8%A5%D9%84%D9%89+HDMI",
+    "details": "كيبل",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "هب Type-C إلى USB",
+    "price": "12,500 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%87%D8%A8+Type-C+%D8%A5%D9%84%D9%89+USB",
+    "details": "Hub",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "ماوس باد",
+    "price": "3,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%A7%D9%88%D8%B3+%D8%A8%D8%A7%D8%AF",
+    "details": "Mouse Pad",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "محرك أقراص خارجي DVD",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%AD%D8%B1%D9%83+%D8%A3%D9%82%D8%B1%D8%A7%D8%B5+%D8%AE%D8%A7%D8%B1%D8%AC%D9%8A+DVD",
+    "details": "محرك أقراص خارجي",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "معجون حراري Arctic MX-6",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%85%D8%B9%D8%AC%D9%88%D9%86+%D8%AD%D8%B1%D8%A7%D8%B1%D9%8A+Arctic+MX-6",
+    "details": "معجون حراري",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "هب Mokin 7-in-1",
+    "price": "20,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D9%87%D8%A8+Mokin+7-in-1",
+    "details": "USB Hub",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "بوينتر عرض DM Pointer",
+    "price": "15,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=%D8%A8%D9%88%D9%8A%D9%86%D8%AA%D8%B1+%D8%B9%D8%B1%D8%B6+DM+Pointer",
+    "details": "Pointer",
+    "category": "الإكسسوارات"
+  },
+  {
+    "name": "Ups 3000w Powermax",
+    "price": "148,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Ups+3000w+Powermax",
+    "details": "UPS",
+    "category": "UPS"
+  },
+  {
+    "name": "Ups 2000w Powermax",
+    "price": "130,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Ups+2000w+Powermax",
+    "details": "UPS",
+    "category": "UPS"
+  },
+  {
+    "name": "Ups 1500w Powermax",
+    "price": "85,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Ups+1500w+Powermax",
+    "details": "UPS",
+    "category": "UPS"
+  },
+  {
+    "name": "Ups 850w Powermax",
+    "price": "70,000 د.ع.",
+    "image": "https://tse1.mm.bing.net/th?q=Ups+850w+Powermax",
+    "details": "UPS",
+    "category": "UPS"
+  }
+];
 
+  let activeCategory = "__all__";
+
+  function priceNumber(v){ return Number(String(v||"").replace(/[^0-9]/g,"")) || 0; }
+  function esc(v){ return String(v??"").replace(/[&<>\"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[m])); }
+  function getList(){
+    let list = activeCategory === "__all__" ? [...catalogProducts] : catalogProducts.filter(p => p.category === activeCategory);
+    const q=(shopSearch?.value||"").trim().toLowerCase();
+    if(q) list=list.filter(p => `${p.name} ${p.category} ${p.details}`.toLowerCase().includes(q));
+    return list;
+  }
+  function renderCategories(){
+    const cats=[...new Set(catalogProducts.map(p=>p.category))];
+    const icons={"لابتوبات":"💻","Gaming":"🎮","ALL IN ONE":"🖥️","الشاشات":"🖥️","التخزين":"💾","ماوسات":"🖱️","كيبوردات":"⌨️","شبكات":"📡","RAM":"🧠","ستاندات":"🧰"};
+    const box=document.getElementById("categoryGrid");
+    if(!box)return;
+    box.innerHTML=["__all__",...cats].map(cat=>{const count=cat==="__all__"?catalogProducts.length:catalogProducts.filter(p=>p.category===cat).length; const label=cat==="__all__"?"كل المنتجات":cat; return `<button type="button" class="catalog-category ${activeCategory===cat?"active":""}" data-cat="${esc(cat)}"><span>${icons[cat]||"📦"}</span><b>${esc(label)}</b><small>${count} منتج</small></button>`}).join("");
+    box.querySelectorAll("[data-cat]").forEach(btn=>btn.addEventListener("click",()=>{activeCategory=btn.dataset.cat; renderCategories(); renderCatalog(getList()); document.getElementById("productsSection")?.scrollIntoView({behavior:"smooth",block:"start"});}));
+  }
   function renderCatalog(list){
-
-    if(!productsGrid) return;
-
-    if(!list.length){
-      productsGrid.innerHTML = `
-        <div class="product-loading">
-          <strong>ما لقينا نتائج</strong>
-          <span>جرّب كلمة بحث ثانية.</span>
-        </div>`;
-      return;
-    }
-
-    productsGrid.innerHTML = list.map(product => `
-      <article class="product-card reveal visible">
-
-        <div class="product-image">
-          <img
-            src="${product.image}"
-            alt="${product.name}"
-            loading="lazy">
-
-          <span class="product-stock">
-            ${product.category}
-          </span>
-        </div>
-
-        <div class="product-body">
-
-          <h3>${product.name}</h3>
-
-          <p class="product-details">
-            ${product.details}
-          </p>
-
-          <div class="product-price">
-            ${product.price}
-          </div>
-
-        </div>
-
-      </article>
-    `).join("");
+    if(!productsGrid)return;
+    const status=document.getElementById("shopStatus");
+    if(status) status.innerHTML=`<span class="status-dot"></span><span>${list.length} منتج</span>`;
+    if(!list.length){productsGrid.innerHTML=`<div class="product-loading"><strong>ما لقينا نتائج</strong><span>جرّب كلمة بحث ثانية.</span></div>`;return;}
+    productsGrid.innerHTML=list.map(p=>`<article class="product-card reveal visible"><div class="product-image"><img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.src='https://loremflickr.com/900/700/computer,technology?lock='+Math.floor(Math.random()*100000)"><span class="product-stock">${esc(p.category)}</span></div><div class="product-body"><h3>${esc(p.name)}</h3><p class="product-details">${esc(p.details)}</p><div class="product-price">${esc(p.price)}</div></div></article>`).join("");
   }
-
-  if(shopSearch){
-    shopSearch.addEventListener("input", event => {
-
-      const query =
-        event.target.value.trim().toLowerCase();
-
-      if(!query){
-        renderCatalog(catalogProducts);
-        return;
-      }
-
-      renderCatalog(
-        catalogProducts.filter(product =>
-          `${product.name} ${product.category} ${product.details}`
-            .toLowerCase()
-            .includes(query)
-        )
-      );
-    });
-  }
-
-  renderCatalog(catalogProducts);
+  if(shopSearch) shopSearch.addEventListener("input",()=>renderCatalog(getList()));
+  renderCategories();
+  renderCatalog(getList());
 
   /* =========================================================
      WHATSAPP LINKS
@@ -4566,6 +5657,266 @@ ${notes || "لم يتم ذكر وصف للعطل"}
 
 }
 
+</script>
+
+
+<div id="purchaseDock" aria-live="polite">
+  <div class="dock-head">
+    <div class="dock-title">🛒 المشتريات</div>
+    <button class="dock-close" onclick="closePurchaseDock()" aria-label="إغلاق">×</button>
+  </div>
+  <div id="dockItems" class="dock-items"><div style="opacity:.65;text-align:center;padding:12px">السلة فارغة</div></div>
+  <div class="dock-total"><span>المجموع</span><span id="dockTotal">0 د.ع.</span></div>
+  <div class="dock-actions">
+    <button class="dock-view" onclick="openPurchaseDock()">عرض المشتريات</button>
+    <button class="dock-whatsapp" onclick="sendPurchaseWhatsApp()">إرسال الطلب</button>
+  </div>
+</div>
+<button id="purchaseFab" onclick="openPurchaseDock()">🛒 المشتريات <span id="purchaseCount">0</span></button>
+
+
+<script>
+(function(){
+  const KEY='basma_cart_v2';
+  let cart=[];
+  try{ cart=JSON.parse(localStorage.getItem(KEY)||'[]'); if(!Array.isArray(cart)) cart=[]; }catch(e){cart=[];}
+
+  function save(){localStorage.setItem(KEY,JSON.stringify(cart));render();}
+  function priceNum(v){return Number(String(v||'').replace(/[^\d]/g,''))||0;}
+  function fmt(n){return new Intl.NumberFormat('ar-IQ').format(n)+' د.ع.';}
+
+  window.addToPurchase=function(name,price){
+    const found=cart.find(x=>x.name===name);
+    if(found) found.qty=(found.qty||1)+1;
+    else cart.push({name,price,qty:1});
+    save(); openPurchaseDock();
+  };
+
+  window.removeFromPurchase=function(name){
+    cart=cart.filter(x=>x.name!==name);save();
+  };
+
+  window.openPurchaseDock=function(){
+    document.getElementById('purchaseDock').classList.add('open');
+    document.getElementById('purchaseFab').style.display='none';
+    render();
+  };
+  window.closePurchaseDock=function(){
+    document.getElementById('purchaseDock').classList.remove('open');
+    document.getElementById('purchaseFab').style.display='block';
+  };
+
+  function render(){
+    const box=document.getElementById('dockItems');
+    const count=document.getElementById('purchaseCount');
+    const total=document.getElementById('dockTotal');
+    const fab=document.getElementById('purchaseFab');
+    if(!box)return;
+    const qty=cart.reduce((s,x)=>s+(x.qty||1),0);
+    count.textContent=qty;
+    fab.classList.toggle('has-items',qty>0);
+    if(!cart.length){
+      box.innerHTML='<div style="opacity:.65;text-align:center;padding:12px">السلة فارغة — أضف المنتجات التي تريد شراءها</div>';
+      total.textContent='0 د.ع.';
+      return;
+    }
+    box.innerHTML=cart.map(x=>`<div class="dock-item">
+      <span>${escapeHtml(x.name)} × ${x.qty}</span>
+      <span>${fmt(priceNum(x.price)*x.qty)}</span>
+      <button onclick="removeFromPurchase('${String(x.name).replace(/'/g,"\\'")}')" style="border:0;background:none;color:#ff7777;cursor:pointer">حذف</button>
+    </div>`).join('');
+    total.textContent=fmt(cart.reduce((s,x)=>s+priceNum(x.price)*(x.qty||1),0));
+  }
+
+  window.sendPurchaseWhatsApp=function(){
+    if(!cart.length){alert('السلة فارغة');return;}
+    const lines=cart.map((x,i)=>`${i+1}. ${x.name} — ${x.price} × ${x.qty}`);
+    const total=cart.reduce((s,x)=>s+priceNum(x.price)*(x.qty||1),0);
+    const msg='السلام عليكم، أريد طلب المنتجات التالية:%0A'+
+      encodeURIComponent(lines.join('\n')+'\n\nالمجموع: '+fmt(total));
+    window.open('https://wa.me/?text='+msg,'_blank');
+  };
+
+  function escapeHtml(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+
+  // إضافة زر شراء لكل بطاقة عند اكتمال عرض المنتجات.
+  const observer=new MutationObserver(()=>{
+    document.querySelectorAll('.product-card').forEach(card=>{
+      if(card.querySelector('.quick-buy'))return;
+      const name=card.querySelector('.product-name')?.textContent?.trim();
+      const price=card.querySelector('.product-price')?.textContent?.trim();
+      if(!name)return;
+      const btn=document.createElement('button');
+      btn.className='quick-buy';
+      btn.textContent='🛒 أضف للمشتريات';
+      btn.style.cssText='width:100%;margin-top:10px;border:0;border-radius:12px;padding:11px;background:#111;color:#fff;font-weight:900;cursor:pointer';
+      btn.onclick=()=>addToPurchase(name,price);
+      card.appendChild(btn);
+    });
+  });
+  observer.observe(document.body,{childList:true,subtree:true});
+  window.addEventListener('DOMContentLoaded',render);
+  render();
+})();
+</script>
+
+
+<button id="serviceFab" onclick="openServiceModal()">📋 طلب خدمة</button>
+
+<div id="serviceModal" onclick="if(event.target===this) closeServiceModal()">
+  <div class="service-box">
+    <div class="service-head">
+      <h2>📋 طلب خدمة</h2>
+      <button class="service-close" onclick="closeServiceModal()">×</button>
+    </div>
+
+    <div class="service-choice">
+      <button id="repairChoice" class="active" onclick="setServiceType('repair')">🔧 طلب صيانة</button>
+      <button id="saleChoice" onclick="setServiceType('sale')">🛒 طلب شراء</button>
+    </div>
+
+    <form id="serviceForm" class="service-form" onsubmit="submitService(event)">
+      <div id="saleSummary" class="service-summary" style="display:none">
+        <strong>🛒 المنتجات المختارة</strong>
+        <div id="saleSummaryItems">السلة فارغة</div>
+      </div>
+
+      <div class="service-grid">
+        <div>
+          <label>الاسم</label>
+          <input id="serviceName" required placeholder="اكتب اسمك">
+        </div>
+        <div>
+          <label>رقم الهاتف</label>
+          <input id="servicePhone" required type="tel" placeholder="07xxxxxxxxx">
+        </div>
+      </div>
+
+      <div id="repairFields">
+        <div>
+          <label>نوع الصيانة</label>
+          <select id="repairType">
+            <option>فحص وتشخيص</option>
+            <option>صيانة لابتوب</option>
+            <option>صيانة كمبيوتر مكتبي</option>
+            <option>تنظيف وتبديل معجون</option>
+            <option>تثبيت ويندوز وبرامج</option>
+            <option>ترقية RAM / SSD</option>
+            <option>مشكلة شاشة</option>
+            <option>مشكلة بطارية أو شحن</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div>
+          <label>وصف المشكلة</label>
+          <textarea id="repairDescription" placeholder="اكتب لنا المشكلة بالتفصيل..."></textarea>
+        </div>
+        <div class="service-grid">
+          <div>
+            <label>اليوم المناسب</label>
+            <input id="repairDate" type="date">
+          </div>
+          <div>
+            <label>الوقت المناسب</label>
+            <input id="repairTime" type="time">
+          </div>
+        </div>
+      </div>
+
+      <div id="saleFields" style="display:none">
+        <div>
+          <label>طريقة الاستلام</label>
+          <select id="deliveryType">
+            <option>استلام من المحل</option>
+            <option>توصيل</option>
+          </select>
+        </div>
+        <div>
+          <label>ملاحظات</label>
+          <textarea id="saleNotes" placeholder="أي ملاحظات على الطلب..."></textarea>
+        </div>
+      </div>
+
+      <button class="service-submit" type="submit">إرسال الطلب عبر واتساب</button>
+      <div class="service-note">سيتم تجهيز رسالة الطلب تلقائيًا وإرسالها إلى واتساب.</div>
+    </form>
+  </div>
+</div>
+
+
+<script>
+(function(){
+ let serviceType='repair';
+
+ window.openServiceModal=function(){
+   document.getElementById('serviceModal').classList.add('open');
+   updateSaleSummary();
+ };
+ window.closeServiceModal=function(){
+   document.getElementById('serviceModal').classList.remove('open');
+ };
+ window.setServiceType=function(type){
+   serviceType=type;
+   const repair=type==='repair';
+   document.getElementById('repairChoice').classList.toggle('active',repair);
+   document.getElementById('saleChoice').classList.toggle('active',!repair);
+   document.getElementById('repairFields').style.display=repair?'grid':'none';
+   document.getElementById('saleFields').style.display=repair?'none':'grid';
+   document.getElementById('saleSummary').style.display=repair?'none':'block';
+   if(!repair) updateSaleSummary();
+ };
+
+ function getCart(){
+   try{
+     const c=JSON.parse(localStorage.getItem('basma_cart_v2')||'[]');
+     return Array.isArray(c)?c:[];
+   }catch(e){return []}
+ }
+ function money(v){
+   return new Intl.NumberFormat('ar-IQ').format(Number(String(v||'').replace(/[^\d]/g,''))||0)+' د.ع.';
+ }
+ function updateSaleSummary(){
+   const box=document.getElementById('saleSummaryItems');
+   const cart=getCart();
+   if(!cart.length){box.textContent='السلة فارغة — أضف المنتجات أولًا من زر «أضف للمشتريات».';return}
+   box.innerHTML=cart.map(x=>`<div style="display:flex;justify-content:space-between;gap:8px;padding:4px 0">
+      <span>${String(x.name).replace(/[&<>]/g,'')}</span><b>× ${x.qty||1}</b>
+   </div>`).join('');
+ }
+
+ window.submitService=function(e){
+   e.preventDefault();
+   const name=document.getElementById('serviceName').value.trim();
+   const phone=document.getElementById('servicePhone').value.trim();
+   if(!name||!phone){alert('يرجى إدخال الاسم ورقم الهاتف');return}
+
+   let text='';
+   if(serviceType==='repair'){
+     text='السلام عليكم، أريد طلب صيانة من موقع بصمة\\n\\n'
+       +'الاسم: '+name+'\\n'
+       +'الهاتف: '+phone+'\\n'
+       +'نوع الصيانة: '+document.getElementById('repairType').value+'\\n'
+       +'المشكلة: '+(document.getElementById('repairDescription').value||'لم يتم تحديدها')+'\\n'
+       +'اليوم: '+(document.getElementById('repairDate').value||'غير محدد')+'\\n'
+       +'الوقت: '+(document.getElementById('repairTime').value||'غير محدد');
+   }else{
+     const cart=getCart();
+     if(!cart.length){alert('المشتريات فارغة. أضف المنتجات أولًا.');return}
+     const lines=cart.map((x,i)=>(i+1)+'. '+x.name+' — '+x.price+' × '+(x.qty||1)).join('\\n');
+     const total=cart.reduce((s,x)=>s+(Number(String(x.price||'').replace(/[^\d]/g,''))||0)*(x.qty||1),0);
+     text='السلام عليكم، أريد طلب شراء من موقع بصمة\\n\\n'
+       +'الاسم: '+name+'\\n'
+       +'الهاتف: '+phone+'\\n'
+       +'طريقة الاستلام: '+document.getElementById('deliveryType').value+'\\n\\n'
+       +'المنتجات:\\n'+lines+'\\n\\n'
+       +'المجموع: '+money(total)+'\\n'
+       +'ملاحظات: '+(document.getElementById('saleNotes').value||'لا توجد');
+   }
+
+   const url='https://wa.me/?text='+encodeURIComponent(text);
+   window.open(url,'_blank');
+ };
+})();
 </script>
 
 </body>
