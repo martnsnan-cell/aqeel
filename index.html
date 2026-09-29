@@ -304,6 +304,79 @@ footer{border-top:1px solid var(--border);padding:50px 0 30px;background:rgba(5,
 @media(max-width:1000px){.nav-links{display:none}.menu-toggle{display:block}}
 @media(max-width:1020px){.builder-grid,.case-card{grid-template-columns:1fr}}
 @media(max-width:600px){.case-stats{grid-template-columns:repeat(2,1fr)}.b-step{font-size:11.5px}}
+
+/* web section */
+.wp-show{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center;margin-bottom:44px}
+.wp-feats{display:grid;gap:14px}
+.wp-f{display:flex;gap:16px;align-items:center;padding:18px 20px;border-radius:18px;border:1px solid var(--border);background:rgba(255,255,255,.03);transition:.4s var(--ease)}
+.wp-f:hover{transform:translateX(-8px);border-color:rgba(54,184,167,.5);background:rgba(54,184,167,.06)}
+.wp-f b{width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;border-radius:14px;background:rgba(54,184,167,.12);color:var(--tl);font-size:20px}
+.wp-f strong{display:block;font-size:16px}.wp-f span{color:var(--muted);font-size:13.5px}
+.wp-stage{position:relative;padding:34px 0 44px}
+.wp-stage::before{content:"";position:absolute;inset:8% 4%;background:radial-gradient(circle,rgba(54,184,167,.28),rgba(230,162,60,.12) 50%,transparent 70%);filter:blur(50px)}
+.laptop{position:relative;width:min(600px,90%);margin-inline:auto;animation:float 7s ease-in-out infinite}
+.scr{aspect-ratio:16/10;border:9px solid #1a2029;border-bottom-width:11px;border-radius:16px 16px 0 0;background:#fff;overflow:hidden;box-shadow:0 0 0 1px #2c3540,0 40px 80px rgba(0,0,0,.55)}
+.bar{height:22px;background:#eef1f4;display:flex;align-items:center;gap:5px;padding:0 10px;direction:ltr}
+.bar i,.ed-bar i,.ui-top i{width:8px;height:8px;border-radius:50%;background:#ff5f57}.bar i:nth-child(2),.ed-bar i:nth-child(2),.ui-top i:nth-child(2){background:#febc2e}.bar i:nth-child(3),.ed-bar i:nth-child(3),.ui-top i:nth-child(3){background:#28c840}
+.bar span{margin-inline-start:12px;flex:1;max-width:60%;height:13px;border-radius:7px;background:#fff;font:9px/13px 'IBM Plex Mono',monospace;color:#8a94a0;padding:0 8px}
+.view{height:calc(100% - 22px);overflow:hidden;position:relative}
+.pscr{height:100%}
+.lbase{height:14px;width:108%;margin:0 -4%;background:linear-gradient(#3a444f,#12171d);border-radius:0 0 22px 22px;box-shadow:0 20px 30px rgba(0,0,0,.5)}
+.site{background:#fff;color:#12202c;direction:rtl;animation:sc 18s ease-in-out infinite alternate}
+@keyframes sc{to{transform:translateY(-62%)}}
+.s-nav{display:flex;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid #eef1f4}
+.s-nav i{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#f6d28e,#b87524);margin-inline-end:auto}.s-nav span{width:34px;height:5px;border-radius:3px;background:#cfd6dd}
+.s-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;align-items:center;padding:20px 16px;background:linear-gradient(135deg,#0f1a26,#16303a);color:#fff}
+.s-hero h4{font-size:15px;margin-bottom:8px}
+.s-hero p{height:5px;border-radius:3px;background:rgba(255,255,255,.35);margin-bottom:6px;width:90%}.s-hero p+p{width:65%}
+.s-hero u{display:block;width:60px;height:18px;border-radius:9px;background:linear-gradient(135deg,#f6d28e,#e6a23c);margin-top:12px}
+.s-hero.r{background:#f6f8fa;color:#12202c}.s-hero.r p{background:#cfd6dd}
+.s-img{aspect-ratio:4/3;border-radius:10px;background:linear-gradient(135deg,#36b8a7,#e6a23c);position:relative}.s-img::after{content:"";position:absolute;inset:18% 20%;border-radius:8px;background:rgba(255,255,255,.35)}
+.s-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 16px}
+.s-cards i{height:64px;border-radius:10px;background:#f1f4f7;border:1px solid #e3e8ed;position:relative}
+.s-cards i::before{content:"";position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:6px;background:#36b8a7}
+.s-cards i::after{content:"";position:absolute;bottom:12px;right:10px;left:24px;height:5px;border-radius:3px;background:#cfd6dd}
+.s-foot{height:46px;background:#0f1a26;margin-top:6px}
+.phone{position:absolute;bottom:0;left:2%;width:26%;max-width:150px;aspect-ratio:9/19;border:6px solid #1a2029;border-radius:24px;background:#fff;overflow:hidden;box-shadow:0 0 0 1px #2c3540,0 30px 60px rgba(0,0,0,.6);animation:float 5.5s ease-in-out infinite -2s;z-index:3}
+.phone::before{content:"";position:absolute;top:5px;left:50%;width:32%;height:6px;margin-left:-16%;border-radius:4px;background:#0b0e12;z-index:2}
+.phone .pscr{height:100%}.phone .site{animation-duration:14s;padding-top:14px}
+.phone .s-hero{grid-template-columns:1fr}.phone .s-img{display:none}.phone .s-cards{grid-template-columns:1fr 1fr}.phone .s-hero h4{font-size:11px}
+.fchip{position:absolute;padding:7px 14px;border-radius:30px;border:1px solid var(--bg-gold);background:rgba(10,16,23,.85);backdrop-filter:blur(8px);color:var(--gl);font:600 12px 'IBM Plex Mono',monospace;animation:float 5s ease-in-out infinite;z-index:4;box-shadow:0 12px 30px rgba(0,0,0,.4)}
+.programming-card{padding:0!important;overflow:hidden}
+.pv{position:relative;height:225px;padding:14px;background:radial-gradient(circle at 30% 20%,rgba(54,184,167,.14),transparent 60%),#090e14;border-bottom:1px solid var(--border);overflow:hidden;display:grid;place-items:center}
+.pv>*{transition:transform .8s var(--ease)}.programming-card:hover .pv>*{transform:scale(1.04)}
+.pbody{padding:0 28px 30px}
+.pbody .programming-icon{margin:-32px 0 20px;position:relative;z-index:3;background:#0f2a2a;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.ed,.ui{width:100%;border-radius:12px;background:#0c1219;border:1px solid #1f2a35;box-shadow:0 20px 40px rgba(0,0,0,.5);overflow:hidden}
+.ed{direction:ltr}
+.ed-bar,.ui-top{display:flex;align-items:center;gap:6px;padding:8px 12px;background:#121a23;font:11px 'IBM Plex Mono',monospace;color:#8d98a5}.ed-bar span{margin-left:10px}
+.ed-code{padding:12px 14px;font:11.5px/1.8 'IBM Plex Mono',monospace;color:#c9d1d9;text-align:left}
+.ed-code b{font-weight:400}
+.ed-code p{width:0;overflow:hidden;white-space:pre;border-right:2px solid var(--gold);animation:typ 9s steps(34) infinite;animation-delay:calc(var(--n)*.8s)}
+@keyframes typ{0%{width:0}12%{width:100%;border-color:var(--gold)}14%,88%{width:100%;border-color:transparent}100%{width:0;border-color:transparent}}
+.k{color:#ff7b72}.a{color:#79c0ff}.s{color:#a5d6ff}.f{color:#d2a8ff}
+.ui-body{position:relative;height:116px;margin:10px;background:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px) 0 0/16px 16px}
+.u-hero{position:absolute;top:8px;left:8px;right:8px;height:40px;border-radius:8px;background:linear-gradient(135deg,#1c3b3b,#2b2a1c)}
+.u-b{position:absolute;top:54px;height:28px;border-radius:7px;background:#17222e;width:calc(33.3% - 8px)}
+.u-l{position:absolute;left:8px;height:8px;border-radius:4px;background:#24313f}
+.sw{display:flex;gap:6px;padding:0 12px 10px}.sw i{width:16px;height:16px;border-radius:50%}
+.u-sel{position:absolute;border:1.5px solid var(--tl);background:rgba(54,184,167,.1);animation:sel 7s ease-in-out infinite}
+.u-sel::before,.u-sel::after{content:"";position:absolute;width:7px;height:7px;background:#fff;border:1.5px solid var(--tl)}.u-sel::before{top:-4px;left:-4px}.u-sel::after{bottom:-4px;right:-4px}
+.u-sel svg{position:absolute;right:-12px;bottom:-18px;width:18px;z-index:2;filter:drop-shadow(0 3px 4px rgba(0,0,0,.6))}
+@keyframes sel{0%,22%{top:8px;left:8px;width:calc(100% - 16px);height:40px}34%,52%{top:54px;left:calc(33.3% + 2px);width:calc(33.3% - 8px);height:28px}64%,84%{top:88px;left:8px;width:60%;height:12px}100%{top:8px;left:8px;width:calc(100% - 16px);height:40px}}
+.pv-perf{align-content:center;gap:10px}
+.rings{display:flex;gap:18px;justify-content:center}
+.rg{position:relative;width:78px;text-align:center}.rg svg{width:78px;height:78px;display:block}
+.rg circle{fill:none;stroke:rgba(255,255,255,.08);stroke-width:3.5}
+.rg .fg{stroke:var(--c,var(--tl));stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset 2.2s var(--ease) .5s;filter:drop-shadow(0 0 4px var(--c,var(--tl)))}
+.visible .rg .fg{stroke-dashoffset:calc(100 - var(--v))}
+.rg b{position:absolute;top:0;left:0;width:78px;height:78px;display:grid;place-items:center;font:600 20px 'IBM Plex Mono',monospace}
+.rg span{font-size:11.5px;color:var(--muted)}
+.bars{display:grid;gap:5px;width:80%}.bars i{height:6px;border-radius:3px;background:linear-gradient(90deg,var(--teal),var(--gold));transform-origin:right;animation:ld2 3.5s ease-in-out infinite;animation-delay:calc(var(--n)*.25s)}
+@keyframes ld2{0%{transform:scaleX(0)}40%,80%{transform:scaleX(var(--w,1))}100%{transform:scaleX(0)}}
+.pcap{font-size:11px;color:var(--muted)}
+@media(max-width:1020px){.wp-show{grid-template-columns:1fr}.wp-feats{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.wp-feats{grid-template-columns:1fr}.phone{width:30%}.fchip{font-size:10.5px;padding:5px 10px}}
 </style>
 </head>
 <body>
@@ -355,10 +428,44 @@ footer{border-top:1px solid var(--border);padding:50px 0 30px;background:rgba(5,
 
 <section class="section programming-section" id="programming"><div class="container">
 <div class="programming-head reveal"><div class="section-label">البرمجة وتطوير الويب</div><h2>نحوّل فكرتك إلى موقع احترافي</h2><p>تصميم وبرمجة مواقع حديثة وسريعة، متوافقة مع الهاتف والكمبيوتر وبأسلوب بسيط وواضح.</p></div>
+<div class="wp-show reveal">
+<div class="wp-feats">
+<div class="wp-f"><b>⚡</b><div><strong>مواقع سريعة</strong><span>حديثة وسريعة التحميل</span></div></div>
+<div class="wp-f"><b>▭</b><div><strong>متوافقة مع كل الأجهزة</strong><span>تعمل بشكل ممتاز على الهاتف والكمبيوتر</span></div></div>
+<div class="wp-f"><b>✦</b><div><strong>تصميم أنيق</strong><span>يناسب هوية مشروعك</span></div></div>
+<div class="wp-f"><b>✓</b><div><strong>بسيطة وواضحة</strong><span>سهلة الاستخدام لزوارك</span></div></div>
+</div>
+<div class="wp-stage">
+<div class="laptop"><div class="scr"><div class="bar"><i></i><i></i><i></i><span>www.your-site.iq</span></div><div class="view"><div class="site">
+<div class="s-nav"><i></i><span></span><span></span><span></span></div>
+<div class="s-hero"><div><h4>اسم مشروعك هنا</h4><p></p><p></p><u></u></div><div class="s-img"></div></div>
+<div class="s-cards"><i></i><i></i><i></i></div>
+<div class="s-hero r"><div class="s-img"></div><div><h4>خدماتنا</h4><p></p><p></p><u></u></div></div>
+<div class="s-cards"><i></i><i></i><i></i></div><div class="s-foot"></div></div></div></div><div class="lbase"></div></div>
+<div class="phone"><div class="pscr view"></div></div>
+<span class="fchip" style="top:2%;right:4%">HTML5</span><span class="fchip" style="top:30%;left:-2%;animation-delay:-1.5s">CSS3</span><span class="fchip" style="top:8%;left:22%;animation-delay:-3s">JavaScript</span><span class="fchip" style="bottom:14%;right:-1%;animation-delay:-2s">UI • UX</span><span class="fchip" style="bottom:0;left:40%;animation-delay:-4s">Responsive</span>
+</div></div>
 <div class="programming-grid">
-<article class="card programming-card reveal"><div class="programming-icon">&lt;/&gt;</div><h3>تطوير المواقع</h3><p>مواقع شخصية، شركات وخدمات بتصميم حديث وسهل الاستخدام.</p><span class="programming-tag">HTML • CSS • JavaScript</span></article>
-<article class="card programming-card reveal" style="--i:1"><div class="programming-icon">◫</div><h3>تصميم الواجهات</h3><p>واجهة مرتبة وأنيقة تناسب هوية مشروعك وتعمل بشكل ممتاز على الهاتف.</p><span class="programming-tag">UI • UX • Responsive</span></article>
-<article class="card programming-card reveal" style="--i:2"><div class="programming-icon">⚙</div><h3>تطوير وتحسين</h3><p>تطوير موقعك الحالي، إصلاح المشاكل وتحسين السرعة والمظهر.</p><span class="programming-tag">FIX • OPTIMIZE</span></article></div>
+<article class="card programming-card reveal"><div class="pv"><div class="ed"><div class="ed-bar"><i></i><i></i><i></i><span>index.html</span></div><div class="ed-code">
+<p style="--n:0"><b class="k">&lt;header</b> <b class="a">class</b>=<b class="s">"nav"</b><b class="k">&gt;</b></p>
+<p style="--n:1">  <b class="k">&lt;h1&gt;</b>Your Brand<b class="k">&lt;/h1&gt;</b></p>
+<p style="--n:2">  <b class="k">&lt;a</b> <b class="a">href</b>=<b class="s">"#order"</b><b class="k">&gt;</b>Start<b class="k">&lt;/a&gt;</b></p>
+<p style="--n:3"><b class="k">&lt;/header&gt;</b></p>
+<p style="--n:4"><b class="f">.hero</b> { <b class="a">display</b>: grid; }</p>
+<p style="--n:5"><b class="k">@media</b> (max-width: 600px) {</p>
+<p style="--n:6">  <b class="f">.hero</b> { <b class="a">padding</b>: 24px; } }</p></div></div></div>
+<div class="pbody"><div class="programming-icon">&lt;/&gt;</div><h3>تطوير المواقع</h3><p>مواقع شخصية، شركات وخدمات بتصميم حديث وسهل الاستخدام.</p><span class="programming-tag">HTML • CSS • JavaScript</span></div></article>
+<article class="card programming-card reveal" style="--i:1"><div class="pv"><div class="ui"><div class="ui-top"><i></i><i></i><i></i></div><div class="ui-body"><div class="u-hero"></div><div class="u-b" style="left:8px"></div><div class="u-b" style="left:calc(33.3% + 2px)"></div><div class="u-b" style="left:calc(66.6% - 4px)"></div><div class="u-l" style="top:90px;width:60%"></div><div class="u-l" style="top:102px;width:38%"></div>
+<div class="u-sel"><svg viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#fff" stroke="#111" stroke-width="1.2"/></svg></div></div>
+<div class="sw"><i style="background:#e6a23c"></i><i style="background:#36b8a7"></i><i style="background:#f6d28e"></i><i style="background:#0f1a26;border:1px solid #33414f"></i></div></div></div>
+<div class="pbody"><div class="programming-icon">◫</div><h3>تصميم الواجهات</h3><p>واجهة مرتبة وأنيقة تناسب هوية مشروعك وتعمل بشكل ممتاز على الهاتف.</p><span class="programming-tag">UI • UX • Responsive</span></div></article>
+<article class="card programming-card reveal" style="--i:2"><div class="pv pv-perf"><div class="rings">
+<div class="rg" style="--v:98"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"/><circle class="fg" cx="22" cy="22" r="18" pathLength="100"/></svg><b>98</b><span>الأداء</span></div>
+<div class="rg" style="--v:100;--c:#e6a23c"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"/><circle class="fg" cx="22" cy="22" r="18" pathLength="100"/></svg><b>100</b><span>التوافق</span></div>
+<div class="rg" style="--v:96;--c:#39ff88"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="18"/><circle class="fg" cx="22" cy="22" r="18" pathLength="100"/></svg><b>96</b><span>السرعة</span></div></div>
+<div class="bars"><i style="--n:0"></i><i style="--n:1;--w:.8"></i><i style="--n:2;--w:.6"></i></div><div class="pcap">مثال توضيحي لنتائج التحسين</div></div>
+<div class="pbody"><div class="programming-icon">⚙</div><h3>تطوير وتحسين</h3><p>تطوير موقعك الحالي، إصلاح المشاكل وتحسين السرعة والمظهر.</p><span class="programming-tag">FIX • OPTIMIZE</span></div></article>
+</div>
 <div class="programming-cta reveal"><div><strong>عندك فكرة موقع؟</strong><span>راسلنا واحچي لنا عن فكرتك ونرتبها إلك.</span></div><a href="#booking" class="btn btn-primary mag">اطلب موقعك <span>←</span></a></div>
 </div></section>
 
@@ -541,6 +648,7 @@ document.addEventListener("mousemove",e=>{const c=e.target.closest&&e.target.clo
 document.addEventListener("mouseout",e=>{const c=e.target.closest&&e.target.closest(".card");if(c&&!c.contains(e.relatedTarget)&&!c.classList.contains("featured"))c.style.transform=""});
 document.querySelectorAll(".mag").forEach(b=>{b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener("mouseleave",()=>b.style.transform="")});
 addEventListener("mousemove",e=>{stage.style.transform=`translate(${(e.clientX/innerWidth-.5)*-14}px,${(e.clientY/innerHeight-.5)*-14}px)`})}
+(()=>{const a=document.querySelector(".scr .site"),p=document.querySelector(".pscr");if(a&&p)p.innerHTML=a.outerHTML})();
 // builder
 (function(){
 const NS="http://www.w3.org/2000/svg",svg=$("pc"),RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
