@@ -254,6 +254,56 @@ footer{border-top:1px solid var(--border);padding:50px 0 30px;background:rgba(5,
 @media(max-width:860px){.nav-links{display:none}.menu-toggle{display:block}.hero-grid{grid-template-columns:1fr;gap:40px;text-align:center}.hero-description{margin-inline:auto}.hero-buttons,.hero-stats{justify-content:center}.stage{max-width:360px}.programming-grid,.pricing-grid{grid-template-columns:1fr}.price-card.featured{transform:none}.phone-btn{display:none}.section{padding:90px 0}.badge-top{right:0}.badge-bottom{left:0}.contact-details{grid-template-columns:1fr}.scroll-hint{display:none}}
 @media(max-width:600px){.services-grid,.process-grid,.teaser-grid,.trust-grid,.form{grid-template-columns:1fr}.hero{padding-top:110px}.badge small{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none;filter:none}.hero h1 .w b{transform:none}}
+
+/* case card */
+.case-card{display:grid;grid-template-columns:1fr 1.1fr;margin-bottom:26px;border-color:var(--bg-gold)}
+.case-visual{position:relative;min-height:340px;display:grid;place-items:center;background:radial-gradient(circle at 50% 50%,rgba(230,162,60,.2),transparent 65%),#0b1118;overflow:hidden}
+.case-visual img{position:relative;z-index:2;width:88%;object-fit:contain;transition:transform 1.2s var(--ease);filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.case-card:hover .case-visual img{transform:scale(1.07) rotate(-1.5deg)}
+.case-ph{position:absolute;font:900 46px/1.1 'Noto Kufi Arabic',sans-serif;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.22);text-align:center}
+.case-visual .teaser-badge{z-index:3}
+.case-body{padding:34px;position:relative;z-index:2}
+.case-body h3{font-size:clamp(26px,3vw,38px);margin:4px 0 10px;font-family:'IBM Plex Mono','Noto Kufi Arabic',sans-serif}
+.case-body p{color:var(--muted);font-size:15px;margin-bottom:18px}
+.case-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.case-stats div{padding:12px 6px;text-align:center;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.03)}
+.case-stats strong{display:block;font-family:'IBM Plex Mono',monospace;color:var(--gl);font-size:20px}
+.case-stats span{font-size:11.5px;color:var(--muted)}
+.case-feats{list-style:none;margin-bottom:22px}.case-feats li{position:relative;padding:5px 26px 5px 0;font-size:14px;color:#c9ced4}.case-feats li::before{content:"✓";position:absolute;right:0;color:var(--tl)}
+.case-cta{display:flex;flex-wrap:wrap;gap:10px}
+/* builder */
+@property --led{syntax:"<color>";inherits:true;initial-value:#e6a23c}
+@keyframes rgbc{0%,100%{--led:#ff2e63}20%{--led:#ffb300}40%{--led:#39ff88}60%{--led:#2bd4ff}80%{--led:#8a5cff}}
+.builder-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:24px}
+.stage3d{position:relative;border-radius:28px;border:1px solid var(--border);overflow:hidden;perspective:1400px;padding:10px;background:radial-gradient(ellipse at 50% 45%,rgba(54,184,167,.12),transparent 60%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,#080c11}
+.stage3d::after{content:"";position:absolute;left:0;right:0;height:120px;top:-120px;background:linear-gradient(transparent,rgba(54,184,167,.12),transparent);animation:scan 6s linear infinite;pointer-events:none}
+@keyframes scan{to{top:100%}}
+.b-tag{position:absolute;top:16px;right:20px;font:600 12px 'IBM Plex Mono',monospace;color:var(--gold);letter-spacing:2px;z-index:2}
+.b-step{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:2;padding:8px 18px;border-radius:30px;border:1px solid var(--bg-gold);background:rgba(8,13,18,.8);backdrop-filter:blur(10px);font-size:13px;color:var(--gl);white-space:nowrap}
+.pc-wrap{transition:transform .3s ease-out;transform-style:preserve-3d}
+#pc{display:block;width:100%;height:auto;overflow:visible;--led:#e6a23c;--m1:#3a4148;--m2:#1b2026;--m3:#0d1014}
+#pc.rgb{animation:rgbc 9s linear infinite}
+.ls{stroke:var(--led)}.lf{fill:var(--led)}
+.spin{animation:spin 1.3s linear infinite}.spin.slow{animation-duration:9s;animation-direction:reverse}
+.part{cursor:pointer;filter:drop-shadow(0 10px 12px rgba(0,0,0,.5));transition:opacity .4s,filter .3s}
+.part:hover{filter:drop-shadow(0 10px 12px rgba(0,0,0,.5)) brightness(1.18)}
+.part.sel{filter:drop-shadow(0 0 16px rgba(230,162,60,.95)) drop-shadow(0 10px 12px rgba(0,0,0,.5))}
+.hasSel .part:not(.sel){opacity:.3}
+#p-glass{pointer-events:none}
+.b-panel{display:flex;flex-direction:column;gap:16px;padding:26px;border-radius:28px;border:1px solid var(--bg-gold);background:linear-gradient(160deg,rgba(23,33,44,.9),rgba(10,16,23,.95))}
+.b-info{min-height:132px;padding:18px;border-radius:18px;background:rgba(255,255,255,.03);border:1px solid var(--border)}
+.b-idx{font:600 12px 'IBM Plex Mono',monospace;color:var(--gold)}
+.b-info h3{font-size:20px;margin:4px 0}.b-info p{color:var(--muted);font-size:14px;line-height:1.8}
+.b-range{display:flex;align-items:center;gap:12px;font-size:12.5px;color:var(--muted)}
+.b-range input{padding:0;border:0;background:none;box-shadow:none;accent-color:var(--gold);height:6px}
+.b-btns{display:flex;gap:10px;flex-wrap:wrap}.b-btns .btn{flex:1;min-width:140px}
+.chip,.chip-btn{padding:8px 14px;border-radius:30px;border:1px solid var(--border);background:rgba(255,255,255,.03);color:var(--muted);font-size:12.5px;transition:.3s}
+.chip:hover,.chip.on,.chip-btn:hover{border-color:var(--gold);color:var(--gl);background:rgba(230,162,60,.1)}
+.b-chips{display:flex;flex-wrap:wrap;gap:8px}
+@media(max-width:1180px){.phone-btn{display:none}.nav-links{gap:16px}.nav-links a{font-size:12.5px}}
+@media(max-width:1000px){.nav-links{display:none}.menu-toggle{display:block}}
+@media(max-width:1020px){.builder-grid,.case-card{grid-template-columns:1fr}}
+@media(max-width:600px){.case-stats{grid-template-columns:repeat(2,1fr)}.b-step{font-size:11.5px}}
 </style>
 </head>
 <body>
@@ -265,10 +315,10 @@ footer{border-top:1px solid var(--border);padding:50px 0 30px;background:rgba(5,
 
 <header id="header"><div class="container nav">
 <a href="#" class="logo" aria-label="بصمة للكمبيوتر والهواتف"><span class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="url(#lg)" stroke-width="1.4" stroke-linecap="round"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F6D28E"/><stop offset="100%" stop-color="#B87524"/></linearGradient></defs><path d="M12 3.5c-4.5 0-7.5 3.2-7.5 7.3 0 2 .3 3.6.9 5"/><path d="M12 3.5c4.5 0 7.5 3.2 7.5 7.3 0 1-.05 1.9-.15 2.7"/><path d="M8.2 20.2c-.9-1.7-1.7-3.9-1.7-6.8 0-3 2.4-5.4 5.5-5.4s5.5 2.4 5.5 5.4c0 .7-.03 1.3-.08 1.9"/><path d="M10.4 21c-.8-1.6-1.4-3.6-1.4-5.9 0-1.8 1.4-3.2 3-3.2s3 1.4 3 3.2c0 .5-.02 1-.06 1.4"/><path d="M12.4 21.5c-.5-1.1-.9-2.4-.9-3.9"/></svg></span><span class="logo-name"><strong>بصمة</strong><small>للكمبيوتر والهواتف</small></span></a>
-<nav class="nav-links"><a href="#services">الخدمات</a><a href="#programming">البرمجة والمواقع</a><a href="#shop">المتجر</a><a href="#process">آلية العمل</a><a href="#pricing">الأسعار</a><a href="#contact">موقعنا</a><a href="#booking">احجز الآن</a></nav>
+<nav class="nav-links"><a href="#services">الخدمات</a><a href="#programming">البرمجة والمواقع</a><a href="#shop">المتجر</a><a href="#builder">جمّع تجميعتك</a><a href="#process">آلية العمل</a><a href="#pricing">الأسعار</a><a href="#contact">موقعنا</a><a href="#booking">احجز الآن</a></nav>
 <div class="nav-actions"><a class="phone-btn" href="tel:07815685661">☎ 07815685661</a><button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button></div>
 </div></header>
-<div class="mobile-menu" id="mobileMenu"><a href="#services">الخدمات</a><a href="#programming">البرمجة والمواقع</a><a href="#shop">المتجر</a><a href="#process">آلية العمل</a><a href="#pricing">الأسعار</a><a href="#contact">موقعنا</a><a href="#booking">احجز الآن</a></div>
+<div class="mobile-menu" id="mobileMenu"><a href="#services">الخدمات</a><a href="#programming">البرمجة والمواقع</a><a href="#shop">المتجر</a><a href="#builder">جمّع تجميعتك</a><a href="#process">آلية العمل</a><a href="#pricing">الأسعار</a><a href="#contact">موقعنا</a><a href="#booking">احجز الآن</a></div>
 
 <section class="hero"><div class="container hero-grid">
 <div>
@@ -314,10 +364,69 @@ footer{border-top:1px solid var(--border);padding:50px 0 30px;background:rgba(5,
 
 <section class="section shop-section" id="shop"><div class="container">
 <div class="section-head reveal"><div class="section-label">استكشف أقسامنا</div><h2>اختياراتنا القادمة تبدأ من هنا</h2><p>ما نعرض كل منتجاتنا حالياً حتى نخلي لك مساحة من التشويق. اختر القسم الذي يهمك، وإذا تبحث عن جهاز أو قطعة معينة <strong>راسلنا واطلب اللي تحتاجه، وإحنا نوفره إلك.</strong></p></div>
+<div class="case-card card reveal"><div class="case-visual"><span class="teaser-badge">Featured</span><div class="case-ph">ROG<br>HYPERION</div><img src="https://dlcdnwebimgs.asus.com/gain/5167731A-F3EA-4238-9C7D-F950D0EF838C/w717/h525/fwebp" alt="كيس ROG Hyperion GR701" loading="lazy" onerror="this.style.opacity=0"></div>
+<div class="case-body"><span class="teaser-kicker">كيس E-ATX فاخر — متوفر أسود وأبيض</span><h3>ROG Hyperion GR701</h3><p>كيس ضخم بهيكل ألمنيوم مصبوب على شكل X، مصمم لأقوى التجميعات والتبريد المائي. حاصل على جائزتي iF Design 2024 و Red Dot 2023.</p>
+<div class="case-stats"><div><strong><b data-count="460">460</b></strong><span>مم أقصى طول للكرت</span></div><div><strong>2×<b data-count="420">420</b></strong><span>مم دعم رادياتير</span></div><div><strong>4×<b data-count="140">140</b></strong><span>مم مراوح PWM</span></div><div><strong><b data-count="60">60</b></strong><span>واط شحن سريع</span></div></div>
+<ul class="case-feats"><li>حامل كرت شاشة مدمج، أفقي أو عمودي</li><li>هاب مراوح وإضاءة يدعم 8 ARGB و6 مراوح PWM</li><li>منفذا Type-C بسرعة 20Gbps وشحن 60 واط</li><li>جوانب مفصلية بدون أدوات ودرج مخفي للقطع والبراغي</li><li>مساحة 34 مم لترتيب الكابلات خلف اللوحة</li></ul>
+<div class="case-cta"><a href="#booking" class="btn btn-primary mag">اطلبه الآن <span>←</span></a><a href="#builder" class="btn btn-outline">جمّع تجميعتك <span>←</span></a><a href="https://rog.asus.com/sa-ar/cases/rog-hyperion-gr701-model/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">المواصفات من ASUS</a></div></div></div>
 <div class="teaser-grid" id="teaserGrid"></div>
 <div class="teaser-cats" id="categoryGrid"></div>
 <div class="shop-request-box reveal"><div class="shop-request-icon">✦</div><div><span>ما لقيت اللي تبحث عنه؟</span><strong>راسلنا واطلب اللي تحتاجه، وإحنا نوفره إلك.</strong></div><a href="#contact" class="btn btn-primary mag">راسلنا واطلب الآن <span>←</span></a></div>
 </div></section>
+
+<section class="section builder" id="builder"><div class="container">
+<div class="section-head reveal"><div class="section-label">جمّع وفكّك تجميعتك</div><h2>شوف تجميعتك من الداخل، قطعة قطعة</h2><p>حرّك الشريط أو اضغط الأزرار حتى تفكّك التجميعة وتركّبها بحركة حقيقية، واضغط على أي قطعة تعرف وظيفتها. نموذج توضيحي لتجميعة داخل كيس ROG Hyperion GR701.</p></div>
+<div class="builder-grid reveal">
+<div class="stage3d" id="bStage"><div class="b-tag">BLUEPRINT · GR701</div><div class="b-step" id="bStep">مجمّعة بالكامل ✓</div>
+<div class="pc-wrap" id="pcWrap"><svg id="pc" class="rgb" viewBox="0 0 1000 720" role="img" aria-label="تجميعة كمبيوتر داخل كيس ROG Hyperion قابلة للتفكيك">
+<defs id="defs">
+<linearGradient id="gM" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--m1)"/><stop offset=".55" style="stop-color:var(--m2)"/><stop offset="1" style="stop-color:var(--m3)"/></linearGradient>
+<linearGradient id="gAl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#626b76"/><stop offset=".4" stop-color="#2b3139"/><stop offset="1" stop-color="#13171c"/></linearGradient>
+<linearGradient id="gPcb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c252e"/><stop offset="1" stop-color="#0b1015"/></linearGradient>
+<linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d28e"/><stop offset="1" stop-color="#b87524"/></linearGradient>
+<linearGradient id="gGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a9dcff" stop-opacity=".2"/><stop offset=".5" stop-color="#22303d" stop-opacity=".2"/><stop offset="1" stop-color="#a9dcff" stop-opacity=".1"/></linearGradient>
+<linearGradient id="gCav" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b1015"/><stop offset="1" stop-color="#04070a"/></linearGradient>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="blur"><feGaussianBlur stdDeviation="14"/></filter>
+<pattern id="pFin" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="2.5" height="6" fill="#000" opacity=".4"/></pattern>
+<pattern id="pVent" width="12" height="9" patternUnits="userSpaceOnUse"><rect x="1" y="2" width="9" height="3.5" rx="1.75" fill="#000" opacity=".8"/></pattern>
+<clipPath id="cv"><rect x="272" y="132" width="466" height="476" rx="10"/></clipPath>
+</defs>
+<ellipse cx="505" cy="672" rx="340" ry="24" fill="#000" opacity=".6" filter="url(#blur)"/>
+<rect x="290" y="628" width="80" height="20" rx="5" fill="#161a20"/><rect x="640" y="628" width="80" height="20" rx="5" fill="#161a20"/>
+<rect x="380" y="90" width="250" height="20" rx="10" fill="url(#gAl)"/>
+<rect x="250" y="110" width="510" height="520" rx="22" fill="url(#gM)" stroke="#000" stroke-opacity=".6" stroke-width="2"/>
+<rect x="272" y="132" width="466" height="476" rx="10" fill="url(#gCav)"/>
+<path d="M272 132L738 608M738 132L272 608" stroke="#fff" stroke-opacity=".045" stroke-width="28" clip-path="url(#cv)"/>
+<g id="guides" stroke="#e6a23c" stroke-dasharray="5 6" stroke-width="1.4"></g>
+<g class="part" id="p-psu" data-id="psu"><rect x="292" y="532" width="210" height="64" rx="5" fill="url(#gAl)" stroke="#000"/><circle cx="332" cy="564" r="24" fill="#0a0d11" stroke="#000"/><circle cx="332" cy="564" r="15" fill="none" stroke="#39424c" stroke-width="2"/><circle cx="332" cy="564" r="6" fill="#39424c"/><text x="432" y="569" text-anchor="middle" fill="#9aa5b1" font-size="14" font-family="IBM Plex Mono">PSU</text></g>
+<g class="part" id="p-mb" data-id="mb"><rect x="290" y="170" width="300" height="330" rx="7" fill="url(#gPcb)" stroke="#000" stroke-width="2"/>
+<path d="M300 250H345V300H380M300 330H352V372M575 200H530V262H520M575 320H548V400" fill="none" stroke="#2c3d4a" stroke-width="1.2"/>
+<rect x="462" y="186" width="10" height="158" rx="2" fill="#0a0d11"/><rect x="476" y="186" width="10" height="158" rx="2" fill="#0a0d11"/><rect x="490" y="186" width="10" height="158" rx="2" fill="#0a0d11"/><rect x="504" y="186" width="10" height="158" rx="2" fill="#0a0d11"/>
+<rect x="385" y="265" width="50" height="50" rx="3" fill="#0a0d11" stroke="#3a444e"/><rect x="391" y="271" width="38" height="38" fill="#171d24"/>
+<rect x="300" y="176" width="140" height="50" rx="5" fill="url(#gAl)"/><rect x="304" y="180" width="132" height="42" fill="url(#pFin)"/>
+<rect x="290" y="176" width="46" height="176" rx="6" fill="url(#gAl)"/><path d="M296 346L330 190" stroke="url(#gGold)" stroke-width="2"/>
+<rect x="350" y="352" width="110" height="26" rx="4" fill="url(#gAl)"/><rect x="354" y="356" width="102" height="18" fill="url(#pFin)"/>
+<rect x="350" y="394" width="190" height="8" rx="2" fill="#2b3138"/><rect x="350" y="420" width="120" height="8" rx="2" fill="#2b3138"/><rect x="350" y="446" width="120" height="8" rx="2" fill="#2b3138"/>
+<rect x="470" y="405" width="112" height="88" rx="6" fill="url(#gAl)" stroke="#000"/><path d="M526 416l26 34-26 34-26-34z" fill="none" stroke="url(#gGold)" stroke-width="2"/><text x="526" y="455" text-anchor="middle" fill="url(#gGold)" font-size="13" font-weight="700" font-family="IBM Plex Mono">ROG</text>
+<circle cx="299" cy="491" r="4" fill="#3a444e"/><circle cx="581" cy="491" r="4" fill="#3a444e"/><circle cx="581" cy="181" r="4" fill="#3a444e"/></g>
+<g class="part" id="p-cpu" data-id="cpu"><rect x="393" y="273" width="34" height="34" rx="3" fill="#b9c1ca" stroke="#000"/><rect x="397" y="277" width="26" height="26" rx="2" fill="none" stroke="#6b7580"/><text x="410" y="294" text-anchor="middle" font-size="8" fill="#39424c" font-family="IBM Plex Mono">CPU</text></g>
+<g class="part" id="p-ram" data-id="ram"><rect x="463" y="188" width="8" height="152" rx="2" fill="url(#gAl)"/><rect x="477" y="188" width="8" height="152" rx="2" fill="url(#gAl)"/><rect x="491" y="188" width="8" height="152" rx="2" fill="url(#gAl)"/><rect x="505" y="188" width="8" height="152" rx="2" fill="url(#gAl)"/><rect x="463" y="188" width="8" height="10" class="lf" filter="url(#glow)"/><rect x="477" y="188" width="8" height="10" class="lf" filter="url(#glow)"/><rect x="491" y="188" width="8" height="10" class="lf" filter="url(#glow)"/><rect x="505" y="188" width="8" height="10" class="lf" filter="url(#glow)"/></g>
+<g class="part" id="p-rad" data-id="rad"><rect x="300" y="136" width="300" height="26" rx="5" fill="url(#gAl)" stroke="#000"/><rect x="320" y="140" width="260" height="18" fill="url(#pFin)"/><rect x="300" y="136" width="18" height="26" rx="4" fill="#0b0e12"/><rect x="582" y="136" width="18" height="26" rx="4" fill="#0b0e12"/><rect x="304" y="160" width="292" height="2.5" class="lf" filter="url(#glow)"/><circle cx="574" cy="163" r="4" fill="#0b0e12" stroke="#39424c"/><circle cx="592" cy="163" r="4" fill="#0b0e12" stroke="#39424c"/></g>
+<g id="tubes" fill="none" stroke-linecap="round"><path id="tb0" stroke="#0e1216" stroke-width="9"/><path id="tb1" stroke="#0e1216" stroke-width="9"/><path id="th0" stroke="#3c4650" stroke-width="2"/><path id="th1" stroke="#3c4650" stroke-width="2"/></g>
+<g class="part" id="p-aio" data-id="aio"><g transform="translate(410 290)"><circle r="46" fill="url(#gAl)" stroke="#000" stroke-width="2"/><circle r="38" fill="#06080b"/><circle r="34" fill="none" class="ls" stroke-width="2.6" filter="url(#glow)"/><g class="spin slow"><circle r="24" fill="none" stroke="url(#gGold)" stroke-width="2" stroke-dasharray="7 9"/></g><path d="M-10 -6L0 -18L10 -6L0 18Z" fill="none" stroke="url(#gGold)" stroke-width="2"/></g></g>
+<g class="part" id="p-gpu" data-id="gpu"><rect x="575" y="508" width="90" height="12" rx="3" fill="#161b21" stroke="#000"/><rect x="575" y="508" width="90" height="12" fill="url(#pFin)"/><rect x="560" y="150" width="135" height="360" rx="12" fill="url(#gAl)" stroke="#000" stroke-width="2"/><rect x="567" y="157" width="121" height="346" rx="8" fill="#090c10"/><path d="M567 300L688 258M567 420L688 378" stroke="url(#gGold)" stroke-opacity=".55" stroke-width="1.6"/><use href="#fan" x="627.5" y="208"/><use href="#fan" x="627.5" y="327"/><use href="#fan" x="627.5" y="446"/><rect x="691" y="168" width="3.5" height="324" rx="2" class="lf" filter="url(#glow)"/></g>
+<g class="part" id="p-panel" data-id="panel"><rect x="708" y="150" width="26" height="360" rx="6" fill="url(#gAl)" stroke="#000"/><path id="slash" class="ls" fill="none" stroke-width="2.2" filter="url(#glow)"/></g>
+<g class="part" id="p-shroud" data-id="shroud"><rect x="272" y="520" width="466" height="88" rx="8" fill="url(#gM)" stroke="#000" stroke-width="2"/><rect x="272" y="520" width="466" height="7" rx="3" fill="#fff" opacity=".1"/><rect x="300" y="548" width="260" height="40" fill="url(#pVent)"/><rect x="580" y="545" width="110" height="44" rx="4" fill="#05070a" stroke="#2a3038"/><text x="635" y="573" text-anchor="middle" fill="url(#gGold)" font-size="16" font-weight="700" font-family="IBM Plex Mono">ROG</text></g>
+<g class="part" id="p-glass" data-id="glass"><rect x="262" y="122" width="486" height="496" rx="14" fill="url(#gGlass)" stroke="#bfe6ff" stroke-opacity=".35" stroke-width="2"/><path d="M300 122H470L330 618H262Z" fill="#fff" opacity=".07"/><path d="M520 122H560L420 618H380Z" fill="#fff" opacity=".05"/><circle cx="268" cy="200" r="4" fill="#111"/><circle cx="268" cy="540" r="4" fill="#111"/></g>
+</svg></div></div>
+<aside class="b-panel"><div class="b-info"><span class="b-idx" id="bIdx">اضغط على أي قطعة</span><h3 id="bName">تجميعة داخل ROG Hyperion</h3><p id="bDesc">حرّك الشريط لتفكيك القطع، أو اضغط زر التجميع خطوة بخطوة وشوف كل قطعة تنزل مكانها.</p></div>
+<div class="b-range"><span>مجمّعة</span><input type="range" id="bRange" min="0" max="100" value="0" aria-label="تفكيك وتجميع"><span>مفكّكة</span></div>
+<div class="b-btns"><button class="btn btn-primary" id="bExplode">فكّك التجميعة</button><button class="btn btn-outline" id="bAssemble">جمّع خطوة بخطوة</button></div>
+<div class="b-btns"><button class="chip-btn" id="bRgb">إضاءة RGB: تشغيل</button><button class="chip-btn" id="bEd">النسخة: أسود</button></div>
+<div class="b-chips" id="bChips"></div>
+<a href="#booking" class="btn btn-outline">اطلب تجميعتك عندنا <span>←</span></a></aside>
+</div></div></section>
 
 <section class="section" id="process"><div class="container">
 <div class="section-head reveal"><div class="section-label">آلية العمل</div><h2>بسيطة من أول اتصال إلى تسليم الجهاز</h2></div>
@@ -351,7 +460,7 @@ footer{border-top:1px solid var(--border);padding:50px 0 30px;background:rgba(5,
 <form class="form" id="bookingForm">
 <div class="field"><label for="name">الاسم الكامل</label><input id="name" type="text" placeholder="اكتب اسمك" autocomplete="name" required></div>
 <div class="field"><label for="phone">رقم الهاتف</label><input id="phone" type="tel" inputmode="tel" placeholder="07xxxxxxxxx" autocomplete="tel" required></div>
-<div class="field full"><label for="service">نوع الخدمة</label><select id="service" required><option value="">اختر الخدمة</option><option>فحص وتنظيف</option><option>صيانة شاملة</option><option>استرجاع ملفات</option><option>إصلاح عطل كهربائي</option><option>ترقية RAM / SSD</option><option>تبديل شاشة هاتف</option><option>تبديل بطارية هاتف</option><option>عقد صيانة للمكاتب</option><option>غير ذلك</option></select></div>
+<div class="field full"><label for="service">نوع الخدمة</label><select id="service" required><option value="">اختر الخدمة</option><option>فحص وتنظيف</option><option>صيانة شاملة</option><option>استرجاع ملفات</option><option>إصلاح عطل كهربائي</option><option>ترقية RAM / SSD</option><option>تجميع كمبيوتر</option><option>تبديل شاشة هاتف</option><option>تبديل بطارية هاتف</option><option>عقد صيانة للمكاتب</option><option>غير ذلك</option></select></div>
 <div class="field full"><label for="locationSelect">المنطقة / الحي / القضاء / الناحية</label><select id="locationSelect" required><option value="">اختر منطقتك</option>
 <optgroup label="مناطق النجف الأشرف"><option>الكوفة</option><option>حي المعلمين</option><option>الانصار</option><option>حي ميسان</option><option>حي الحسين</option><option>حي ابو طالب</option><option>القدس</option><option>حي المهندسين</option><option>النصر</option><option>حي الزهراء</option><option>الشعراء</option><option>الميلاد</option><option>حي الأمير</option><option>حي الوفاء</option><option>القادسية</option><option>النداء</option><option>الشهداء</option><option>حي الرحمة</option><option>الجديدة</option><option>العسكري</option><option>الجزيرة</option><option>حي السواق</option><option>المكرمة</option><option>الجامعة</option><option>الكرامة</option><option>الجمعية</option><option>السلام</option></optgroup>
 <optgroup label="الأقضية والنواحي"><option>ناحية الحيدرية</option><option>ناحية الرضوية</option><option>ناحية العباسية</option><option>ناحية الحرية</option><option>ناحية الحيرة</option><option>ناحية المشخاب</option><option>ناحية القادسية</option></optgroup></select></div>
@@ -397,7 +506,7 @@ $("servicesGrid").innerHTML=services.map((s,i)=>`<article class="card service-ca
 $("teaserGrid").innerHTML=teasers.map((t,i)=>`<article class="card teaser-card reveal" style="--i:${i%3}"><div class="teaser-image"><img src="${U(t[0],1000)}" alt="${t[1]}" loading="lazy" onerror="this.style.opacity=0"><span class="teaser-badge">${t[2]}</span></div><div class="teaser-body"><span class="teaser-kicker">${t[3]}</span><h3>${t[4]}</h3><p>${t[5]}</p><a href="#contact" class="teaser-link">اطلب ما تبحث عنه <span>←</span></a></div></article>`).join("");
 $("categoryGrid").innerHTML=cats.map((c,i)=>`<div class="teaser-category reveal" style="--i:${i%6}"><span>${icons[c]}</span><strong>${c}</strong><small>متوفر حسب الطلب</small></div>`).join("");
 const words=["ترقية","القطع","الحاسوب"];
-$("mq").innerHTML=[...Array(2)].map(()=>["صيانة","تنظيف وتسريع","SSD & RAM","تبديل شاشات","استرجاع ملفات","برمجة مواقع","بصمة"].map(w=>`<span>${w}</span>`).join("")).join("");
+$("mq").innerHTML=[...Array(2)].map(()=>["صيانة","تنظيف وتسريع","SSD & RAM","تبديل شاشات","استرجاع ملفات","برمجة مواقع","تجميع أجهزة","بصمة"].map(w=>`<span>${w}</span>`).join("")).join("");
 // hero title split
 (function(){const h=$("heroTitle");let d=0;const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/\s+/).filter(Boolean).forEach(w=>{const s=document.createElement("span");s.className="w";s.innerHTML=`<b style="--d:${d++}">${w}</b>`;f.append(s," ")});c.replaceWith(f)}else walk(c)})};
 h.querySelectorAll(".grad").forEach(g=>walk(g));const g=h.querySelector(".grad");const t=document.createTextNode("جهازك بخير ");h.firstChild.remove();const f=document.createDocumentFragment();"جهازك بخير".split(" ").forEach(w=>{const s=document.createElement("span");s.className="w";s.innerHTML=`<b style="--d:${d++}">${w}</b>`;f.append(s," ")});h.prepend(f);
@@ -432,10 +541,57 @@ document.addEventListener("mousemove",e=>{const c=e.target.closest&&e.target.clo
 document.addEventListener("mouseout",e=>{const c=e.target.closest&&e.target.closest(".card");if(c&&!c.contains(e.relatedTarget)&&!c.classList.contains("featured"))c.style.transform=""});
 document.querySelectorAll(".mag").forEach(b=>{b.addEventListener("mousemove",e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.2}px,${(e.clientY-r.top-r.height/2)*.3}px)`});b.addEventListener("mouseleave",()=>b.style.transform="")});
 addEventListener("mousemove",e=>{stage.style.transform=`translate(${(e.clientX/innerWidth-.5)*-14}px,${(e.clientY/innerHeight-.5)*-14}px)`})}
-// loader
-if("scrollRestoration"in history)history.scrollRestoration="manual";scrollTo(0,0);
-const hide=()=>setTimeout(()=>$("loader").classList.add("hidden"),900);
+// builder
+(function(){
+const NS="http://www.w3.org/2000/svg",svg=$("pc"),RM=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const P=[["glass",-235,0,505,370,"الزجاج الجانبي","زجاج مقسّى بمفصلات، يفتح بدون أدوات حتى توصل لكل القطع بسهولة."],
+["panel",210,0,721,330,"لوحة إضاءة ROG","لوحة ARGB تدعم Aura Sync وتعطي التجميعة هويتها."],
+["gpu",150,30,627,330,"كرت الشاشة","الكيس يستوعب كروت لحد 460 مم، أفقي أو عمودي مع حامل مدمج."],
+["rad",0,-110,450,149,"رادياتير التبريد","الكيس يدعم رادياتيرين 420 مم للتبريد المائي الأقوى."],
+["aio",-90,-70,410,290,"مضخة التبريد المائي","تسحب حرارة المعالج وتنقلها للرادياتير عبر الأنابيب."],
+["ram",70,-100,485,263,"ذاكرة RAM","ذاكرة سريعة بإضاءة RGB تخلّي الجهاز يتنفس بسرعة."],
+["cpu",10,-45,410,290,"المعالج CPU","عقل الجهاز، وهو اللي يحدد سرعة الألعاب والعمل."],
+["mb",-70,20,440,335,"اللوحة الأم","تربط كل القطع ببعض، والكيس يدعم لوحات E-ATX الكبيرة."],
+["psu",110,95,397,564,"مجهز الطاقة PSU","يغذي كل القطع بالكهرباء، ويُختار حسب استهلاك التجميعة."],
+["shroud",-260,20,505,564,"غطاء الباور","يخفي المجهز والكابلات، وفيه فتحة تهوية وشعار ROG."]];
+const el={};P.forEach(p=>el[p[0]]=$("p-"+p[0]));
+const blades=[...Array(7)].map((_,i)=>`<path transform="rotate(${i*51.43})" d="M0 -5C8 -14 22 -24 31 -13C23 -8 11 -3 0 6Z"/>`).join("");
+$("defs").insertAdjacentHTML("beforeend",`<g id="fan"><circle r="38" fill="#0b0e12" stroke="#2c343d" stroke-width="2"/><circle r="34" class="ls" fill="none" stroke-width="2.4" filter="url(#glow)"/><g class="spin" fill="#1c232b" stroke="#3b4550" stroke-width=".8">${blades}</g><circle r="9" fill="#0b0e12" stroke="url(#gGold)" stroke-width="1.5"/></g>`);
+$("slash").setAttribute("d",[...Array(8)].map((_,i)=>`M711 ${215+i*38}L731 ${195+i*38}`).join(""));
+const G=$("guides");P.forEach(p=>{const l=document.createElementNS(NS,"line");l.setAttribute("x1",p[3]);l.setAttribute("y1",p[4]);G.append(l)});
+$("bChips").innerHTML=P.map(p=>`<button class="chip" data-id="${p[0]}">${p[5]}</button>`).join("");
+let t=0,dir=1,raf=0,to=0;
+const clamp=v=>Math.max(0,Math.min(1,v)),ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2,off=P.map(()=>[0,0]);
+function render(){let act=-1;
+P.forEach((p,i)=>{const l=clamp((t-i*.055)/.5),e=ease(l),x=p[1]*e,y=p[2]*e;off[i]=[x,y];el[p[0]].style.transform=`translate(${x}px,${y}px)`;
+const g=G.children[i];g.setAttribute("x2",p[3]+x);g.setAttribute("y2",p[4]+y);g.style.opacity=l>0&&l<1?.9:l>=1?.35:0;if(l>.02&&l<.98)act=i});
+const a=off[4],r=off[3];[[396,574],[424,592]].forEach((q,k)=>{const x0=q[0]+a[0],y0=252+a[1],x1=q[1]+r[0],y1=163+r[1],d=`M${x0} ${y0}C${x0} ${y0-70} ${x1} ${y1+80} ${x1} ${y1}`;$("tb"+k).setAttribute("d",d);$("th"+k).setAttribute("d",d)});
+$("bStep").textContent=t<=.001?"مجمّعة بالكامل ✓":t>=.999?"مفكّكة بالكامل":(dir<0?"جاري تركيب: ":"جاري فك: ")+(act>=0?P[act][5]:"");
+$("bRange").value=Math.round(t*100)}
+function stop(){cancelAnimationFrame(raf);clearTimeout(to)}
+function go(v,ms){stop();const f0=t,t0=performance.now();dir=v<f0?-1:1;ms=RM?1:ms;const f=n=>{const p=clamp((n-t0)/ms);t=f0+(v-f0)*(ms>4000?p:ease(p));render();if(p<1)raf=requestAnimationFrame(f)};raf=requestAnimationFrame(f)}
+$("bRange").addEventListener("input",e=>{stop();const v=e.target.value/100;dir=v<t?-1:1;t=v;render()});
+$("bExplode").onclick=()=>go(1,3000);
+$("bAssemble").onclick=()=>{stop();if(t<.98){go(1,1100);to=setTimeout(()=>go(0,8000),1200)}else go(0,8000)};
+function pick(id){const i=P.findIndex(p=>p[0]===id),p=P[i];svg.classList.add("hasSel");P.forEach(q=>el[q[0]].classList.toggle("sel",q[0]===id));$("bIdx").textContent=`القطعة ${String(i+1).padStart(2,"0")} / ${P.length}`;$("bName").textContent=p[5];$("bDesc").textContent=p[6];[...$("bChips").children].forEach((c,j)=>c.classList.toggle("on",j===i))}
+function unpick(){svg.classList.remove("hasSel");P.forEach(q=>el[q[0]].classList.remove("sel"));[...$("bChips").children].forEach(c=>c.classList.remove("on"));$("bIdx").textContent="اضغط على أي قطعة"}
+svg.addEventListener("click",e=>{const g=e.target.closest(".part");g?pick(g.dataset.id):unpick()});
+$("bChips").onclick=e=>{const b=e.target.closest(".chip");b&&pick(b.dataset.id)};
+let rgb=true;$("bRgb").onclick=e=>{rgb=!rgb;svg.classList.toggle("rgb",rgb);e.currentTarget.textContent="إضاءة RGB: "+(rgb?"تشغيل":"إيقاف")};
+const ED=[["أسود","#3a4148","#1b2026","#0d1014"],["أبيض","#f6f7f9","#d3d7dc","#a7adb5"]];let ei=0;
+$("bEd").onclick=e=>{ei^=1;const q=ED[ei];svg.style.setProperty("--m1",q[1]);svg.style.setProperty("--m2",q[2]);svg.style.setProperty("--m3",q[3]);e.currentTarget.textContent="النسخة: "+q[0]};
+const st=$("bStage"),wr=$("pcWrap");
+if(matchMedia("(pointer:fine)").matches){st.addEventListener("mousemove",e=>{const r=st.getBoundingClientRect();wr.style.transform=`rotateY(${((e.clientX-r.left)/r.width-.5)*-14}deg) rotateX(${((e.clientY-r.top)/r.height-.5)*10}deg)`});st.addEventListener("mouseleave",()=>wr.style.transform="")}
+new IntersectionObserver((es,o)=>{if(es[0].isIntersecting){o.disconnect();to=setTimeout(()=>go(1,3200),700)}},{threshold:.4}).observe(st);
+render()})();
+// open from top
+history.scrollRestoration="manual";
+if(location.hash)history.replaceState(null,"",location.pathname+location.search);
+document.documentElement.style.scrollBehavior="auto";document.body.style.overflow="hidden";scrollTo(0,0);
+const top0=()=>scrollTo(0,0);
+const hide=()=>setTimeout(()=>{top0();$("loader").classList.add("hidden");document.body.style.overflow="";setTimeout(()=>{top0();document.documentElement.style.scrollBehavior=""},80)},900);
 document.readyState==="complete"?hide():addEventListener("load",hide);
+addEventListener("pageshow",top0);
 </script>
 </body>
 </html>
